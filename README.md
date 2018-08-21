@@ -4,7 +4,7 @@ Using:
 - JsDoc for documentation
 
 Added to Project:
-- Material UI
+- Bulma
 - AirBnb's Eslint
 - Firebase
 - Flow
