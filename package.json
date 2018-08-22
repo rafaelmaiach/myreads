@@ -12,12 +12,12 @@
     "url": "https://rafaelmaiach.github.io/"
   },
   "scripts": {
-    "start": "npm run lint; node scripts/start.js",
+    "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "lint": "eslint .",
     "lint-fix": "eslint . --fix",
-    "flow": "flow src"
+    "flow": "flow"
   },
   "dependencies": {
     "autoprefixer": "7.1.6",

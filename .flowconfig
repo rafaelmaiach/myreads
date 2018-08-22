@@ -1,6 +1,12 @@
 [ignore]
+build
+config
+node_modules
+public
+scripts
 
 [include]
+src
 
 [libs]
 
