@@ -121,6 +121,33 @@
         opacity: 1;
         z-index: 2;
       }
+
+      .quotes__box {
+        display: grid;
+        grid-template-rows: 60% 40%;
+        grid-template-areas: "quote" "author";
+
+        &--text,
+        &--author {
+          display: flex;
+          align-items: center;
+          line-height: 1.7;
+          color: $primary-text-color;
+          justify-content: center;
+          text-align: center;
+        }
+
+        &--text {
+          grid-area: quote;
+          font-size: 2vw;
+        }
+
+        &--author {
+          grid-area: author;
+          font-size: 1.3vw;
+          text-transform: capitalize;
+        }
+      }
     }
   }
 
