@@ -1,4 +1,4 @@
 @mixin background-opacity($color, $opacity) {
-  background: $color; /* The Fallback */
-  background: rgba($color, $opacity);
+  background-color: $color; /* The Fallback */
+  background-color: rgba($color, $opacity);
 }
