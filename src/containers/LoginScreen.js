@@ -1,5 +1,7 @@
 import React from 'react';
 
+// TODO: Finish login page style and start funcionality
+
 const showForm = () => {
   const el = document.querySelector('.login-container__form');
   el.classList.add('active');
