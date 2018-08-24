@@ -9,6 +9,34 @@
   background-repeat: no-repeat;
   background-size: cover;
 
+  .quotes__box,
+  .fields__box {
+    position: absolute;
+    width: 100%;
+    padding: 30px;
+    opacity: 0;
+    -webkit-transition: opacity 0.45s, -webkit-transform 0.45s;
+    transition: opacity 0.45s, -webkit-transform 0.45s, -moz-transform 0.45s, -o-transform 0.45s, transform 0.45s;
+    -webkit-transition-delay: 0.3s;
+    transition-delay: 0.3s;
+  }
+
+  .quotes__box {
+    display: flex;
+    height: 100%;
+    @include background-opacity($primary-color, 0.9);
+    -webkit-transform: translate3d(50%, 0%, 0);
+    transform: translate3d(50%, 0%, 0);
+  }
+
+  .fields__box {
+    display: flex;
+    height: 100%;
+    background: #fff;
+    -webkit-transform: translate3d(-50%, 0%, 0);
+    transform: translate3d(-50%, 0%, 0);
+  }
+
   &__box {
     display: flex;
     flex-direction: column;
@@ -148,33 +176,5 @@
         }
       }
     }
-  }
-
-  .quotes__box,
-  .fields__box {
-    position: absolute;
-    width: 100%;
-    padding: 30px;
-    opacity: 0;
-    -webkit-transition: opacity 0.45s, -webkit-transform 0.45s;
-    transition: opacity 0.45s, -webkit-transform 0.45s, -moz-transform 0.45s, -o-transform 0.45s, transform 0.45s;
-    -webkit-transition-delay: 0.3s;
-    transition-delay: 0.3s;
-  }
-
-  .quotes__box {
-    display: flex;
-    height: 100%;
-    @include background-opacity($primary-color, 0.9);
-    -webkit-transform: translate3d(50%, 0%, 0);
-    transform: translate3d(50%, 0%, 0);
-  }
-
-  .fields__box {
-    display: flex;
-    height: 100%;
-    background: #fff;
-    -webkit-transform: translate3d(-50%, 0%, 0);
-    transform: translate3d(-50%, 0%, 0);
   }
 }
