@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
-import getRandomQuote from '../../utils/WritingQuotes';
+
+import getRandomQuote from '../../utils/getRandomQuote';
 
 const AuthorQuotes = () => {
   const { quote, author } = getRandomQuote();
