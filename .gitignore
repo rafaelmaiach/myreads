@@ -70,3 +70,7 @@ typings/
 
 # misc
 .DS_Store
+
+# SonarQube config
+.scannerwork
+sonar-scanner.sh
