@@ -16,11 +16,19 @@ const LoginScreen = () => {
     <div className="login-container">
       <section className="login-container__box">
         <div className="login-container__box__logo">
-          <img src="./assets/icons/logo.svg" alt="myreads-logo" />
-          <h1>MYREADS</h1>
+          <img
+            className="login-container__box__logo--img"
+            src="./assets/icons/logo.svg"
+            alt="myreads-logo"
+          />
+          <h1 className="login-container__box__logo--text anim-typewriter">
+            MYREADS
+          </h1>
         </div>
         <div className="login-container__box__button">
-          <button type="button" onClick={showForm}>FIND A BOOK</button>
+          <button type="button" onClick={showForm}>
+            FIND A BOOK
+          </button>
         </div>
       </section>
       <section className="login-container__form">
