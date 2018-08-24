@@ -1,6 +1,7 @@
 import React from 'react';
 import AuthorQuotes from '../components/login/AuthorQuotes';
 import LoginForm from '../components/login/LoginForm';
+import logoSvg from '../assets/icons/logo.svg';
 
 // TODO: Finish login page style and start funcionality
 
@@ -18,7 +19,7 @@ const LoginScreen = () => {
         <div className="login-container__box__logo">
           <img
             className="login-container__box__logo--img"
-            src="./assets/icons/logo.svg"
+            src={logoSvg}
             alt="myreads-logo"
           />
           <h1 className="login-container__box__logo--text anim-typewriter">
