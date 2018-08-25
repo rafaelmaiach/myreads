@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 
-import getRandomQuote from '../../utils/getRandomQuote';
+import getRandomQuote from '../../utils/login/getRandomQuote';
 
 const AuthorQuotes = () => {
   const { quote, author } = getRandomQuote();
@@ -8,7 +8,7 @@ const AuthorQuotes = () => {
   return (
     <Fragment>
       <h1 className="quotes__box--text">
-        {quote}
+        {`"${quote}"`}
       </h1>
       <h3 className="quotes__box--author">
         {author}
