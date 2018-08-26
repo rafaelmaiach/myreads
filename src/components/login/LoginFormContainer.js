@@ -1,31 +1,18 @@
-import React from 'react';
-import { Formik } from 'formik';
-
+import React, { Component } from 'react';
 import LoginFormSignUp from './LoginFormSignUp';
-import validateForm from '../../utils/login/validateForm';
 
-const LoginFormContainer = () => {
-  const initialValues = {
-    email: '',
-    password: '',
-    passwordConfirmation: '',
-  };
+class LoginFormContainer extends Component {
+  state = {
+    type: 'signup', // # signin or signup
+  }
 
-  const onSubmit = (values, { setSubmitting }) => {
-    setTimeout(() => {
-      console.log('User has been sucessfully saved!', values);
-      setSubmitting(false);
-    }, 2000);
-  };
+  render() {
+    const { type } = this.state;
 
-  return (
-    <Formik
-      initialValues={initialValues}
-      validate={validateForm}
-      onSubmit={onSubmit}
-      render={props => <LoginFormSignUp {...props} />}
-    />
-  );
-};
+    return (
+      type === 'signup' && <LoginFormSignUp />
+    );
+  }
+}
 
 export default LoginFormContainer;

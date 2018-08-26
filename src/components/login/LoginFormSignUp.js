@@ -1,57 +1,86 @@
 // @flow
 import * as React from 'react';
-import onlyUpdateForValues from '../../utils/login/onlyUpdateForValues';
-import './SignUpForm.css';
 
-type Props = {
-  isSubmitting: boolean,
-  errors: {
-    email?: '',
-    password?: '',
-    passwordConfirmation?: '',
-  },
-  handleChange: Function,
-  handleSubmit: Function,
-};
+import FullnameField from './formFields/FullnameField';
+import EmailField from './formFields/EmailField';
+import PasswordField from './formFields/PasswordField';
 
-const LoginFormSignUp = (props: Props) => {
-  const {
-    isSubmitting,
-    errors,
-    handleChange,
-    handleSubmit,
-  } = props;
+type State = {
+  fullname: string,
+  email: string,
+  password: string,
+}
 
-  return (
-    <div className="form">
-      <label className="form-field" htmlFor="email">
-        <span>E-mail:</span>
-        <input name="email" type="email" onChange={handleChange} />
-      </label>
-      <div className="form-field-error">{errors.email}</div>
+type FormFieldState = {
+  value: string,
+  dirty: boolean, // occurs when user changes the value
+  error: string,
+}
 
-      <label className="form-field" htmlFor="password">
-        <span>Password:</span>
-        <input name="password" type="password" onChange={handleChange} />
-      </label>
-      <div className="form-field-error">{errors.password}</div>
+class LoginFormSignUp extends React.PureComponent<void, State> {
+  state = {
+    fullname: '',
+    email: '',
+    password: '',
+  };
 
-      <label className="form-field" htmlFor="passwordConfirmation">
-        <span>Confirm password:</span>
-        <input name="passwordConfirmation" type="password" onChange={handleChange} />
-      </label>
-      <div className="form-field-error">{errors.passwordConfirmation}</div>
+  // Using closure to create different function for each field
+  updateStateFieldFor = (field: string) => (state: FormFieldState) => {
+    const { value, error } = state;
+    this.setState(() => ({ [field]: !error ? value : '' }));
+  };
 
-      <button
-        type="submit"
-        onClick={handleSubmit}
-      >
-        {isSubmitting ? 'Loading' : 'Sign Up'}
-      </button>
-    </div>
-  );
-};
+  updateFullname = this.updateStateFieldFor('fullname');
 
-const PureLoginFormSignUp = onlyUpdateForValues(LoginFormSignUp);
+  updateEmail = this.updateStateFieldFor('email');
 
-export default PureLoginFormSignUp;
+  updatePassword = this.updateStateFieldFor('password');
+
+  render() {
+    const { fullname, email, password } = this.state;
+    const isFormValid = fullname && email && password;
+
+    return (
+      <div className="">
+        <form>
+          <div className="">
+            <FullnameField
+              fieldId="fullname"
+              label="Fullname"
+              placeholder="Enter Fullname"
+              onStateChanged={this.updateFullname}
+              required
+            />
+
+            <EmailField
+              fieldId="email"
+              label="Email"
+              placeholder="Enter Email Address"
+              onStateChanged={this.updateEmail}
+              required
+            />
+
+            <PasswordField
+              fieldId="password"
+              label="Password"
+              placeholder="Enter Password"
+              onStateChanged={this.updatePassword}
+              minLength={7} // Minimal length for passwords
+              minStrength={3} // Minimal strength to be valid (determined by zxcvbn)
+              required
+            />
+          </div>
+          <div className="">
+            {isFormValid && (
+              <button type="button" className="">
+                Join
+              </button>)
+            }
+          </div>
+        </form>
+      </div>
+    );
+  }
+}
+
+export default LoginFormSignUp;
