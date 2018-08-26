@@ -78,8 +78,9 @@ class PasswordField extends React.Component<Props, State> {
 
     return (
       <React.Fragment>
-        <div className="position-relative">
+        <div className="">
           <FormField
+            key="password"
             type="password"
             validator={validatePasswordStrong}
             onStateChanged={this.updatePasswordState}

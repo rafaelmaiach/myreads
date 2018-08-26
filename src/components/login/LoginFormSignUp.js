@@ -1,8 +1,7 @@
 // @flow
 import * as React from 'react';
 
-import FullnameField from './formFields/FullnameField';
-import EmailField from './formFields/EmailField';
+import FormFieldHOC from './formFields/FormFieldHOC';
 import PasswordField from './formFields/PasswordField';
 
 type State = {
@@ -40,11 +39,13 @@ class LoginFormSignUp extends React.PureComponent<void, State> {
     const { fullname, email, password } = this.state;
     const isFormValid = fullname && email && password;
 
+    console.log(this.state);
+
     return (
       <div className="">
         <form>
           <div className="">
-            <FullnameField
+            <FormFieldHOC
               fieldId="fullname"
               label="Fullname"
               placeholder="Enter Fullname"
@@ -52,7 +53,7 @@ class LoginFormSignUp extends React.PureComponent<void, State> {
               required
             />
 
-            <EmailField
+            <FormFieldHOC
               fieldId="email"
               label="Email"
               placeholder="Enter Email Address"
