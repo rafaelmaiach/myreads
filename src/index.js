@@ -14,7 +14,6 @@ import LoginScreen from './containers/LoginScreen';
 import BookshelfScreen from './containers/BookshelfScreen';
 import SearchScreen from './containers/SearchScreen';
 
-import registerServiceWorker from './registerServiceWorker';
 import './index.scss';
 
 // #TODO: Create 404 page and change Redirect to redirect to it
@@ -41,4 +40,3 @@ ReactDOM.render(
   <App />,
   document.getElementById('root'),
 );
-registerServiceWorker();
