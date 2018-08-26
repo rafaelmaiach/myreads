@@ -1,0 +1,45 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "modules": false
+      }
+    ],
+    "react",
+    "stage-0"
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "extensions": [".js", ".jsx"],
+        "root": [
+          "./src"
+        ],
+        "alias": {
+          "Src": "./src",
+          "Containers": "./src/containers",
+          "Components": "./src/components",
+          "Styles": "./src/styles",
+          "Utils": "./src/utils"
+        }
+      }
+    ],
+    "transform-class-properties",
+    "transform-decorators",
+    "transform-react-remove-prop-types",
+    "transform-react-inline-elements",
+    "transform-react-constant-elements",
+    [
+      "transform-react-remove-prop-types",
+      {
+        "mode": "wrap",
+        "ignoreFilenames": [
+          "node_modules"
+        ]
+      }
+    ],
+    "dynamic-import-node"
+  ]
+}

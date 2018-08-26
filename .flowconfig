@@ -13,5 +13,13 @@ src
 [lints]
 
 [options]
+esproposal.class_static_fields=enable
+esproposal.class_instance_fields=enable
+esproposal.export_star_as=enable
+module.name_mapper='^Src' ->'<PROJECT_ROOT>/src'
+module.name_mapper='^Containers' ->'<PROJECT_ROOT>/src/containers'
+module.name_mapper='^Components' ->'<PROJECT_ROOT>/src/components'
+module.name_mapper='^Styles' ->'<PROJECT_ROOT>/src/styles'
+module.name_mapper='^Utils' ->'<PROJECT_ROOT>/src/utils'
 
 [strict]
