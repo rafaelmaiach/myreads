@@ -22,6 +22,7 @@
           "Containers": "./src/containers",
           "Components": "./src/components",
           "Styles": "./src/styles",
+          "Assets": "./src/assets",
           "Utils": "./src/utils"
         }
       }

@@ -21,5 +21,6 @@ module.name_mapper='^Containers' ->'<PROJECT_ROOT>/src/containers'
 module.name_mapper='^Components' ->'<PROJECT_ROOT>/src/components'
 module.name_mapper='^Styles' ->'<PROJECT_ROOT>/src/styles'
 module.name_mapper='^Utils' ->'<PROJECT_ROOT>/src/utils'
+module.name_mapper='^Assets' ->'<PROJECT_ROOT>/src/assets'
 
 [strict]
