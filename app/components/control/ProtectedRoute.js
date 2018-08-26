@@ -1,6 +1,10 @@
-import React from 'react';
+import * as React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { AuthConsumer } from './AuthContext';
+
+type Props = {
+  component: React.Node,
+}
 
 /**
  * @constructor ProtectedRoute
@@ -8,7 +12,7 @@ import { AuthConsumer } from './AuthContext';
  * and renders a component if he is or redirect to login screen if not.
  * @param {Component} component - Component to be rendered if user is authenticated
  */
-const ProtectedRoute = ({ component: Component, ...rest }) => (
+const ProtectedRoute = ({ component: Component, ...rest }: {component: Props}) => (
   <AuthConsumer>
     {({ isUserAuthenticated }) => (
       <Route

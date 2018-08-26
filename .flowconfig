@@ -1,12 +1,9 @@
 [ignore]
-build
-config
 node_modules
-public
-scripts
+internals
 
 [include]
-src
+app
 
 [libs]
 
@@ -16,11 +13,11 @@ src
 esproposal.class_static_fields=enable
 esproposal.class_instance_fields=enable
 esproposal.export_star_as=enable
-module.name_mapper='^Src' ->'<PROJECT_ROOT>/src'
-module.name_mapper='^Containers' ->'<PROJECT_ROOT>/src/containers'
-module.name_mapper='^Components' ->'<PROJECT_ROOT>/src/components'
-module.name_mapper='^Styles' ->'<PROJECT_ROOT>/src/styles'
-module.name_mapper='^Utils' ->'<PROJECT_ROOT>/src/utils'
-module.name_mapper='^Assets' ->'<PROJECT_ROOT>/src/assets'
+module.name_mapper='^Src' ->'<PROJECT_ROOT>/app'
+module.name_mapper='^Containers' ->'<PROJECT_ROOT>/app/containers'
+module.name_mapper='^Components' ->'<PROJECT_ROOT>/app/components'
+module.name_mapper='^Styles' ->'<PROJECT_ROOT>/app/styles'
+module.name_mapper='^Utils' ->'<PROJECT_ROOT>/app/utils'
+module.name_mapper='^Assets' ->'<PROJECT_ROOT>/app/assets'
 
 [strict]
