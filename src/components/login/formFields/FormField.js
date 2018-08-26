@@ -75,26 +75,24 @@ class FormField extends React.Component<Props, State> {
     return (
       <React.Fragment>
         <div className="">
-          <div className="">
-            <input
-              type={type}
-              className={controlClass}
-              id={fieldId}
-              placeholder={placeholder}
-              value={value}
-              onChange={this.hasChanged}
-            />
+          <input
+            type={type}
+            className={controlClass}
+            id={fieldId}
+            placeholder={placeholder}
+            value={value}
+            onChange={this.hasChanged}
+          />
 
-            <label htmlFor={fieldId} className="">
-              {label}
-            </label>
+          <label htmlFor={fieldId} className="">
+            {label}
+          </label>
 
-            {error && (
-              <div className="">
-                {error}
-              </div>)
-            }
-          </div>
+          {error && (
+            <div className="">
+              {error}
+            </div>)
+          }
         </div>
       </React.Fragment>
     );
