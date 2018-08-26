@@ -1,7 +1,7 @@
 import React from 'react';
-import AuthorQuotes from '../components/login/AuthorQuotes';
-import LoginFormContainer from '../components/login/LoginFormContainer';
-import logoSvg from '../assets/icons/logo.svg';
+import AuthorQuotes from 'Components/login/AuthorQuotes';
+import LoginFormContainer from 'Components/login/LoginFormContainer';
+import logoSvg from 'Assets/icons/logo.svg';
 
 // TODO: Finish login page style and start funcionality
 

@@ -7,12 +7,12 @@ import {
   Redirect,
 } from 'react-router-dom';
 
-import { AuthProvider } from './components/control/AuthContext';
-import ProtectedRoute from './components/control/ProtectedRoute';
+import { AuthProvider } from 'Components/control/AuthContext';
+import ProtectedRoute from 'Components/control/ProtectedRoute';
 
-import LoginScreen from './containers/LoginScreen';
-import BookshelfScreen from './containers/BookshelfScreen';
-import SearchScreen from './containers/SearchScreen';
+import LoginScreen from 'Containers/LoginScreen';
+import BookshelfScreen from 'Containers/BookshelfScreen';
+import SearchScreen from 'Containers/SearchScreen';
 
 import './index.scss';
 

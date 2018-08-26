@@ -1,4 +1,4 @@
-const authorQuotesData = require('../data/AuthorQuotesData.json');
+const authorQuotesData = require('Utils/data/AuthorQuotesData.json');
 
 const randomNumberInRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
