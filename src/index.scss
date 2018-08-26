@@ -1,6 +1,7 @@
-@import './styles/common/base';
-@import './styles/common/colors';
-@import './styles/common/mixins';
-@import './styles/common/animation';
+@import 'Styles/common/base';
+@import 'Styles/common/colors';
+@import 'Styles/common/mixins';
+@import 'Styles/common/animation';
 
-@import './styles/containers/LoginScreen.scss';
+@import 'Styles/containers/LoginScreen.scss';
+@import 'Styles/components/login/LoginForm.scss';
