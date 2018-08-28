@@ -1,6 +1,6 @@
 [ignore]
-node_modules
-internals
+.*/node_modules/config-chain/test/broken.json
+.*/internals/
 
 [include]
 app
