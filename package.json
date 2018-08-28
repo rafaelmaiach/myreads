@@ -56,8 +56,7 @@
     "recompose": "0.28.2",
     "styled-components": "3.4.5",
     "whatwg-fetch": "2.0.4",
-    "yup": "0.26.2",
-    "zxcvbn": "4.4.2"
+    "yup": "0.26.2"
   },
   "devDependencies": {
     "add-asset-html-webpack-plugin": "2.1.3",

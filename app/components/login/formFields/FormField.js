@@ -52,8 +52,8 @@ class FormField extends React.Component<Props, State> {
     } else if (validator) {
       try {
         validator(value);
-      } catch (err) {
-        error = err.message;
+      } catch (ValidationError) {
+        error = ValidationError.message;
       }
     }
 

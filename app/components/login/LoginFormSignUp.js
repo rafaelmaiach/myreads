@@ -2,7 +2,6 @@
 import * as React from 'react';
 
 import FormFieldHOC from './formFields/FormFieldHOC';
-import PasswordField from './formFields/PasswordField';
 
 type State = {
   fullname: string,
@@ -39,8 +38,6 @@ class LoginFormSignUp extends React.PureComponent<void, State> {
     const { fullname, email, password } = this.state;
     const isFormValid = fullname && email && password;
 
-    console.log(this.state);
-
     return (
       <div className="">
         <form>
@@ -61,22 +58,18 @@ class LoginFormSignUp extends React.PureComponent<void, State> {
               required
             />
 
-            <PasswordField
+            <FormFieldHOC
               fieldId="password"
               label="Password"
               placeholder="Enter Password"
               onStateChanged={this.updatePassword}
-              minLength={7} // Minimal length for passwords
-              minStrength={3} // Minimal strength to be valid (determined by zxcvbn)
               required
             />
           </div>
           <div className="">
-            {isFormValid && (
-              <button type="button" className="">
-                Join
-              </button>)
-            }
+            <button type="button" className="" disabled={!isFormValid}>
+              Join
+            </button>
           </div>
         </form>
       </div>

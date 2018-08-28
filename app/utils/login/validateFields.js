@@ -1,18 +1,19 @@
-import zxcvbn from 'zxcvbn';
+// @flow
+import { string } from 'yup';
 
-export const validateFullname = (value) => {
-  const fullnameLength = value.trim().length;
-  const fullnameInvalid = fullnameLength < 6;
+// Obs: validateSync throws ValidationError if not valid
 
-  if (fullnameInvalid) throw new Error('Fullname should be at least 6 characters length');
+const validateSchemas = {
+  fullname: string().min(6, 'Fullname is short. Should be at least 6 characters'),
+  email: string().email('E-mail is not valid!'),
+  password: string()
+    .min(6, 'Should be at least 6 characters')
+    .matches(/(?=.*[a-z])/, 'Should have at least one lowercase character')
+    .matches(/^(?=.*[A-Z])/, 'Should have at least one uppercase character')
+    .matches(/^(?=.*[0-9])/, 'Should have at least one number')
+    .matches(/^(?=.*[!@#$%^&*])/, 'Should have at least one of !,@,#,$,%,^,&,*'),
 };
 
-export const validateEmail = (value) => {
-  if (value !== 'a@a.com') throw new Error('Email is invalid');
-};
-
-export const validatePasswordStrong = (value: string) => {
-  if (value.length <= this.minLength) throw new Error('Password is short');
-
-  if (zxcvbn(value).score < this.minStrength) throw new Error('Password is weak');
+export default (field: string) => (value: string) => {
+  validateSchemas[field].validateSync(value);
 };
