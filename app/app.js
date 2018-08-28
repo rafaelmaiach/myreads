@@ -12,25 +12,16 @@ import Loading from 'Components/loading/Loading';
 
 import { AuthProvider } from 'Components/control/AuthContext';
 import ProtectedRoute from 'Components/control/ProtectedRoute';
+import LoginScreen from 'Containers/LoginScreen';
+import BookshelfScreen from 'Containers/BookshelfScreen';
+import SearchScreen from 'Containers/SearchScreen';
 
 import './index.scss';
 
-const LoginScreen = Loadable({
-  loader: () => import(/* webpackChunkName: 'loginScreen' */ './containers/LoginScreen'),
+const StartScreen = Loadable({
+  loader: () => import(/* webpackChunkName: 'startScreen' */ './containers/StartScreen'),
   loading: Loading,
 });
-
-const BookshelfScreen = Loadable({
-  loader: () => import(/* webpackChunkName: 'bookshelfScreen' */ 'Containers/BookshelfScreen'),
-  loading: Loading,
-});
-
-const SearchScreen = Loadable({
-  loader: () => import(/* webpackChunkName: 'searchScreen' */ 'Containers/SearchScreen'),
-  loading: Loading,
-});
-
-// #TODO: Create 404 page and change Redirect to redirect to it
 
 /**
  * @constructor App
@@ -41,7 +32,8 @@ const App = () => (
   <BrowserRouter>
     <AuthProvider>
       <Switch>
-        <Route exact path="/" component={LoginScreen} />
+        <Route exact path="/" render={props => <StartScreen {...props} />} />
+        <Route path="/auth" component={LoginScreen} />
         <ProtectedRoute path="/bookshelf" component={BookshelfScreen} />
         <ProtectedRoute path="/search" component={SearchScreen} />
         <Redirect from="*" to="/" />
