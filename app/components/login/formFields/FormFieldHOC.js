@@ -11,12 +11,14 @@ type Props = {
   placeholder: string,
   required: boolean,
   onStateChanged: Function,
+  needToValidate: boolean,
 }
 
 const FormFieldHOC = (props: Props) => {
-  const { fieldId } = props;
+  const { fieldId, needToValidate } = props;
 
-  const validator = validateField(fieldId);
+  const validator = needToValidate ? validateField(fieldId) : null;
+
   const type = fieldId === 'password' ? fieldId : 'text';
 
   return (
@@ -24,6 +26,9 @@ const FormFieldHOC = (props: Props) => {
   );
 };
 
-const shouldComponentUpdate = () => false;
+const shouldComponentUpdate = (props, nextProps) => {
+  const { needToValidate } = props;
+  return needToValidate !== nextProps.needToValidate;
+};
 
 export default shouldUpdate(shouldComponentUpdate)(FormFieldHOC);

@@ -3,7 +3,7 @@
   .fields__box {
     position: absolute;
     width: 100%;
-    padding: 30px;
+    padding: 0 30px;
     opacity: 0;
     -webkit-transition: opacity 0.45s, -webkit-transform 0.45s;
     transition: opacity 0.45s, -webkit-transform 0.45s, -moz-transform 0.45s, -o-transform 0.45s, transform 0.45s;
@@ -68,12 +68,19 @@
 
       .quotes__box,
       .fields__box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         -webkit-transform: translate3d(0, 0, 0);
         transform: translate3d(0, 0, 0);
         -webkit-transition-delay: 0.3s;
         transition-delay: 0.3s;
         opacity: 1;
         z-index: 2;
+      }
+
+      .fields__box {
+        align-items: center;
       }
 
       .quotes__box {

@@ -3,10 +3,7 @@ import Loadable from 'react-loadable';
 
 import Loading from 'Components/loading/Loading';
 
-const AuthorQuotes = Loadable({
-  loader: () => import(/* webpackChunkName: 'authorQuotes' */ '../components/login/AuthorQuotes'),
-  loading: Loading,
-});
+import AuthorQuotes from 'Components/login/AuthorQuotes';
 
 const LoginFormContainer = Loadable({
   loader: () => import(/* webpackChunkName: 'loginFormContainer' */ '../components/login/LoginFormContainer'),
