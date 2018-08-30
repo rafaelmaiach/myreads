@@ -14,7 +14,7 @@ process.noDeprecation = true;
 
 module.exports = options => ({
   mode: options.mode,
-  entry: options.entry,
+  entry: ['babel-polyfill', ...options.entry],
   output: Object.assign(
     {
       // Compile into js/build.js
