@@ -24,7 +24,7 @@ type FormFieldState = {
   error: string,
 }
 
-class LoginFormContainer extends React.Component<void, State> {
+class LoginFormContainer extends React.PureComponent<void, State> {
   state = {
     fullname: '',
     email: '',
@@ -71,8 +71,8 @@ class LoginFormContainer extends React.Component<void, State> {
       alert('Invalid form');
     }
 
-    const validEmail = email === 'a@a.com';
-    const validPassword = password === 'a';
+    const validEmail = email === '';
+    const validPassword = password === '';
     const signInValid = validEmail && validPassword;
 
     if (signInValid) {
