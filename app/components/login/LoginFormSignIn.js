@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react';
+import shouldUpdate from 'recompose/shouldUpdate';
 
 import FormFieldHOC from './formFields/FormFieldHOC';
 
@@ -8,25 +9,23 @@ type Props = {
   updatePassword: Function,
 }
 
-const LoginFormSignUp = (props: Props) => {
-  const { updateEmail, updatePassword } = props;
+const LoginFormSignIn = ({ updateEmail, updatePassword }: Props) => (
+  <React.Fragment>
+    <FormFieldHOC
+      fieldId="email"
+      label="Email"
+      placeholder="email@example.com"
+      onStateChanged={updateEmail}
+    />
 
-  return (
-    <React.Fragment>
-      <FormFieldHOC
-        fieldId="email"
-        label="Email"
-        placeholder="email@example.com"
-        onStateChanged={updateEmail}
-      />
+    <FormFieldHOC
+      fieldId="password"
+      label="Password"
+      onStateChanged={updatePassword}
+    />
+  </React.Fragment>
+);
 
-      <FormFieldHOC
-        fieldId="password"
-        label="Password"
-        onStateChanged={updatePassword}
-      />
-    </React.Fragment>
-  );
-};
+const shouldComponentUpdate = () => false;
 
-export default LoginFormSignUp;
+export default shouldUpdate(shouldComponentUpdate)(LoginFormSignIn);

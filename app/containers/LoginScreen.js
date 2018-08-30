@@ -12,7 +12,7 @@ const LoginFormContainer = Loadable({
 
 // TODO: Finish login page style and start funcionality
 
-const LoginScreen = () => {
+const LoginScreen = (props) => {
   setTimeout(() => {
     const form = document.querySelector('.login-container__form');
     form.classList.add('active');
@@ -28,7 +28,7 @@ const LoginScreen = () => {
         </div>
         <div className="login-container__form__fields">
           <div className="fields__box">
-            <LoginFormContainer />
+            <LoginFormContainer {...props} />
           </div>
         </div>
       </section>
