@@ -22,6 +22,9 @@ const flipBookPages = keyframes`
 `;
 
 const Book = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
   border: 4px solid #FFFFFF;
   width: 60px;
   height: 45px;
