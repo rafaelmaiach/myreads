@@ -22,7 +22,7 @@ class AuthProvider extends React.Component<Props, State> {
   state = { isUserAuthenticated: false }
 
   login = () => {
-    setTimeout(() => this.setState(() => ({ isUserAuthenticated: true })), 1000);
+    this.setState(() => ({ isUserAuthenticated: true }));
   }
 
   logout = () => {
