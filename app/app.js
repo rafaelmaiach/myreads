@@ -6,22 +6,15 @@ import {
   Switch,
   Redirect,
 } from 'react-router-dom';
-import Loadable from 'react-loadable';
-
-import Loading from 'Components/loading/Loading';
 
 import { AuthProvider } from 'Components/control/AuthContext';
 import ProtectedRoute from 'Components/control/ProtectedRoute';
+import StartScreen from 'Containers/StartScreen';
 import LoginScreen from 'Containers/LoginScreen';
 import BookshelfScreen from 'Containers/BookshelfScreen';
 import SearchScreen from 'Containers/SearchScreen';
 
 import './index.scss';
-
-const StartScreen = Loadable({
-  loader: () => import(/* webpackChunkName: 'startScreen' */ './containers/StartScreen'),
-  loading: Loading,
-});
 
 /**
  * @constructor App
@@ -33,7 +26,7 @@ const App = () => (
     <AuthProvider>
       <Switch>
         <Route exact path="/" render={props => <StartScreen {...props} />} />
-        <Route path="/auth" component={LoginScreen} />
+        <Route path="/auth" render={props => <LoginScreen {...props} />} />
         <ProtectedRoute path="/bookshelf" component={BookshelfScreen} />
         <ProtectedRoute path="/search" component={SearchScreen} />
         <Redirect from="*" to="/" />
