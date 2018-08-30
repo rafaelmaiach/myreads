@@ -16,7 +16,7 @@ const ProtectedRoute = ({ component: Component, ...rest }: {component: Props}) =
   <AuthConsumer>
     {({ isUserAuthenticated }) => (
       <Route
-        render={props => isUserAuthenticated
+        render={props => isUserAuthenticated()
           ? <Component {...props} />
           : <Redirect to="/" />
         }

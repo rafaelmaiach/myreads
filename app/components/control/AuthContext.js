@@ -7,10 +7,6 @@ type Props = {
   children: React.Node,
 }
 
-type State = {
-  isUserAuthenticated: boolean,
-}
-
 // Create a context from ContextAPI to store user authentication value
 const AuthContext = React.createContext();
 
@@ -18,23 +14,22 @@ const AuthContext = React.createContext();
  * @constructor AuthProvider
  * @description Provides an authentication system for the application
  */
-class AuthProvider extends React.Component<Props, State> {
-  state = { isUserAuthenticated: false }
-
+class AuthProvider extends React.Component<Props> {
   login = () => {
-    this.setState(() => ({ isUserAuthenticated: true }));
+    localStorage.setItem('userAuthenticated', true);
   }
 
   logout = () => {
-    this.setState(() => ({ isUserAuthenticated: false }));
+    localStorage.setItem('userAuthenticated', false);
   }
+
+  isUserAuthenticated = () => localStorage.getItem('userAuthenticated');
 
   render() {
     const { children } = this.props;
-    const { isUserAuthenticated } = this.state;
 
     const config = {
-      isUserAuthenticated,
+      isUserAuthenticated: this.isUserAuthenticated,
       login: this.login,
       logout: this.logout,
     };
