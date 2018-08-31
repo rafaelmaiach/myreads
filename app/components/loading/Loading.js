@@ -7,46 +7,63 @@ const flipBookPages = keyframes`
     transform: rotateY( 0deg);
   }
   20% {
-    background: #4b1e77;
+    background: #79c99d;;
   }
   40% {
-    background: rebeccapurple;
+    background: #79c99d;;
     -webkit-transform: rotateY( -180deg);
     transform: rotateY( -180deg);
   }
   100% {
-    background: rebeccapurple;
+    background: #79c99d;;
     -webkit-transform: rotateY( -180deg);
     transform: rotateY( -180deg);
   }
 `;
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+`;
+
 const Book = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  border: 4px solid #FFFFFF;
-  width: 60px;
-  height: 45px;
-  position: relative;
+  border: 4px solid #05386b;
+  width: 100px;
+  height: 85px;
   perspective: 150px;
+  background: #4cc984;
+`;
+
+const LoadingText = styled.p`
+  font-size: 2rem;
+  color: #05386b;
+  font-weight: 600;
 `;
 
 const Page = styled.div`
   display: block;
-  width: 30px;
-  height: 45px;
-  border: 4px solid #FFFFFF;
-  border-left: 1px solid #8455b2;
+  width: 50px;
+  height: 85px;
+  border: 4px solid #05386b;
+  border-left: 1px solid #05386b;
   margin: 0;
   position: absolute;
   right: -4px;
   top: -4px;
   overflow: hidden;
-  background: #8455b2;
+  background: #79c99d;;
   transform-style: preserve-3d;
   -webkit-transform-origin: left center;
   transform-origin: left center;
+  padding: 10px;
+
+  & p {
+    margin: 0;
+  }
 `;
 
 const Page1 = styled(Page)`
@@ -65,9 +82,26 @@ const Page3 = styled(Page)`
 `;
 
 export default () => (
-  <Book>
-    <Page1 />
-    <Page2 />
-    <Page3 />
-  </Book>
+  <Container>
+    <Book>
+      <Page1>
+        <p> ___ </p>
+        <p> ___ </p>
+        <p> ___ </p>
+      </Page1>
+      <Page2>
+        <p> ___ </p>
+        <p> ___ </p>
+        <p> ___ </p>
+      </Page2>
+      <Page3>
+        <p> ___ </p>
+        <p> ___ </p>
+        <p> ___ </p>
+      </Page3>
+    </Book>
+    <LoadingText>
+      Loading
+    </LoadingText>
+  </Container>
 );
