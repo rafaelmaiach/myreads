@@ -6,7 +6,6 @@ import { groupBooksByShelf } from 'Utils/api/helpers';
 
 import BookshelfHeader from 'Components/bookshelf/BookshelfHeader';
 import BookshelfList from 'Components/bookshelf/BookshelfList';
-import BookshelfAddMore from 'Components/bookshelf/BookshelfAddMore';
 
 import {
   Background,
@@ -67,7 +66,6 @@ class BookshelfScreen extends React.Component<void, State> {
             isLoading={isLoading}
             shelfToRender={shelfToRender}
           />
-          <BookshelfAddMore />
         </BackgroundLayer>
       </Background>
     );
