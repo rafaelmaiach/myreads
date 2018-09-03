@@ -13,7 +13,7 @@ export const Background = styled.div`
 export const BackgroundLayer = styled.div`
     display: flex;
     flex-direction: column;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(0, 0, 0, 0.2);
     width: 100%;
     height: 100%;
 `;

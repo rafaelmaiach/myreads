@@ -7,7 +7,8 @@ export const BookContainer = styled.div`
   min-height: 230px;
   max-height: 230px;
   margin: 15px;
-  background-color: rgba(76, 201, 132, 0.8);
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.8);
 `;
 
 export const BookImage = styled.div`
@@ -21,7 +22,6 @@ export const BookInformation = styled.div`
   display: flex;
   flex-direction: column;
   width: 60%;
-  padding: 10px;
   color: #05386b;
 `;
 

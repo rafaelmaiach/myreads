@@ -38,12 +38,6 @@ const Book = styled.div`
   background: #4cc984;
 `;
 
-const LoadingText = styled.p`
-  font-size: 2rem;
-  color: #05386b;
-  font-weight: 600;
-`;
-
 const Page = styled.div`
   display: block;
   width: 50px;
@@ -100,8 +94,5 @@ export default () => (
         <p> ___ </p>
       </Page3>
     </Book>
-    <LoadingText>
-      Loading
-    </LoadingText>
   </Container>
 );
