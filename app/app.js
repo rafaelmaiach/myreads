@@ -16,6 +16,8 @@ import SearchScreen from 'Containers/SearchScreen';
 
 import './index.scss';
 
+// TODO: Add Sign out and logic for redirect already signed in
+
 /**
  * @constructor App
  * @description Represents the application's main component.

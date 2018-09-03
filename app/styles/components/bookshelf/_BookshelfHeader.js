@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 export const BookshelfHeader = styled.div`
   display: flex;
-  position: fixed;
   width: 100%;
-  height: 100px;
+  max-height: 100px;
+  min-height: 100px;
   background-color: #05386b;
 `;
 
@@ -43,6 +43,12 @@ export const Tab = styled.div`
   justify-content: center;
   align-items: center;
   margin: 15px;
+`;
+
+export const Button = styled.button`
+  -webkit-appearance: none;
+  border: none;
+  background: none;
   font-size: 1.3rem;
   font-weight: 600;
   color: #edf5e1;

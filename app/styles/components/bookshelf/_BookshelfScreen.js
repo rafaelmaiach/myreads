@@ -14,9 +14,6 @@ export const BackgroundLayer = styled.div`
     display: flex;
     flex-direction: column;
     background-color: rgba(255, 255, 255, 0.6);
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
 `;

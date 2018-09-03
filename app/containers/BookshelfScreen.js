@@ -4,8 +4,6 @@ import * as React from 'react';
 import { getAll } from 'Utils/api/BooksAPI';
 import { groupBooksByShelf } from 'Utils/api/helpers';
 
-import Loading from 'Components/loading/Loading';
-
 import BookshelfHeader from 'Components/bookshelf/BookshelfHeader';
 import BookshelfList from 'Components/bookshelf/BookshelfList';
 import BookshelfAddMore from 'Components/bookshelf/BookshelfAddMore';
@@ -24,9 +22,10 @@ type State = {
 
 class BookshelfScreen extends React.Component<void, State> {
   state = {
-    currentlyReading: [],
-    wantToRead: [],
-    read: [],
+    // These three arrays will be used on shelfToRender variable
+    currentlyReading: [], // eslint-disable-line
+    wantToRead: [], // eslint-disable-line
+    read: [], // eslint-disable-line
     currentShelf: 'currentlyReading', // currentlyReading, wantToRead, read
     isLoading: false,
   }
@@ -55,23 +54,20 @@ class BookshelfScreen extends React.Component<void, State> {
     }));
   }
 
+  changeShelf = newShelf => this.setState(() => ({ currentShelf: newShelf }));
+
   render() {
-    const { isLoading } = this.state;
-    console.log(this.state);
+    const { isLoading, currentShelf, [currentShelf]: shelfToRender } = this.state;
+
     return (
       <Background>
         <BackgroundLayer>
-          <BookshelfHeader />
-          {
-            isLoading
-              ? <Loading />
-              : (
-                <React.Fragment>
-                  <BookshelfList />
-                  <BookshelfAddMore />
-                </React.Fragment>
-              )
-          }
+          <BookshelfHeader changeShelf={this.changeShelf} />
+          <BookshelfList
+            isLoading={isLoading}
+            shelfToRender={shelfToRender}
+          />
+          <BookshelfAddMore />
         </BackgroundLayer>
       </Background>
     );
