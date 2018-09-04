@@ -4,11 +4,17 @@ import * as React from 'react';
 import {
   BookContainer,
   BookImage,
+  BookImageNotFound,
   BookInformation,
   BookTitle,
   BookSubtitle,
   BookAuthors,
+  BookDescription,
+  BookSeeMoreContainer,
+  BookSeeMore,
 } from 'Styles/components/bookshelf/_BookshelfBook';
+
+import BookshelfStars from 'Components/bookshelf/BookshelfStars';
 
 type ImageLinks = {
   smallThumbnail: string,
@@ -21,7 +27,6 @@ type Props = {
   categories: Array<string>,
   description: string,
   imageLinks: ImageLinks,
-  language: string,
   pageCount: number,
   previewLink: string,
   publishedDate: string,
@@ -38,7 +43,6 @@ const BookshelfBook = (props: Props) => {
     categories,
     description,
     imageLinks,
-    language,
     pageCount,
     previewLink,
     publishedDate,
@@ -50,11 +54,15 @@ const BookshelfBook = (props: Props) => {
 
   const { thumbnail } = imageLinks;
 
-  const authorsNames = authors.length ? `by: ${authors.join(', ')}` : 'Author not found';
+  const authorsNames = authors.length ? `by: ${authors.join(' and ')}` : 'Author not found';
+  const descriptionReduced = `${description.split(' ').slice(0, 35).join(' ')}...`;
 
   return (
     <BookContainer>
-      <BookImage thumbnail={thumbnail} />
+      {thumbnail
+        ? <BookImage thumbnail={thumbnail} />
+        : <BookImageNotFound>IMAGE NOT FOUND</BookImageNotFound>
+      }
       <BookInformation className="bookshelf_book_information">
         <BookTitle>
           {title}
@@ -65,6 +73,15 @@ const BookshelfBook = (props: Props) => {
         <BookAuthors>
           {authorsNames}
         </BookAuthors>
+        <BookshelfStars rating={averageRating} />
+        <BookDescription>
+          {descriptionReduced}
+        </BookDescription>
+        <BookSeeMoreContainer>
+          <BookSeeMore>
+            See more
+          </BookSeeMore>
+        </BookSeeMoreContainer>
       </BookInformation>
     </BookContainer>
   );
