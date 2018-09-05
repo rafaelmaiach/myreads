@@ -61,7 +61,7 @@ class BookshelfScreen extends React.Component<void, State> {
         <BookshelfHeaderTabs changeShelf={this.changeShelf} />
         <BookshelfList
           isLoading={isLoading}
-          shelfToRender={shelfToRender}
+          booksList={shelfToRender}
         />
       </GeneralScreen>
     );
