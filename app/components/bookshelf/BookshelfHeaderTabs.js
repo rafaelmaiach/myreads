@@ -1,30 +1,24 @@
 // @flow
 import * as React from 'react';
 
-import LogoIcon from 'Assets/icons/logo.svg';
+import Header from 'Components/header/Header';
 import {
-  BookshelfHeader as Header,
-  LogoContainer,
   Tabs,
   Tab,
   Button,
-} from 'Styles/components/bookshelf/_BookshelfHeader';
+} from 'Styles/components/bookshelf/_BookshelfHeaderTabs';
 
 type Props = {
   changeShelf: Function,
 }
 
-const BookshelfHeader = ({ changeShelf }: Props) => {
+const BookshelfHeaderTabs = ({ changeShelf }: Props) => {
   const changeToShelfCurrentlyReading = () => changeShelf('currentlyReading');
   const changeToShelfWantToRead = () => changeShelf('wantToRead');
   const changeToShelfRead = () => changeShelf('read');
 
   return (
     <Header>
-      <LogoContainer>
-        <img src={LogoIcon} alt="MyReads Logo" />
-        <span>MYREADS</span>
-      </LogoContainer>
       <Tabs>
         <Tab>
           <Button type="button" onClick={changeToShelfCurrentlyReading}>Currently Reading</Button>
@@ -40,4 +34,4 @@ const BookshelfHeader = ({ changeShelf }: Props) => {
   );
 };
 
-export default BookshelfHeader;
+export default BookshelfHeaderTabs;

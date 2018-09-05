@@ -4,13 +4,11 @@ import * as React from 'react';
 import { getAll } from 'Utils/api/BooksAPI';
 import { groupBooksByShelf } from 'Utils/api/helpers';
 
-import BookshelfHeader from 'Components/bookshelf/BookshelfHeader';
+import GeneralScreen from 'Containers/GeneralScreen';
+import BookshelfHeaderTabs from 'Components/bookshelf/BookshelfHeaderTabs';
 import BookshelfList from 'Components/bookshelf/BookshelfList';
 
-import {
-  Background,
-  BackgroundLayer,
-} from 'Styles/components/bookshelf/_BookshelfScreen';
+import bookshelfPageImage from 'Assets/images/bookshelf_page.jpg';
 
 type State = {
   currentlyReadingBooks: Array,
@@ -59,15 +57,13 @@ class BookshelfScreen extends React.Component<void, State> {
     const { isLoading, currentShelf, [currentShelf]: shelfToRender } = this.state;
 
     return (
-      <Background>
-        <BackgroundLayer>
-          <BookshelfHeader changeShelf={this.changeShelf} />
-          <BookshelfList
-            isLoading={isLoading}
-            shelfToRender={shelfToRender}
-          />
-        </BackgroundLayer>
-      </Background>
+      <GeneralScreen image={bookshelfPageImage}>
+        <BookshelfHeaderTabs changeShelf={this.changeShelf} />
+        <BookshelfList
+          isLoading={isLoading}
+          shelfToRender={shelfToRender}
+        />
+      </GeneralScreen>
     );
   }
 }

@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 
-import backgroundImage from 'Assets/images/bookshelf_page.jpg';
-
 export const Background = styled.div`
     height: 100%;
     width: 100%;
-    background-image: url(${backgroundImage});
+    background-image: url(${({ image }) => image});
     background-repeat: no-repeat;
     background-size: cover;
 `;
