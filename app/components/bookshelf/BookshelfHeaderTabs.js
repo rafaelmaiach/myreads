@@ -1,7 +1,8 @@
 // @flow
 import * as React from 'react';
 
-import Header from 'Components/header/Header';
+import { HeaderContainer } from 'Styles/common/CommonComponents';
+
 import {
   Tabs,
   Tab,
@@ -18,7 +19,7 @@ const BookshelfHeaderTabs = ({ changeShelf }: Props) => {
   const changeToShelfRead = () => changeShelf('read');
 
   return (
-    <Header>
+    <HeaderContainer>
       <Tabs>
         <Tab>
           <Button type="button" onClick={changeToShelfCurrentlyReading}>Currently Reading</Button>
@@ -30,7 +31,7 @@ const BookshelfHeaderTabs = ({ changeShelf }: Props) => {
           <Button type="button" onClick={changeToShelfRead}>Already Read</Button>
         </Tab>
       </Tabs>
-    </Header>
+    </HeaderContainer>
   );
 };
 
