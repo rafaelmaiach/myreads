@@ -2,6 +2,9 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
+// import { DebounceInput } from 'react-debounce-input';
+import DebounceInput from './DebounceInput';
+
 type Type = 'text' | 'password'
 
 type Props = {
@@ -58,9 +61,7 @@ class FormField extends React.Component<Props, State> {
     error: '',
   }
 
-  hasChanged = (e: Object) => {
-    e.preventDefault();
-
+  hasChanged = (value) => {
     const { dirty } = this.state;
     const {
       label,
@@ -69,7 +70,6 @@ class FormField extends React.Component<Props, State> {
       onStateChanged,
     } = this.props;
 
-    const { value } = e.target;
     const isEmpty = value.length === 0;
     const requiredMissing = dirty && required && isEmpty;
 
@@ -89,16 +89,13 @@ class FormField extends React.Component<Props, State> {
   }
 
   render() {
-    const { value, dirty, error } = this.state;
+    const { error } = this.state;
     const {
       type,
       label,
       fieldId,
       placeholder,
     } = this.props;
-
-    const errorClass = error ? 'field-invalid' : 'field-valid';
-    const controlClass = dirty ? errorClass : '';
 
     return (
       <React.Fragment>
@@ -107,12 +104,11 @@ class FormField extends React.Component<Props, State> {
             {label}
           </label>
 
-          <input
-            type={type}
-            className={controlClass}
+          <DebounceInput
             id={fieldId}
+            type={type}
             placeholder={placeholder}
-            value={value}
+            debounceTimeout={300}
             onChange={this.hasChanged}
           />
         </InputContainer>

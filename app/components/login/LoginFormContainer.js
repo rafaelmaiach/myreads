@@ -63,12 +63,12 @@ class LoginFormContainer extends React.PureComponent<void, State> {
 
     if (isSignUp) {
       if (formIsValid) {
-        alert('Registered!');
         this.toggleForm();
         return;
       }
 
-      alert('Invalid form');
+      console.log('Invalid form');
+      return;
     }
 
     const validEmail = email === '';
