@@ -43,10 +43,6 @@ export const MemberInformation = styled.div`
     &:hover {
       color: #4cc984;
     }
-
-    &:focus {
-      outline: none;
-    }
   }
 `;
 
@@ -63,9 +59,5 @@ export const CloseForm = styled.button`
 
   &:hover {
     color: #4cc984;
-  }
-
-  &:focus {
-    outline: none;
   }
 `;

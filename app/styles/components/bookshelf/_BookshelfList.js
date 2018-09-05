@@ -4,7 +4,8 @@ export const ListContainer = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
-  padding: 0 85px 20px 85px;
+  padding: 0 55px 0 55px;
   overflow-y: scroll;
   flex-wrap: wrap;
+  margin-bottom: 15px;
 `;
