@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import moize from 'moize';
 
 import logoSvg from 'Assets/icons/logo.svg';
 
@@ -27,4 +28,4 @@ const StartScreen = ({ history }: { history: Function }) => (
   </div>
 );
 
-export default StartScreen;
+export default moize.reactSimple(StartScreen);

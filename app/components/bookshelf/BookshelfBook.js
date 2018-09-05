@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react';
+import moize from 'moize';
 
 import {
   BookContainer,
@@ -81,4 +82,4 @@ const BookshelfBook = (props: Props) => {
   );
 };
 
-export default BookshelfBook;
+export default moize.reactSimple(BookshelfBook);

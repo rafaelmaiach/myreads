@@ -1,4 +1,5 @@
 import React from 'react';
+import moize from 'moize';
 import styled, { keyframes } from 'styled-components';
 
 const flipBookPages = keyframes`
@@ -75,7 +76,7 @@ const Page3 = styled(Page)`
   animation: ${flipBookPages} 1.2s cubic-bezier(0, .39, 1, .68) 1.2s infinite;
 `;
 
-export default () => (
+const Loading = () => (
   <Container>
     <Book>
       <Page1>
@@ -96,3 +97,5 @@ export default () => (
     </Book>
   </Container>
 );
+
+export default moize.reactSimple(Loading);
