@@ -6,17 +6,23 @@ export const BookContainer = styled.div`
   height: 250px;
   min-height: 250px;
   max-height: 250px;
-  margin: 15px;
+  margin: 15px 15px 0 15px;
   padding: 15px 20px 15px 15px;
   background-color: rgba(255, 255, 255, 0.85);
+`;
+
+export const BookImageContainer = styled.div`
+  position: relative;
+  width: 30%;
+  margin-right: 15px;
 `;
 
 export const BookImage = styled.div`
   background-image: url(${props => props.thumbnail});
   background-size: contain;
   background-repeat: no-repeat;
-  width: 30%;
-  margin-right: 15px;
+  width: 100%;
+  height: 100%;
 `;
 
 export const BookImageNotFound = styled.div`

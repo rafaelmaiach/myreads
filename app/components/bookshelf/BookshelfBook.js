@@ -3,6 +3,7 @@ import * as React from 'react';
 
 import {
   BookContainer,
+  BookImageContainer,
   BookImage,
   BookImageNotFound,
   BookInformation,
@@ -24,13 +25,8 @@ type ImageLinks = {
 type Props = {
   authors: Array<string>,
   averageRating: number,
-  categories: Array<string>,
   description: string,
   imageLinks: ImageLinks,
-  pageCount: number,
-  previewLink: string,
-  publishedDate: string,
-  publisher: string,
   shelf: string,
   subtitle: string,
   title: string,
@@ -40,13 +36,8 @@ const BookshelfBook = (props: Props) => {
   const {
     authors,
     averageRating,
-    categories,
     description,
     imageLinks,
-    pageCount,
-    previewLink,
-    publishedDate,
-    publisher,
     shelf,
     subtitle,
     title,
@@ -59,10 +50,13 @@ const BookshelfBook = (props: Props) => {
 
   return (
     <BookContainer>
-      {thumbnail
-        ? <BookImage thumbnail={thumbnail} />
-        : <BookImageNotFound>IMAGE NOT FOUND</BookImageNotFound>
-      }
+      <BookImageContainer>
+        {thumbnail
+          ? <BookImage thumbnail={thumbnail} />
+          : <BookImageNotFound>IMAGE NOT FOUND</BookImageNotFound>
+        }
+      </BookImageContainer>
+
       <BookInformation className="bookshelf_book_information">
         <BookTitle>
           {title}
