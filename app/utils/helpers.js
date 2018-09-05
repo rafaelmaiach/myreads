@@ -12,3 +12,13 @@ export const groupBooksByShelf = arr => (
     }
   )
 );
+
+export const debounce = (fn, time) => {
+  let timeout;
+
+  return function (...args) { //eslint-disable-line
+    const functionCall = () => fn.apply(this, args);
+    clearTimeout(timeout);
+    timeout = setTimeout(functionCall, time);
+  };
+};

@@ -2,7 +2,7 @@
 import * as React from 'react';
 
 import { getAll } from 'Utils/api/BooksAPI';
-import { groupBooksByShelf } from 'Utils/api/helpers';
+import { groupBooksByShelf } from 'Utils/helpers';
 
 import GeneralScreen from 'Containers/GeneralScreen';
 import BookshelfHeaderTabs from 'Components/bookshelf/BookshelfHeaderTabs';
