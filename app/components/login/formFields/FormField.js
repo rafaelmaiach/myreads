@@ -2,7 +2,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-// import { DebounceInput } from 'react-debounce-input';
 import DebounceInput from './DebounceInput';
 
 type Type = 'text' | 'password'
@@ -22,32 +21,6 @@ export type State = {
   dirty: boolean,
   error: string,
 }
-
-const InputContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  font-size: 2vw;
-  width: 100%;
-  height: 100px;
-
-  &::after {
-    content: '${props => props.error}';
-    font-size: 12px;
-    color: red;
-    padding-top: 3px;
-  }
-
-  & label {
-    font-weight: 600;
-    color: #05386b;
-  }
-
-  & input {
-    font-size: 1.5vw;
-    border: none;
-    border-bottom: 1px solid black;
-  }
-`;
 
 class FormField extends React.Component<Props, State> {
   static defaultProps = {
@@ -116,5 +89,31 @@ class FormField extends React.Component<Props, State> {
     );
   }
 }
+
+const InputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-size: 2vw;
+  width: 100%;
+  height: 100px;
+
+  &::after {
+    content: '${props => props.error}';
+    font-size: 12px;
+    color: red;
+    padding-top: 3px;
+  }
+
+  & label {
+    font-weight: 600;
+    color: #05386b;
+  }
+
+  & input {
+    font-size: 1.5vw;
+    border: none;
+    border-bottom: 1px solid black;
+  }
+`;
 
 export default FormField;

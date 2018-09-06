@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import GeneralScreen from 'Containers/GeneralScreen';
 import BookshelfList from 'Components/bookshelf/BookshelfList';
-import { HeaderContainer } from 'Styles/common/CommonComponents';
+import Header from 'Components/header/Header';
 
 import searchPageImage from 'Assets/images/search_page.jpg';
 
@@ -23,9 +23,9 @@ class BookshelfScreen extends React.Component<void, State> {
 
     return (
       <GeneralScreen image={searchPageImage}>
-        <HeaderContainer>
+        <Header>
           <div>Oi</div>
-        </HeaderContainer>
+        </Header>
         <BookshelfList
           isLoading={isLoading}
           booksList={booksList}

@@ -1,10 +1,6 @@
 // @flow
 import * as React from 'react';
-
-import {
-  Background,
-  BackgroundLayer,
-} from 'Styles/containers/_GeneralScreen';
+import styled from 'styled-components';
 
 type Props = {
   image: string,
@@ -19,14 +15,20 @@ const GeneralScreen = ({ image, children }: Props) => (
   </Background>
 );
 
-export default GeneralScreen;
+const Background = styled.div`
+    height: 100%;
+    width: 100%;
+    background-image: url(${({ image }) => image});
+    background-repeat: no-repeat;
+    background-size: cover;
+`;
 
-/**
- * type Props = {
-  header: React.Node,
-  bookshelfList: React.Node,
-}
- * <Header />
- * <BookshelfList />
- * { header: Header, bookshelfList: BookshelfList }
- */
+const BackgroundLayer = styled.div`
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100%;
+`;
+
+export default GeneralScreen;

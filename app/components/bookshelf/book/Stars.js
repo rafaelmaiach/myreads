@@ -2,7 +2,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-const BookshelfStars = ({ rating }?: number) => {
+const Stars = ({ rating }?: number) => {
   if (!rating) {
     return (
       <StarsContainer>
@@ -56,4 +56,4 @@ const StarNotFound = styled.span`
   font-size: 14px;
 `;
 
-export default BookshelfStars;
+export default Stars;

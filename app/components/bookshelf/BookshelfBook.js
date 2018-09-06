@@ -1,22 +1,18 @@
 // @flow
 import * as React from 'react';
+import styled from 'styled-components';
 import moize from 'moize';
+import { compose, withState, withHandlers } from 'recompose';
 
-import {
-  BookContainer,
-  BookImageContainer,
-  BookImage,
-  BookImageNotFound,
-  BookInformation,
-  BookTitle,
-  BookSubtitle,
-  BookAuthors,
-  BookDescription,
-  BookSeeMoreContainer,
-  BookSeeMore,
-} from 'Styles/components/bookshelf/_BookshelfBook';
+import ModalContainer from 'Components/modal/ModalContainer';
 
-import BookshelfStars from 'Components/bookshelf/BookshelfStars';
+import Image from './book/Image';
+import Title from './book/Title';
+import Subtitle from './book/Subtitle';
+import Stars from './book/Stars';
+import Authors from './book/Authors';
+import Description from './book/Description';
+import SeeMoreContainer from './book/SeeMoreContainer';
 
 type ImageLinks = {
   smallThumbnail: string,
@@ -31,6 +27,9 @@ type Props = {
   shelf: string,
   subtitle: string,
   title: string,
+  isModalOpen: boolean,
+  openModal: Function,
+  closeModal: Function,
 }
 
 const BookshelfBook = (props: Props) => {
@@ -42,6 +41,9 @@ const BookshelfBook = (props: Props) => {
     shelf,
     subtitle,
     title,
+    isModalOpen,
+    openModal,
+    closeModal,
   } = props;
 
   const { thumbnail } = imageLinks;
@@ -51,35 +53,43 @@ const BookshelfBook = (props: Props) => {
 
   return (
     <BookContainer>
-      <BookImageContainer>
-        {thumbnail
-          ? <BookImage thumbnail={thumbnail} />
-          : <BookImageNotFound>IMAGE NOT FOUND</BookImageNotFound>
-        }
-      </BookImageContainer>
-
+      {isModalOpen && <ModalContainer closeModal={closeModal} />}
+      <Image thumbnail={thumbnail} />
       <BookInformation className="bookshelf_book_information">
-        <BookTitle>
-          {title}
-        </BookTitle>
-        <BookSubtitle>
-          {subtitle}
-        </BookSubtitle>
-        <BookAuthors>
-          {authorsNames}
-        </BookAuthors>
-        <BookshelfStars rating={averageRating} />
-        <BookDescription>
-          {descriptionReduced}
-        </BookDescription>
-        <BookSeeMoreContainer>
-          <BookSeeMore>
-            See more
-          </BookSeeMore>
-        </BookSeeMoreContainer>
+        <Title titleText={title} />
+        <Subtitle subtitleText={subtitle} />
+        <Authors authorsNames={authorsNames} />
+        <Stars rating={averageRating} />
+        <Description descriptionReduced={descriptionReduced} />
+        <SeeMoreContainer openModal={openModal} />
       </BookInformation>
     </BookContainer>
   );
 };
 
-export default moize.reactSimple(BookshelfBook);
+const BookContainer = styled.div`
+  display: flex;
+  width: 45%;
+  height: 250px;
+  min-height: 250px;
+  max-height: 250px;
+  margin: 15px 15px 0 15px;
+  padding: 15px 20px 15px 15px;
+  background-color: rgba(255, 255, 255, 0.85);
+`;
+
+const BookInformation = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  color: #05386b;
+  position: relative;
+`;
+
+export default compose(
+  withState('isModalOpen', 'toggleModal', false),
+  withHandlers({
+    openModal: ({ toggleModal }) => () => toggleModal(true),
+    closeModal: ({ toggleModal }) => () => toggleModal(false),
+  })
+)(moize.reactSimple(BookshelfBook));

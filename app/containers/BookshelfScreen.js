@@ -5,7 +5,7 @@ import { getAll } from 'Utils/api/BooksAPI';
 import { groupBooksByShelf } from 'Utils/helpers';
 
 import GeneralScreen from 'Containers/GeneralScreen';
-import BookshelfHeaderTabs from 'Components/bookshelf/BookshelfHeaderTabs';
+import BookshelfHeader from 'Components/bookshelf/BookshelfHeader';
 import BookshelfList from 'Components/bookshelf/BookshelfList';
 
 import bookshelfPageImage from 'Assets/images/bookshelf_page.jpg';
@@ -58,7 +58,7 @@ class BookshelfScreen extends React.Component<void, State> {
 
     return (
       <GeneralScreen image={bookshelfPageImage}>
-        <BookshelfHeaderTabs changeShelf={this.changeShelf} />
+        <BookshelfHeader changeShelf={this.changeShelf} />
         <BookshelfList
           isLoading={isLoading}
           booksList={shelfToRender}

@@ -2,7 +2,7 @@
 import * as React from 'react';
 import shouldUpdate from 'recompose/shouldUpdate';
 
-import FormFieldHOC from './formFields/FormFieldHOC';
+import FormFieldHOC from 'Components/login/formFields/FormFieldHOC';
 
 type Props = {
   updateEmail: Function,

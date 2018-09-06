@@ -6,11 +6,9 @@ import Loading from 'Components/loading/Loading';
 import AuthorQuotes from 'Components/login/AuthorQuotes';
 
 const LoginFormContainer = Loadable({
-  loader: () => import(/* webpackChunkName: 'loginFormContainer' */ '../components/login/LoginFormContainer'),
+  loader: () => import(/* webpackChunkName: 'loginFormContainer' */ 'Components/login/FormContainer'),
   loading: Loading,
 });
-
-// TODO: Finish login page style and start funcionality
 
 const LoginScreen = (props) => {
   setTimeout(() => {

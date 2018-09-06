@@ -1,15 +1,12 @@
 // @flow
 import * as React from 'react';
-import {
-  Fields,
-  ButtonContainer,
-  MemberInformation,
-  CloseForm,
-} from 'Styles/components/login/_LoginFormContainer';
 
 import { AuthConsumer } from 'Components/control/AuthContext';
-import LoginFormSignUp from './LoginFormSignUp';
-import LoginFormSignIn from './LoginFormSignIn';
+
+import Close from './formComponents/Close';
+import Fields from './formComponents/Fields';
+import Button from './formComponents/Button';
+import MemberInformation from './formComponents/MemberInformation';
 
 type State = {
   fullname: string,
@@ -102,37 +99,19 @@ class LoginFormContainer extends React.PureComponent<void, State> {
       <AuthConsumer>
         {({ login }) => (
           <React.Fragment>
-            <CloseForm
-              type="button"
-              onClick={this.returnStartScreen}
-            >
-              X
-            </CloseForm>
-            <Fields>
-              {isSignUpForm
-                ? (
-                  <LoginFormSignUp
-                    updateFullname={this.updateFullname}
-                    updateEmail={this.updateEmail}
-                    updatePassword={this.updatePassword}
-                  />)
-                : (
-                  <LoginFormSignIn
-                    updateEmail={this.updateEmail}
-                    updatePassword={this.updatePassword}
-                  />)}
-            </Fields>
-            <ButtonContainer>
-              <button className="login_button" type="button" onClick={() => this.formAction(login)}>
-                {buttonText}
-              </button>
-            </ButtonContainer>
-            <MemberInformation>
-              {memberText}
-              <button type="button" onClick={this.toggleForm}>
-                {actionText}
-              </button>
-            </MemberInformation>
+            <Close returnStartScreen={this.returnStartScreen} />
+            <Fields
+              isSignUpForm={isSignUpForm}
+              updateFullname={this.updateFullname}
+              updateEmail={this.updateEmail}
+              updatePassword={this.updatePassword}
+            />
+            <Button text={buttonText} formAction={() => this.formAction(login)} />
+            <MemberInformation
+              text={memberText}
+              actionText={actionText}
+              toggleForm={this.toggleForm}
+            />
           </React.Fragment>
         )}
       </AuthConsumer>
