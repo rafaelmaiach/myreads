@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import moize from 'moize';
 import { compose, withState, withHandlers } from 'recompose';
 
-import ModalContainer from 'Components/modal/ModalContainer';
+import ModalContainer from 'Components/modal/Container';
 
 import Image from './bookElements/Image';
 import Title from './bookElements/Title';
@@ -22,28 +22,36 @@ type ImageLinks = {
 type Props = {
   authors: Array<string>,
   averageRating: number,
+  closeModal: Function,
   description: string,
   imageLinks: ImageLinks,
+  isModalOpen: boolean,
+  openModal: Function,
+  pageCount: number,
+  previewLink: string,
+  publisher: string,
+  publishedDate: string,
   shelf: string,
   subtitle: string,
   title: string,
-  isModalOpen: boolean,
-  openModal: Function,
-  closeModal: Function,
 }
 
 const BookshelfBook = (props: Props) => {
   const {
     authors,
     averageRating,
+    closeModal,
     description,
     imageLinks,
+    isModalOpen,
+    openModal,
+    pageCount,
+    previewLink,
+    publisher,
+    publishedDate,
     shelf,
     subtitle,
     title,
-    isModalOpen,
-    openModal,
-    closeModal,
   } = props;
 
   const { thumbnail } = imageLinks;
@@ -53,9 +61,25 @@ const BookshelfBook = (props: Props) => {
 
   return (
     <BookContainer>
-      {isModalOpen && <ModalContainer closeModal={closeModal} />}
+      {
+        isModalOpen && (
+          <ModalContainer
+            authors={authorsNames}
+            rating={averageRating}
+            closeModal={closeModal}
+            description={description}
+            thumbnail={thumbnail}
+            pageCount={pageCount}
+            previewLink={previewLink}
+            publisher={publisher}
+            publishedDate={publishedDate}
+            subtitle={subtitle}
+            title={title}
+          />
+        )
+      }
       <Image thumbnail={thumbnail} />
-      <BookInformation className="bookshelf_book_information">
+      <BookInformation>
         <Title titleText={title} />
         <Subtitle subtitleText={subtitle} />
         <Authors authorsNames={authorsNames} />

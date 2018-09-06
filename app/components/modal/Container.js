@@ -2,11 +2,25 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import ModalBox from './ModalBox';
+import ModalBox from './Box';
 
-const ModalContainer = ({ closeModal }: Function) => (
+type Props = {
+  authors: Array<string>,
+  rating: number,
+  closeModal: Function,
+  description: string,
+  thumbnail: string,
+  pageCount: number,
+  previewLink: string,
+  publisher: string,
+  publishedDate: string,
+  subtitle: string,
+  title: string,
+}
+
+const ModalContainer = (props: Props) => (
   <Container>
-    <ModalBox closeModal={closeModal} />
+    <ModalBox {...props} />
   </Container>
 );
 

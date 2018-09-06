@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import { AuthConsumer } from 'Components/control/AuthContext';
 
-import Close from './formElements/Close';
+import Close from 'Components/common/Close';
 import Fields from './formElements/Fields';
 import Button from './formElements/Button';
 import MemberInformation from './formElements/MemberInformation';
@@ -99,7 +99,7 @@ class LoginFormContainer extends React.PureComponent<void, State> {
       <AuthConsumer>
         {({ login }) => (
           <React.Fragment>
-            <Close returnStartScreen={this.returnStartScreen} />
+            <Close closeAction={this.returnStartScreen} />
             <Fields
               isSignUpForm={isSignUpForm}
               updateFullname={this.updateFullname}

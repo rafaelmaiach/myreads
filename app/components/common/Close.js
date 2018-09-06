@@ -2,10 +2,10 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-const Close = ({ returnStartScreen }: Function) => (
+const Close = ({ closeAction }: Function) => (
   <CloseButton
     type="button"
-    onClick={returnStartScreen}
+    onClick={closeAction}
   >
     X
   </CloseButton>
@@ -21,6 +21,7 @@ const CloseButton = styled.button`
   border: none;
   cursor: pointer;
   color: #05386b;
+  z-index: 2;
 
   &:hover {
     color: #4cc984;

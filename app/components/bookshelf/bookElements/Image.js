@@ -2,8 +2,12 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-const Image = ({ thumbnail }: string) => (
-  <ImageContainer>
+type Props = {
+  thumbnail: string,
+  isModal?: ?boolean,
+}
+const Image = ({ thumbnail, isModal }: Props) => (
+  <ImageContainer isModal={isModal}>
     {thumbnail
       ? <ImageThumbnail thumbnail={thumbnail} />
       : <ImageNotFound>IMAGE NOT FOUND</ImageNotFound>
@@ -11,9 +15,14 @@ const Image = ({ thumbnail }: string) => (
   </ImageContainer>
 );
 
+Image.defaultProps = {
+  isModal: false,
+};
+
 const ImageContainer = styled.div`
   position: relative;
-  width: 30%;
+  width: ${({ isModal }) => !isModal ? '150px' : '140px'};
+  height: ${({ isModal }) => !isModal ? '200px' : '170px'};
   margin-right: 15px;
 `;
 

@@ -2,10 +2,15 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-const Stars = ({ rating }?: number) => {
+type Props = {
+  rating?: number,
+  isModal?: ?boolean,
+}
+
+const Stars = ({ rating, isModal }: Props) => {
   if (!rating) {
     return (
-      <StarsContainer>
+      <StarsContainer isModal={isModal}>
         <StarNotFound>
           Rating not found
         </StarNotFound>
@@ -28,15 +33,20 @@ const Stars = ({ rating }?: number) => {
   }
 
   return (
-    <StarsContainer>
+    <StarsContainer isModal={isModal}>
       {stars}
     </StarsContainer>
   );
 };
 
+Stars.defaultProps = {
+  rating: null,
+  isModal: false,
+};
+
 const StarsContainer = styled.div`
   display: flex;
-  width: 30%;
+  width: ${({ isModal }) => !isModal ? '30%' : '18%'};
   justify-content: space-between;
   height: 40px;
   margin: 5px 0;
