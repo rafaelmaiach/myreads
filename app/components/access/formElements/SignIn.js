@@ -26,6 +26,4 @@ const LoginFormSignIn = ({ updateEmail, updatePassword }: Props) => (
   </React.Fragment>
 );
 
-const shouldComponentUpdate = () => false;
-
-export default shouldUpdate(shouldComponentUpdate)(LoginFormSignIn);
+export default shouldUpdate(() => false)(LoginFormSignIn);

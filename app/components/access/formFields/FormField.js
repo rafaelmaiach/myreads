@@ -22,7 +22,7 @@ export type State = {
   error: string,
 }
 
-class FormField extends React.Component<Props, State> {
+class FormField extends React.PureComponent<Props, State> {
   static defaultProps = {
     validator: null,
     placeholder: '',

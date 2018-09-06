@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import styled from 'styled-components';
+import shouldUpdate from 'recompose/shouldUpdate';
 
 type Props = {
   text: string,
@@ -37,4 +38,9 @@ const ButtonContainer = styled.div`
   }
 `;
 
-export default Button;
+const shouldComponentUpdate = (props, nextProps) => {
+  const { text } = props;
+  return text !== nextProps.text;
+};
+
+export default shouldUpdate(shouldComponentUpdate)(Button);

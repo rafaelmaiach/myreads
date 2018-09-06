@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import styled from 'styled-components';
+import shouldUpdate from 'recompose/shouldUpdate';
 
 import SignUp from './SignUp';
 import SignIn from './SignIn';
@@ -46,4 +47,9 @@ const FieldsContainer = styled.div`
   margin-bottom: 30px;
 `;
 
-export default Fields;
+const shouldComponentUpdate = (props, nextProps) => {
+  const { isSignUpForm } = props;
+  return isSignUpForm !== nextProps.isSignUpForm;
+};
+
+export default shouldUpdate(shouldComponentUpdate)(Fields);

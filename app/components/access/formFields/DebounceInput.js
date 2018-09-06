@@ -10,7 +10,7 @@ type Props = {
   debounceTimeout: number,
   onChange: Function,
 }
-class DebouncedInput extends React.PureComponent<Props> {
+class DebounceInput extends React.PureComponent<Props> {
   constructor(props) {
     super(props);
 
@@ -56,4 +56,4 @@ class DebouncedInput extends React.PureComponent<Props> {
   }
 }
 
-export default DebouncedInput;
+export default DebounceInput;

@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import styled from 'styled-components';
+import shouldUpdate from 'recompose/shouldUpdate';
 
 type Props = {
   text: string,
@@ -33,4 +34,9 @@ const MemberInformationContainer = styled.div`
   }
 `;
 
-export default MemberInformation;
+const shouldComponentUpdate = (props, nextProps) => {
+  const { text } = props;
+  return text !== nextProps.text;
+};
+
+export default shouldUpdate(shouldComponentUpdate)(MemberInformation);
