@@ -4,8 +4,6 @@ import moize from 'moize';
 
 import logoSvg from 'Assets/icons/logo.svg';
 
-// TODO: Finish login page style and start funcionality
-
 const StartScreen = ({ history }: { history: Function }) => (
   <div className="login-container">
     <section className="login-container__box">
