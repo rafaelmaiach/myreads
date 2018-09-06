@@ -49,7 +49,7 @@ const ModalHeader = (props: Props) => {
 const Header = styled.header`
   display: flex;
   width: 100%;
-  height: 230px;
+  height: 40%;
   position: relative;
 `;
 

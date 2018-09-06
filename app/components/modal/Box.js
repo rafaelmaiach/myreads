@@ -42,6 +42,7 @@ const Box = styled.div`
   border-radius: 5px;
   padding: 20px;
   position: relative;
+  overflow-y: scroll;
 `;
 
 export default ModalBox;
