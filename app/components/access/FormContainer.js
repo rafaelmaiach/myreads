@@ -3,10 +3,10 @@ import * as React from 'react';
 
 import { AuthConsumer } from 'Components/control/AuthContext';
 
-import Close from './formComponents/Close';
-import Fields from './formComponents/Fields';
-import Button from './formComponents/Button';
-import MemberInformation from './formComponents/MemberInformation';
+import Close from './formElements/Close';
+import Fields from './formElements/Fields';
+import Button from './formElements/Button';
+import MemberInformation from './formElements/MemberInformation';
 
 type State = {
   fullname: string,

@@ -6,13 +6,13 @@ import { compose, withState, withHandlers } from 'recompose';
 
 import ModalContainer from 'Components/modal/ModalContainer';
 
-import Image from './book/Image';
-import Title from './book/Title';
-import Subtitle from './book/Subtitle';
-import Stars from './book/Stars';
-import Authors from './book/Authors';
-import Description from './book/Description';
-import SeeMoreContainer from './book/SeeMoreContainer';
+import Image from './bookElements/Image';
+import Title from './bookElements/Title';
+import Subtitle from './bookElements/Subtitle';
+import Stars from './bookElements/Stars';
+import Authors from './bookElements/Authors';
+import Description from './bookElements/Description';
+import SeeMoreContainer from './bookElements/SeeMoreContainer';
 
 type ImageLinks = {
   smallThumbnail: string,
