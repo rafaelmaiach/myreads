@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import styled from 'styled-components';
+import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
 type Props = {
   rating?: number,
@@ -66,4 +67,4 @@ const StarNotFound = styled.span`
   font-size: 14px;
 `;
 
-export default Stars;
+export default onlyUpdateForKeys(['rating'])(Stars);

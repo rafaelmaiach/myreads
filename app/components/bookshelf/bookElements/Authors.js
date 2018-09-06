@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import styled from 'styled-components';
+import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
 const Authors = ({ authorsNames }: string) => (
   <AuthorsContainer>
@@ -14,4 +15,4 @@ const AuthorsContainer = styled.div`
   padding-top: 5px;
 `;
 
-export default Authors;
+export default onlyUpdateForKeys(['authorsNames'])(Authors);

@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import styled from 'styled-components';
+import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
 type Props = {
   thumbnail: string,
@@ -46,4 +47,4 @@ const ImageNotFound = styled.div`
   color: #aaa;
 `;
 
-export default Image;
+export default onlyUpdateForKeys(['thumbnail'])(Image);

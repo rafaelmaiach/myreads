@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import styled from 'styled-components';
+import shouldUpdate from 'recompose/shouldUpdate';
 
 const SeeMoreContainer = ({ openModal }: Function) => (
   <Container>
@@ -32,4 +33,4 @@ const Button = styled.button`
   }
 `;
 
-export default SeeMoreContainer;
+export default shouldUpdate(() => false)(SeeMoreContainer);

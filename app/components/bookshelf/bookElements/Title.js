@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import styled from 'styled-components';
+import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
 const Title = ({ titleText }: string) => (
   <TitleContainer>
@@ -13,4 +14,4 @@ const TitleContainer = styled.div`
   font-weight: bold;
 `;
 
-export default Title;
+export default onlyUpdateForKeys(['titleText'])(Title);

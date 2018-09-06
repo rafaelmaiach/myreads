@@ -17,7 +17,7 @@ type State = {
   currentShelf: string,
 }
 
-class BookshelfScreen extends React.Component<void, State> {
+class BookshelfScreen extends React.PureComponent<void, State> {
   state = {
     // These three arrays will be used on shelfToRender variable
     currentlyReading: [], // eslint-disable-line

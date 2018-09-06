@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import styled from 'styled-components';
+import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
 const Description = ({ descriptionReduced }: string) => (
   <DescriptionContainer>
@@ -13,4 +14,4 @@ const DescriptionContainer = styled.p`
   margin: 0;
 `;
 
-export default Description;
+export default onlyUpdateForKeys(['descriptionReduced'])(Description);

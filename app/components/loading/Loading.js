@@ -2,6 +2,28 @@ import React from 'react';
 import moize from 'moize';
 import styled, { keyframes } from 'styled-components';
 
+const Loading = () => (
+  <Container>
+    <Book>
+      <Page1>
+        <p> ___ </p>
+        <p> ___ </p>
+        <p> ___ </p>
+      </Page1>
+      <Page2>
+        <p> ___ </p>
+        <p> ___ </p>
+        <p> ___ </p>
+      </Page2>
+      <Page3>
+        <p> ___ </p>
+        <p> ___ </p>
+        <p> ___ </p>
+      </Page3>
+    </Book>
+  </Container>
+);
+
 const flipBookPages = keyframes`
   0% {
     -webkit-transform: rotateY( 0deg);
@@ -75,27 +97,5 @@ const Page3 = styled(Page)`
   -webkit-animation: ${flipBookPages} 1.2s cubic-bezier(0, .39, 1, .68) 1.2s infinite;
   animation: ${flipBookPages} 1.2s cubic-bezier(0, .39, 1, .68) 1.2s infinite;
 `;
-
-const Loading = () => (
-  <Container>
-    <Book>
-      <Page1>
-        <p> ___ </p>
-        <p> ___ </p>
-        <p> ___ </p>
-      </Page1>
-      <Page2>
-        <p> ___ </p>
-        <p> ___ </p>
-        <p> ___ </p>
-      </Page2>
-      <Page3>
-        <p> ___ </p>
-        <p> ___ </p>
-        <p> ___ </p>
-      </Page3>
-    </Book>
-  </Container>
-);
 
 export default moize.reactSimple(Loading);

@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import styled from 'styled-components';
+import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
 type TabProps = {
   text: string,
@@ -34,4 +35,4 @@ const Button = styled.button`
   }
 `;
 
-export default HeaderTab;
+export default onlyUpdateForKeys(['text'])(HeaderTab);
