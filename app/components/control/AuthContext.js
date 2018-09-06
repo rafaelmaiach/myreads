@@ -1,8 +1,6 @@
 // @flow
 import * as React from 'react';
 
-// #TODO: Edit login and logout to use localStorage or browser cookie
-
 type Props = {
   children: React.Node,
 }
@@ -16,14 +14,14 @@ const AuthContext = React.createContext();
  */
 class AuthProvider extends React.Component<Props> {
   login = () => {
-    localStorage.setItem('userAuthenticated', true);
+    sessionStorage.setItem('userAuthenticated', true);
   }
 
   logout = () => {
-    localStorage.setItem('userAuthenticated', false);
+    sessionStorage.removeItem('userAuthenticated');
   }
 
-  isUserAuthenticated = () => localStorage.getItem('userAuthenticated');
+  isUserAuthenticated = () => sessionStorage.getItem('userAuthenticated');
 
   render() {
     const { children } = this.props;
