@@ -18,20 +18,24 @@ const Tab = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 15px;
 `;
 
 const Button = styled.button`
   -webkit-appearance: none;
   border: none;
   background: none;
-  font-size: 1.3rem;
   font-weight: 600;
   color: #edf5e1;
   cursor: pointer;
+  font-size: 10px;
 
   &:hover {
     color: #4cc984;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    font-size: 24px;
+    margin: 0 10px;
   }
 `;
 

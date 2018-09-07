@@ -10,8 +10,16 @@ const Subtitle = ({ subtitleText }: string) => (
 );
 
 const SubtitleContainer = styled.h3`
-  font-size: 14px;
+  font-size: 10px;
   font-weight: normal;
+
+  @media only screen and (min-width: 375px) {
+    font-size: 12px;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    font-size: 14px;
+  }
 `;
 
 export default onlyUpdateForKeys(['subtitleText'])(Subtitle);

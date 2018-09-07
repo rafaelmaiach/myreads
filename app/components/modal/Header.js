@@ -38,10 +38,10 @@ const ModalHeader = (props: Props) => {
     <Header>
       <Image isModal thumbnail={thumbnail} />
       <Informations>
-        <Title titleText={title} />
-        <Subtitle subtitleText={subtitle} />
-        <Authors authorsNames={authors} />
-        <Stars rating={rating} />
+        <Title isModal titleText={title} />
+        <Subtitle isModal subtitleText={subtitle} />
+        <Authors isModal authorsNames={authors} />
+        <Stars isModal rating={rating} />
         <Publisher publisher={publisher} />
         <PublishedDate date={publishedDate} />
         <Preview link={previewLink} />
@@ -52,17 +52,25 @@ const ModalHeader = (props: Props) => {
 
 const Header = styled.header`
   display: flex;
-  width: 100%;
+  width: 95%;
   height: 40%;
   position: relative;
+
+  @media only screen and (min-width: 1200px) {
+    width: 100%;
+  }
 `;
 
 const Informations = styled.div`
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 70%;
   color: #05386b;
   position: relative;
+
+  @media only screen and (min-width: 1200px) {
+    width: 60%;
+  }
 `;
 
 export default ModalHeader;

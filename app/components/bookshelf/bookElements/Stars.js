@@ -45,11 +45,24 @@ Stars.defaultProps = {
 
 const StarsContainer = styled.div`
   display: flex;
-  width: 110px;
+  width: 100px;
   justify-content: space-between;
-  height: 40px;
-  margin: 5px 0;
+  height: 20px;
   align-items: center;
+  font-size: 12px;
+  margin: 5px 0;
+
+  @media only screen and (min-width: 375px) {
+    font-size: 14px;
+    margin: 0;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    height: 40px;
+    width: 110px;
+    font-size: 16px;
+    margin: 5px 0;
+  }
 `;
 
 const StarUnrated = styled.span`
@@ -62,7 +75,11 @@ const StarRated = styled.span`
 
 const StarNotFound = styled.span`
   color: grey;
-  font-size: 14px;
+  font-size: 12px;
+
+  @media only screen and (min-width: 1200px) {
+    font-size: 14px;
+  }
 `;
 
 export default onlyUpdateForKeys(['rating'])(Stars);

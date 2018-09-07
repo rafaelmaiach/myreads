@@ -15,14 +15,18 @@ const Container = styled.div`
   display: flex;
   justify-content: flex-end;
   width: 100%;
-  height: 50px;
+  height: 30px;
   justify-content: flex-end;
+
+  @media only screen and (min-width: 1200px) {
+    height: 50px;
+  }
 `;
 
 const Button = styled.button`
   -webkit-appearance: none;
   border: none;
-  font-size: 14px;
+  font-size: 12px;
   background: none;
   cursor: pointer;
   color: #4cc984;
@@ -30,6 +34,10 @@ const Button = styled.button`
 
   &:hover {
     color: #05386b;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    font-size: 14px;
   }
 `;
 

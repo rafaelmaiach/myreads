@@ -21,12 +21,17 @@ const BookshelfList = ({ isLoading, booksList }: Props) => {
 
 const ListContainer = styled.div`
   display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%;
-  padding: 0 55px 0 55px;
   overflow-y: scroll;
-  flex-wrap: wrap;
-  margin-bottom: 15px;
+
+  @media only screen and (min-width: 1200px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0 55px 0 55px;
+    margin-bottom: 15px;
+  }
 `;
 
 export default BookshelfList;

@@ -90,19 +90,33 @@ const BookshelfBook = (props: Props) => {
 
 const BookContainer = styled.div`
   display: flex;
-  width: 45%;
-  height: 250px;
-  min-height: 250px;
-  max-height: 250px;
   margin: 15px 15px 0 15px;
   padding: 15px 20px 15px 15px;
   background-color: rgba(255, 255, 255, 0.85);
+  width: 90%;
+  height: 230px;
+  min-height: 230px;
+  max-height: 230px;
+
+  @media only screen and (min-width: 375px) {
+    height: 260px;
+    min-height: 260px;
+    max-height: 260px;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    width: 45%;
+    height: 250px;
+    min-height: 250px;
+    max-height: 250px;
+  }
 `;
 
 const BookInformation = styled.div`
   display: flex;
   flex-direction: column;
   width: 65%;
+  height: 100%;
   color: #05386b;
   position: relative;
 `;

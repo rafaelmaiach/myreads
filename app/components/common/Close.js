@@ -13,10 +13,10 @@ const Close = ({ closeAction }: Function) => (
 
 const CloseButton = styled.button`
   position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 35px;
-  padding: 10px;
+  top: 5px;
+  right: 5px;
+  font-size: 20px;
+  background: none;
   -webkit-appearance: none;
   border: none;
   cursor: pointer;
@@ -25,6 +25,12 @@ const CloseButton = styled.button`
 
   &:hover {
     color: #4cc984;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    top: 10px;
+    right: 10px;
+    font-size: 36px;
   }
 `;
 

@@ -10,8 +10,16 @@ const Description = ({ descriptionReduced }: string) => (
 );
 
 const DescriptionContainer = styled.p`
-  font-size: 14px;
+  font-size: 10px;
   margin: 0;
+
+  @media only screen and (min-width: 375px) {
+    font-size: 12px;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    font-size: 14px;
+  }
 `;
 
 export default onlyUpdateForKeys(['descriptionReduced'])(Description);

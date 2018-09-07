@@ -8,12 +8,17 @@ const Header = ({ children }: React.Node) => (
   </HeaderContainer>
 );
 
-const HeaderContainer = styled.div`
+const HeaderContainer = styled.header`
   display: flex;
   width: 100%;
-  max-height: 100px;
-  min-height: 100px;
   background-color: #05386b;
+  max-height: 40px;
+  min-height: 40px;
+
+  @media only screen and (min-width: 1024px) {
+    max-height: 90px;
+    min-height: 90px;
+  }
 `;
 
 export default Header;

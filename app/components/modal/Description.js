@@ -13,7 +13,16 @@ const ModalDescription = ({ description }: string) => (
 const Description = styled.section`
   width: 100%;
   overflow: scroll;
-  height: 250px;
+  height: 170px;
+  font-size: 14px;
+
+  @media only screen and (min-width: 375px) {
+    height: 250px;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    font-size: 16px;
+  }
 `;
 
 const Text = styled.p`

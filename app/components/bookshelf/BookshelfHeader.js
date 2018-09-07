@@ -44,7 +44,8 @@ const BookshelfHeader = ({ changeShelf }: Props) => {
 const Tabs = styled.div`
   display: flex;
   width: 100%;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-left: 10px;
 `;
 
 export default BookshelfHeader;
