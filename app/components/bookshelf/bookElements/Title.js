@@ -9,7 +9,7 @@ const Title = ({ titleText }: string) => (
   </TitleContainer>
 );
 
-const TitleContainer = styled.div`
+const TitleContainer = styled.h1`
   font-size: 18px;
   font-weight: bold;
 `;

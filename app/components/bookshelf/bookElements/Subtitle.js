@@ -9,8 +9,9 @@ const Subtitle = ({ subtitleText }: string) => (
   </SubtitleContainer>
 );
 
-const SubtitleContainer = styled.div`
+const SubtitleContainer = styled.h3`
   font-size: 14px;
+  font-weight: normal;
 `;
 
 export default onlyUpdateForKeys(['subtitleText'])(Subtitle);

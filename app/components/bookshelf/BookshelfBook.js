@@ -27,7 +27,6 @@ type Props = {
   imageLinks: ImageLinks,
   isModalOpen: boolean,
   openModal: Function,
-  pageCount: number,
   previewLink: string,
   publisher: string,
   publishedDate: string,
@@ -45,7 +44,6 @@ const BookshelfBook = (props: Props) => {
     imageLinks,
     isModalOpen,
     openModal,
-    pageCount,
     previewLink,
     publisher,
     publishedDate,
@@ -69,7 +67,6 @@ const BookshelfBook = (props: Props) => {
             closeModal={closeModal}
             description={description}
             thumbnail={thumbnail}
-            pageCount={pageCount}
             previewLink={previewLink}
             publisher={publisher}
             publishedDate={publishedDate}

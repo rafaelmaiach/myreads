@@ -2,17 +2,19 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import Image from 'Components/bookshelf/bookElements/Image';
-import Title from 'Components/bookshelf/bookElements/Title';
-import Subtitle from 'Components/bookshelf/bookElements/Subtitle';
-import Stars from 'Components/bookshelf/bookElements/Stars';
 import Authors from 'Components/bookshelf/bookElements/Authors';
+import Image from 'Components/bookshelf/bookElements/Image';
+import Publisher from 'Components/bookshelf/bookElements/Publisher';
+import PublishedDate from 'Components/bookshelf/bookElements/PublishedDate';
+import Preview from 'Components/bookshelf/bookElements/Preview';
+import Stars from 'Components/bookshelf/bookElements/Stars';
+import Subtitle from 'Components/bookshelf/bookElements/Subtitle';
+import Title from 'Components/bookshelf/bookElements/Title';
 
 type Props = {
   authors: Array<string>,
   rating: number,
   thumbnail: string,
-  pageCount: number,
   previewLink: string,
   publisher: string,
   publishedDate: string,
@@ -25,7 +27,6 @@ const ModalHeader = (props: Props) => {
     authors,
     rating,
     thumbnail,
-    pageCount,
     previewLink,
     publisher,
     publishedDate,
@@ -40,7 +41,10 @@ const ModalHeader = (props: Props) => {
         <Title titleText={title} />
         <Subtitle subtitleText={subtitle} />
         <Authors authorsNames={authors} />
-        <Stars isModal rating={rating} />
+        <Stars rating={rating} />
+        <Publisher publisher={publisher} />
+        <PublishedDate date={publishedDate} />
+        <Preview link={previewLink} />
       </Informations>
     </Header>
   );
@@ -56,7 +60,7 @@ const Header = styled.header`
 const Informations = styled.div`
   display: flex;
   flex-direction: column;
-  width: 85%;
+  width: 60%;
   color: #05386b;
   position: relative;
 `;

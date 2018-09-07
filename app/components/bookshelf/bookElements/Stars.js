@@ -5,13 +5,12 @@ import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
 type Props = {
   rating?: number,
-  isModal?: ?boolean,
 }
 
-const Stars = ({ rating, isModal }: Props) => {
+const Stars = ({ rating }: Props) => {
   if (!rating) {
     return (
-      <StarsContainer isModal={isModal}>
+      <StarsContainer>
         <StarNotFound>
           Rating not found
         </StarNotFound>
@@ -34,7 +33,7 @@ const Stars = ({ rating, isModal }: Props) => {
   }
 
   return (
-    <StarsContainer isModal={isModal}>
+    <StarsContainer>
       {stars}
     </StarsContainer>
   );
@@ -42,12 +41,11 @@ const Stars = ({ rating, isModal }: Props) => {
 
 Stars.defaultProps = {
   rating: null,
-  isModal: false,
 };
 
 const StarsContainer = styled.div`
   display: flex;
-  width: ${({ isModal }) => !isModal ? '30%' : '18%'};
+  width: 110px;
   justify-content: space-between;
   height: 40px;
   margin: 5px 0;

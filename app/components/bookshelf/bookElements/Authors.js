@@ -9,7 +9,7 @@ const Authors = ({ authorsNames }: string) => (
   </AuthorsContainer>
 );
 
-const AuthorsContainer = styled.div`
+const AuthorsContainer = styled.h4`
   font-size: 12px;
   font-weight: 600;
   padding-top: 5px;

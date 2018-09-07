@@ -10,7 +10,6 @@ type Props = {
   closeModal: Function,
   description: string,
   thumbnail: string,
-  pageCount: number,
   previewLink: string,
   publisher: string,
   publishedDate: string,

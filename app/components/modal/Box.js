@@ -12,7 +12,6 @@ type Props = {
   closeModal: Function,
   description: string,
   thumbnail: string,
-  pageCount: number,
   previewLink: string,
   publisher: string,
   publishedDate: string,
@@ -42,7 +41,6 @@ const Box = styled.div`
   border-radius: 5px;
   padding: 20px;
   position: relative;
-  overflow-y: scroll;
 `;
 
 export default ModalBox;

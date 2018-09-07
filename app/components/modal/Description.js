@@ -12,11 +12,13 @@ const ModalDescription = ({ description }: string) => (
 
 const Description = styled.section`
   width: 100%;
-  height: 60%;
+  overflow: scroll;
+  height: 250px;
 `;
 
 const Text = styled.p`
   line-height: 1.2;
+  margin: 10px 0 0 0;
 `;
 
 export default ModalDescription;
