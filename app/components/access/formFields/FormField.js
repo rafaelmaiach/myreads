@@ -93,7 +93,7 @@ class FormField extends React.PureComponent<Props, State> {
 const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
-  font-size: 2vw;
+  font-size: 16px;
   width: 100%;
   height: 100px;
 
@@ -110,9 +110,17 @@ const InputContainer = styled.div`
   }
 
   & input {
-    font-size: 1.5vw;
+    font-size: 14px;
     border: none;
     border-bottom: 1px solid black;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    font-size: 24px;
+
+    & input {
+      font-size: 22px;
+    }
   }
 `;
 

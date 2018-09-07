@@ -27,6 +27,7 @@ const MemberInformationContainer = styled.div`
     border: none;
     cursor: pointer;
     font-size: 14px;
+    background: none;
 
     &:hover {
       color: #4cc984;

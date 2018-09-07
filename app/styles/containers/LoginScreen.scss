@@ -3,7 +3,7 @@
   .fields__box {
     position: absolute;
     width: 100%;
-    padding: 0 30px;
+    padding: 30px;
     opacity: 0;
     -webkit-transition: opacity 0.45s, -webkit-transform 0.45s;
     transition: opacity 0.45s, -webkit-transform 0.45s, -moz-transform 0.45s, -o-transform 0.45s, transform 0.45s;
@@ -15,57 +15,34 @@
     @include background-opacity($primary-color, 0.9);
     display: flex;
     height: 100%;
-    -webkit-transform: translate3d(50%, 0, 0);
-    transform: translate3d(50%, 0, 0);
+    -webkit-transform: translate3d(0, 50%, 0);
+    transform: translate3d(0, 50%, 0);
   }
 
   .fields__box {
     display: flex;
     height: 100%;
     background: #fff;
-    -webkit-transform: translate3d(-50%, 0, 0);
-    transform: translate3d(-50%, 0, 0);
+    -webkit-transform: translate3d(0, -50%, 0);
+    transform: translate3d(0, -50%, 0);
   }
 
   &__form {
     display: flex;
+    flex-direction: column;
     position: absolute;
     width: 100%;
     height: 100%;
 
     &__quotes,
     &__fields {
-      width: 50%;
+      width: 100%;
       height: 100%;
       overflow: hidden;
       position: relative;
     }
 
-    // Middle line before form appears
-    &::before {
-      content: '';
-      position: absolute;
-      width: 2px;
-      left: 50%;
-      opacity: 0;
-      -webkit-transition: all 0.6s;
-      transition: all 0.6s;
-      -webkit-transition-delay: 0.6s;
-      transition-delay: 0.6s;
-    }
-
     &.active {
-      // Middle line after form appears
-      &::before {
-        content: '';
-        background: $primary-text-color;
-        top: 0;
-        bottom: 0;
-        opacity: 1;
-        -webkit-transition-delay: 0s;
-        transition-delay: 0s;
-      }
-
       .quotes__box,
       .fields__box {
         display: flex;
@@ -99,13 +76,70 @@
         }
 
         &--text {
-          font-size: 2.7vw;
+          font-size: 20px;
           font-style: italic;
         }
 
         &--author {
-          font-size: 1.8vw;
+          font-size: 14px;
           text-transform: capitalize;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .login-container {
+    .quotes__box,
+    .fields__box {
+      padding: 0 30px;
+    }
+
+    .quotes__box {
+      -webkit-transform: translate3d(50%, 0, 0);
+      transform: translate3d(50%, 0, 0);
+    }
+
+    .fields__box {
+      -webkit-transform: translate3d(-50%, 0, 0);
+      transform: translate3d(-50%, 0, 0);
+    }
+
+    &__form {
+      flex-direction: row;
+
+      &__quotes,
+      &__fields {
+        width: 50%;
+      }
+
+      &.active {
+        flex-direction: row;
+        .quotes__box,
+        .fields__box {
+
+        }
+
+        .fields__box {
+
+        }
+
+        .quotes__box {
+
+
+          &--text,
+          &--author {
+
+          }
+
+          &--text {
+            font-size: 36px;
+          }
+
+          &--author {
+            font-size: 24px;
+          }
         }
       }
     }
