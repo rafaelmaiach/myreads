@@ -8,19 +8,19 @@ type Props = {
   isModal?: ?boolean,
 }
 const Image = ({ thumbnail, isModal }: Props) => (
-  <ImageContainer isModal={isModal}>
+  <BookImageContainer isModal={isModal}>
     {thumbnail
       ? <ImageThumbnail thumbnail={thumbnail} />
       : <ImageNotFound>IMAGE NOT FOUND</ImageNotFound>
     }
-  </ImageContainer>
+  </BookImageContainer>
 );
 
 Image.defaultProps = {
   isModal: false,
 };
 
-const ImageContainer = styled.div`
+const BookImageContainer = styled.div`
   position: relative;
   width: ${({ isModal }) => !isModal ? '80px' : '60px'};
   height: ${({ isModal }) => !isModal ? '110px' : '90px'};

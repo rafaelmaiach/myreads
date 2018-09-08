@@ -39,14 +39,14 @@ const BookshelfHeader = ({ changeShelf, currentShelf }: Props) => {
 
   return (
     <Header>
-      <Tabs>
+      <BookshelfHeaderTabs>
         {headerTabs}
-      </Tabs>
+      </BookshelfHeaderTabs>
     </Header>
   );
 };
 
-const Tabs = styled.div`
+const BookshelfHeaderTabs = styled.div`
   display: flex;
   width: 100%;
   justify-content: flex-start;

@@ -4,12 +4,12 @@ import styled from 'styled-components';
 import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
 const Description = ({ descriptionReduced }: string) => (
-  <DescriptionContainer>
+  <BookDescriptionContainer>
     {descriptionReduced}
-  </DescriptionContainer>
+  </BookDescriptionContainer>
 );
 
-const DescriptionContainer = styled.p`
+const BookDescriptionContainer = styled.p`
   font-size: 10px;
   margin: 0;
 

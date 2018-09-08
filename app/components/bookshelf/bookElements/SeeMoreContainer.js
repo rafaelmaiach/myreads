@@ -4,14 +4,14 @@ import styled from 'styled-components';
 import shouldUpdate from 'recompose/shouldUpdate';
 
 const SeeMoreContainer = ({ openModal }: Function) => (
-  <Container>
-    <Button onClick={openModal}>
+  <BookSeeMoreContainer>
+    <BookSeeMoreButton onClick={openModal}>
       See more
-    </Button>
-  </Container>
+    </BookSeeMoreButton>
+  </BookSeeMoreContainer>
 );
 
-const Container = styled.div`
+const BookSeeMoreContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   width: 100%;
@@ -23,7 +23,7 @@ const Container = styled.div`
   }
 `;
 
-const Button = styled.button`
+const BookSeeMoreButton = styled.button`
   -webkit-appearance: none;
   border: none;
   font-size: 12px;

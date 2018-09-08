@@ -10,11 +10,11 @@ type Props = {
 const Stars = ({ rating }: Props) => {
   if (!rating) {
     return (
-      <StarsContainer>
-        <StarNotFound>
+      <BookStarsContainer>
+        <BookStarNotFound>
           Rating not found
-        </StarNotFound>
-      </StarsContainer>
+        </BookStarNotFound>
+      </BookStarsContainer>
     );
   }
 
@@ -23,19 +23,19 @@ const Stars = ({ rating }: Props) => {
   for (let i = 1; i <= 5; i += 1) {
     if (i <= rating) {
       stars.push(
-        <StarRated key={i}>&#9733;</StarRated>
+        <BookStarRated key={i}>&#9733;</BookStarRated>
       );
     } else {
       stars.push(
-        <StarUnrated key={i}>&#9733;</StarUnrated>
+        <BookStarUnrated key={i}>&#9733;</BookStarUnrated>
       );
     }
   }
 
   return (
-    <StarsContainer>
+    <BookStarsContainer>
       {stars}
-    </StarsContainer>
+    </BookStarsContainer>
   );
 };
 
@@ -43,7 +43,7 @@ Stars.defaultProps = {
   rating: null,
 };
 
-const StarsContainer = styled.div`
+const BookStarsContainer = styled.div`
   display: flex;
   width: 100px;
   justify-content: space-between;
@@ -65,15 +65,15 @@ const StarsContainer = styled.div`
   }
 `;
 
-const StarUnrated = styled.span`
+const BookStarUnrated = styled.span`
   color: grey;
 `;
 
-const StarRated = styled.span`
+const BookStarRated = styled.span`
   color: #4cc984;
 `;
 
-const StarNotFound = styled.span`
+const BookStarNotFound = styled.span`
   color: grey;
   font-size: 12px;
 

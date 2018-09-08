@@ -4,12 +4,12 @@ import styled from 'styled-components';
 import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
 const Authors = ({ authorsNames }: string) => (
-  <AuthorsContainer>
+  <BookAuthorsContainer>
     {authorsNames}
-  </AuthorsContainer>
+  </BookAuthorsContainer>
 );
 
-const AuthorsContainer = styled.h4`
+const BookAuthorsContainer = styled.h4`
   font-size: 10px;
   font-weight: 600;
   padding-top: 5px;

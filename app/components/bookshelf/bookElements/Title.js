@@ -9,16 +9,16 @@ type Props = {
 }
 
 const Title = ({ titleText, isModal }: Props) => (
-  <TitleContainer isModal={isModal}>
+  <BookTitleContainer isModal={isModal}>
     {titleText}
-  </TitleContainer>
+  </BookTitleContainer>
 );
 
 Title.defaultProps = {
   isModal: false,
 };
 
-const TitleContainer = styled.h1`
+const BookTitleContainer = styled.h1`
   font-size: ${({ isModal }) => !isModal ? '14px' : '12px'};
   font-weight: bold;
 

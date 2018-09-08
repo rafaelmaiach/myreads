@@ -4,12 +4,12 @@ import styled from 'styled-components';
 import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
 const Publisher = ({ publisher }?: string) => (
-  <Container>
+  <BookPublisherContainer>
     {`Publisher: ${publisher}` || 'Publisher not found'}
-  </Container>
+  </BookPublisherContainer>
 );
 
-const Container = styled.span`
+const BookPublisherContainer = styled.span`
   font-size: 12px;
 
   @media only screen and (min-width: 375px) {

@@ -4,12 +4,12 @@ import styled from 'styled-components';
 import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
 const Subtitle = ({ subtitleText }: string) => (
-  <SubtitleContainer>
+  <BookSubtitleContainer>
     {subtitleText}
-  </SubtitleContainer>
+  </BookSubtitleContainer>
 );
 
-const SubtitleContainer = styled.h3`
+const BookSubtitleContainer = styled.h3`
   font-size: 10px;
   font-weight: normal;
 

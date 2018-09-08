@@ -13,13 +13,13 @@ type Props = {
 const BookshelfList = ({ isLoading, booksList }: Props) => {
   const books = booksList.map(info => <BookshelfBook key={info.id} {...info} />);
   return (
-    <ListContainer>
+    <BookshelfListContainer>
       {isLoading ? <Loading /> : books}
-    </ListContainer>
+    </BookshelfListContainer>
   );
 };
 
-const ListContainer = styled.div`
+const BookshelfListContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;

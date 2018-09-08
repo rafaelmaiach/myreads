@@ -3,12 +3,12 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 const Preview = ({ link }?: string) => (
-  <Button target="_blank" href={link}>
+  <BookPreviewButton target="_blank" href={link}>
     Preview
-  </Button>
+  </BookPreviewButton>
 );
 
-const Button = styled.a`
+const BookPreviewButton = styled.a`
   font-size: 12px;
   color: #4cc984;
   text-decoration: none;
