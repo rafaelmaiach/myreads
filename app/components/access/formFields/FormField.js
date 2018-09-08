@@ -72,7 +72,7 @@ class FormField extends React.PureComponent<Props, State> {
 
     return (
       <React.Fragment>
-        <InputContainer error={error}>
+        <FormFieldInputContainer error={error}>
           <label htmlFor={fieldId} className="">
             {label}
           </label>
@@ -84,13 +84,13 @@ class FormField extends React.PureComponent<Props, State> {
             debounceTimeout={300}
             onChange={this.hasChanged}
           />
-        </InputContainer>
+        </FormFieldInputContainer>
       </React.Fragment>
     );
   }
 }
 
-const InputContainer = styled.div`
+const FormFieldInputContainer = styled.div`
   display: flex;
   flex-direction: column;
   font-size: 16px;

@@ -22,7 +22,7 @@ const Fields = (props: Props) => {
   } = props;
 
   return (
-    <FieldsContainer>
+    <FormFieldsContainer>
       {isSignUpForm
         ? (
           <SignUp
@@ -35,11 +35,11 @@ const Fields = (props: Props) => {
             updateEmail={updateEmail}
             updatePassword={updatePassword}
           />)}
-    </FieldsContainer>
+    </FormFieldsContainer>
   );
 };
 
-const FieldsContainer = styled.div`
+const FormFieldsContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;

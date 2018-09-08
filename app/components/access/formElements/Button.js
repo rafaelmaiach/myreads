@@ -9,43 +9,43 @@ type Props = {
 }
 
 const Button = ({ text, formAction }: Props) => (
-  <ButtonContainer>
-    <button className="login_button" type="button" onClick={formAction}>
+  <FormButtonContainer>
+    <FormButton type="button" onClick={formAction}>
       {text}
-    </button>
-  </ButtonContainer>
+    </FormButton>
+  </FormButtonContainer>
 );
 
-const ButtonContainer = styled.div`
+const FormButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 50%;
   margin: 5px 0;
 
-  & button {
-    width: 100%;
-    padding: 15px;
-    font-size: 16px;
-    font-weight: 600;
-    background-color: #05386b;
-    color: #edf5e1;
+  @media only screen and (min-width: 1024px) {
+    width: 70%;
+  }
+`;
 
-    &:hover {
-      background-color: #4cc984;
-      color: #05386b;
-      cursor: pointer;
-    }
+const FormButton = styled.button`
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #05386b;
+  color: #edf5e1;
+
+  &:hover {
+    background-color: #4cc984;
+    color: #05386b;
+    cursor: pointer;
   }
 
   @media only screen and (min-width: 1024px) {
-    width: 70%;
-
-    & button {
-      padding: 20px;
-      width: 40%;
-      font-size: 20px;
-    }
+    padding: 20px;
+    width: 40%;
+    font-size: 20px;
   }
 `;
 
