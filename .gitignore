@@ -2,6 +2,7 @@ build
 node_modules
 .scannerwork
 sonar-scanner.sh
+now.json
 
 # Cruft
 .DS_Store
