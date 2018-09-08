@@ -58,7 +58,7 @@ class BookshelfScreen extends React.PureComponent<void, State> {
 
     return (
       <GeneralScreen image={bookshelfPageImage}>
-        <BookshelfHeader changeShelf={this.changeShelf} />
+        <BookshelfHeader currentShelf={currentShelf} changeShelf={this.changeShelf} />
         <BookshelfList
           isLoading={isLoading}
           booksList={shelfToRender}

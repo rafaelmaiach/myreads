@@ -5,11 +5,12 @@ import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
 type TabProps = {
   text: string,
+  active: boolean,
   onClick: Function,
 }
 
-const HeaderTab = ({ text, onClick }: TabProps) => (
-  <Tab>
+const HeaderTab = ({ active, text, onClick }: TabProps) => (
+  <Tab active={active}>
     <Button type="button" onClick={onClick}>{text}</Button>
   </Tab>
 );
@@ -19,9 +20,14 @@ const Tab = styled.div`
   justify-content: center;
   align-items: center;
   pointer-events: none;
+  background-color: ${({ active }) => active ? '#4cc984' : ''};
 
   &:hover {
     background-color: #4cc984;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    margin: 0 10px;
   }
 `;
 
@@ -37,8 +43,7 @@ const Button = styled.button`
 
   @media only screen and (min-width: 1200px) {
     font-size: 24px;
-    margin: 0 10px;
   }
 `;
 
-export default onlyUpdateForKeys(['text'])(HeaderTab);
+export default onlyUpdateForKeys(['text', 'active'])(HeaderTab);

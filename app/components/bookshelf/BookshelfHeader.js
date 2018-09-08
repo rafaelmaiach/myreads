@@ -7,27 +7,32 @@ import HeaderTab from 'Components/header/HeaderTab';
 
 type Props = {
   changeShelf: Function,
+  currentShelf: string,
 }
 
-const BookshelfHeader = ({ changeShelf }: Props) => {
+const BookshelfHeader = ({ changeShelf, currentShelf }: Props) => {
   const shelfsTab = [
     {
+      shelf: 'currentlyReading',
       text: 'Currently Reading',
       onClick: () => changeShelf('currentlyReading'),
     },
     {
+      shelf: 'wantToRead',
       text: 'Want to Read',
       onClick: () => changeShelf('wantToRead'),
     },
     {
+      shelf: 'read',
       text: 'Reading',
       onClick: () => changeShelf('read'),
     },
   ];
 
-  const headerTabs = shelfsTab.map(({ text, onClick }) => (
+  const headerTabs = shelfsTab.map(({ shelf, text, onClick }) => (
     <HeaderTab
-      key={text}
+      key={shelf}
+      active={currentShelf === shelf}
       text={text}
       onClick={onClick}
     />));
