@@ -8,14 +8,14 @@ type Props = {
 }
 
 const GeneralScreen = ({ image, children }: Props) => (
-  <Background image={image}>
-    <BackgroundLayer>
+  <GeneralScreenBackground image={image}>
+    <GeneralScreenBackgroundLayer>
       {children}
-    </BackgroundLayer>
-  </Background>
+    </GeneralScreenBackgroundLayer>
+  </GeneralScreenBackground>
 );
 
-const Background = styled.div`
+const GeneralScreenBackground = styled.div`
     height: 100%;
     width: 100%;
     background-image: url(${({ image }) => image});
@@ -23,7 +23,7 @@ const Background = styled.div`
     background-size: cover;
 `;
 
-const BackgroundLayer = styled.div`
+const GeneralScreenBackgroundLayer = styled.div`
     display: flex;
     flex-direction: column;
     background-color: rgba(0, 0, 0, 0.2);

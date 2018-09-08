@@ -22,7 +22,7 @@ type Props = {
   title: string,
 }
 
-const ModalHeader = (props: Props) => {
+const Header = (props: Props) => {
   const {
     authors,
     rating,
@@ -35,9 +35,9 @@ const ModalHeader = (props: Props) => {
   } = props;
 
   return (
-    <Header>
+    <ModalHeaderContainer>
       <Image isModal thumbnail={thumbnail} />
-      <Informations>
+      <ModalInformationsContainer>
         <Title isModal titleText={title} />
         <Subtitle isModal subtitleText={subtitle} />
         <Authors isModal authorsNames={authors} />
@@ -45,12 +45,12 @@ const ModalHeader = (props: Props) => {
         <Publisher publisher={publisher} />
         <PublishedDate date={publishedDate} />
         <Preview link={previewLink} />
-      </Informations>
-    </Header>
+      </ModalInformationsContainer>
+    </ModalHeaderContainer>
   );
 };
 
-const Header = styled.header`
+const ModalHeaderContainer = styled.header`
   display: flex;
   width: 95%;
   height: 40%;
@@ -61,7 +61,7 @@ const Header = styled.header`
   }
 `;
 
-const Informations = styled.div`
+const ModalInformationsContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 70%;
@@ -73,4 +73,4 @@ const Informations = styled.div`
   }
 `;
 
-export default ModalHeader;
+export default Header;

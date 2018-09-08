@@ -17,13 +17,13 @@ type Props = {
   title: string,
 }
 
-const ModalContainer = (props: Props) => (
-  <Container>
+const Container = (props: Props) => (
+  <ModalContainer>
     <ModalBox {...props} />
-  </Container>
+  </ModalContainer>
 );
 
-const Container = styled.div`
+const ModalContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,4 +36,4 @@ const Container = styled.div`
   z-index: 100;
 `;
 
-export default ModalContainer;
+export default Container;

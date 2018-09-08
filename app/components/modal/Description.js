@@ -2,17 +2,18 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-const ModalDescription = ({ description }: string) => (
-  <Description>
-    <Text>
+const Description = ({ description }: string) => (
+  <ModalDescriptionContainer>
+    <ModalDescriptionText>
       {description}
-    </Text>
-  </Description>
+    </ModalDescriptionText>
+  </ModalDescriptionContainer>
 );
 
-const Description = styled.section`
+const ModalDescriptionContainer = styled.section`
   width: 100%;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   height: 170px;
   font-size: 14px;
 
@@ -25,9 +26,10 @@ const Description = styled.section`
   }
 `;
 
-const Text = styled.p`
+const ModalDescriptionText = styled.p`
   line-height: 1.2;
-  margin: 10px 0 0 0;
+  margin: 5px 0 0 0;
+  padding: 5px;
 `;
 
-export default ModalDescription;
+export default Description;

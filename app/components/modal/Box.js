@@ -19,19 +19,19 @@ type Props = {
   title: string,
 }
 
-const ModalBox = (props: Props) => {
+const Box = (props: Props) => {
   const { description, closeModal, ...rest } = props;
 
   return (
-    <Box>
+    <ModalBoxContainer>
       <Close closeAction={closeModal} />
       <ModalHeader {...rest} />
       <ModalDescription description={description} />
-    </Box>
+    </ModalBoxContainer>
   );
 };
 
-const Box = styled.div`
+const ModalBoxContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 85%;
@@ -51,4 +51,4 @@ const Box = styled.div`
   }
 `;
 
-export default ModalBox;
+export default Box;
