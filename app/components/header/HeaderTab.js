@@ -18,6 +18,11 @@ const Tab = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  pointer-events: none;
+
+  &:hover {
+    background-color: #4cc984;
+  }
 `;
 
 const Button = styled.button`
@@ -28,10 +33,7 @@ const Button = styled.button`
   color: #edf5e1;
   cursor: pointer;
   font-size: 10px;
-
-  &:hover {
-    color: #4cc984;
-  }
+  pointer-events: auto;
 
   @media only screen and (min-width: 1200px) {
     font-size: 24px;

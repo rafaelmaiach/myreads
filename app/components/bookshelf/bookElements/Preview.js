@@ -16,7 +16,7 @@ const Button = styled.a`
   width: 0;
 
   &:hover {
-    color: #05386b;
+    color: #298954;
   }
 
   @media only screen and (min-width: 1200px) {
