@@ -29,6 +29,7 @@ const ListContainer = styled.div`
   @media only screen and (min-width: 1200px) {
     flex-direction: row;
     flex-wrap: wrap;
+    align-content: flex-start;
     padding: 0 55px 0 55px;
     margin-bottom: 15px;
   }
