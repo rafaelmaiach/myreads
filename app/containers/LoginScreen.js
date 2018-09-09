@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import Loadable from 'react-loadable';
 
 import Loading from 'Components/loading/Loading';
@@ -11,6 +12,12 @@ const LoginFormContainer = Loadable({
 });
 
 const LoginScreen = (props) => {
+  const { userAuthenticated } = sessionStorage;
+
+  if (userAuthenticated) {
+    return <Redirect to="/bookshelf" />;
+  }
+
   setTimeout(() => {
     const form = document.querySelector('.login-container__form');
     form.classList.add('active');
