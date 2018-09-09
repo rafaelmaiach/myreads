@@ -1,8 +1,4 @@
 {
-  "plugins": [
-    "styled-components",
-    "react-loadable/babel"
-  ],
   "presets": [
     [
       "env",
@@ -12,6 +8,13 @@
     ],
     "react",
     "stage-0"
+  ],
+  "plugins": [
+    "react-hot-loader/babel",
+    "styled-components",
+    "react-loadable/babel",
+    "syntax-dynamic-import",
+    "transform-class-properties"
   ],
   "env": {
     "production": {

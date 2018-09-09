@@ -1,7 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {
-  HashRouter,
+  BrowserRouter,
   Route,
   Switch,
   Redirect,
@@ -16,15 +15,13 @@ import SearchScreen from 'Containers/SearchScreen';
 
 import './index.scss';
 
-// TODO: Add Sign out and logic for redirect already signed in
-
 /**
  * @constructor App
  * @description Represents the application's main component.
  * It renders the specific component for each route defined
  */
 const App = () => (
-  <HashRouter>
+  <BrowserRouter>
     <AuthProvider>
       <Switch>
         <Route exact path="/" render={props => <StartScreen {...props} />} />
@@ -34,10 +31,7 @@ const App = () => (
         <Redirect from="*" to="/" />
       </Switch>
     </AuthProvider>
-  </HashRouter>
+  </BrowserRouter>
 );
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root'),
-);
+export default App;
