@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {
-  BrowserRouter,
+  HashRouter,
   Route,
   Switch,
   Redirect,
@@ -24,7 +24,7 @@ import './index.scss';
  * It renders the specific component for each route defined
  */
 const App = () => (
-  <BrowserRouter>
+  <HashRouter>
     <AuthProvider>
       <Switch>
         <Route exact path="/" render={props => <StartScreen {...props} />} />
@@ -34,7 +34,7 @@ const App = () => (
         <Redirect from="*" to="/" />
       </Switch>
     </AuthProvider>
-  </BrowserRouter>
+  </HashRouter>
 );
 
 ReactDOM.render(
