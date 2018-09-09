@@ -8,10 +8,15 @@ import BookshelfBook from 'Components/bookshelf/BookshelfBook';
 type Props = {
   isLoading: boolean,
   booksList: Array<Object>,
+  changeShelfFor: Function,
 }
 
-const BookshelfList = ({ isLoading, booksList }: Props) => {
-  const books = booksList.map(info => <BookshelfBook key={info.id} {...info} />);
+const BookshelfList = ({ isLoading, booksList, changeShelfFor }: Props) => {
+  const books = booksList.map((bookInfo) => {
+    const updateBook = changeShelfFor(bookInfo);
+    return <BookshelfBook key={bookInfo.id} updateBook={updateBook} bookInfo={bookInfo} />;
+  });
+
   return (
     <BookshelfListContainer>
       {isLoading ? <Loading /> : books}

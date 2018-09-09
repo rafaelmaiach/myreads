@@ -24,7 +24,7 @@ const BookshelfHeader = ({ changeShelf, currentShelf }: Props) => {
     },
     {
       shelf: 'read',
-      text: 'Reading',
+      text: 'Read',
       onClick: () => changeShelf('read'),
     },
   ];

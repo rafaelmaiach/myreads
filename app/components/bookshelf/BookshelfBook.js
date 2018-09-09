@@ -6,6 +6,7 @@ import { compose, withState, withHandlers } from 'recompose';
 
 import ModalContainer from 'Components/modal/Container';
 
+import ShelfDropdown from './shelfDropdown/Dropdown';
 import Image from './bookElements/Image';
 import Title from './bookElements/Title';
 import Subtitle from './bookElements/Subtitle';
@@ -19,7 +20,7 @@ type ImageLinks = {
   thumbnail: string,
 }
 
-type Props = {
+type BookProps = {
   authors: Array<string>,
   averageRating: number,
   closeModal: Function,
@@ -33,24 +34,40 @@ type Props = {
   shelf: string,
   subtitle: string,
   title: string,
+  updateBook: Function,
+}
+
+type Props = {
+  closeModal: Function,
+  isModalOpen: boolean,
+  openModal: Function,
+  updateBook: Function,
+  bookInfo: BookProps,
 }
 
 const BookshelfBook = (props: Props) => {
   const {
+    bookInfo: bookInformations,
+  }:BookProps = props;
+
+  const {
+    isModalOpen,
+    closeModal,
+    openModal,
+    updateBook,
+  } = props;
+
+  const {
     authors,
     averageRating,
-    closeModal,
     description,
     imageLinks,
-    isModalOpen,
-    openModal,
     previewLink,
     publisher,
     publishedDate,
-    shelf,
     subtitle,
     title,
-  } = props;
+  } = bookInformations;
 
   const { thumbnail } = imageLinks;
 
@@ -59,6 +76,7 @@ const BookshelfBook = (props: Props) => {
 
   return (
     <BookContainer>
+      <ShelfDropdown book={bookInformations} updateBook={updateBook} />
       {
         isModalOpen && (
           <ModalContainer
@@ -97,6 +115,7 @@ const BookContainer = styled.div`
   height: 230px;
   min-height: 230px;
   max-height: 230px;
+  position: relative;
 
   @media only screen and (min-width: 375px) {
     height: 260px;

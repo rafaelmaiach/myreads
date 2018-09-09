@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 
-import { getAll } from 'Utils/api/BooksAPI';
+import { getAll, update } from 'Utils/api/BooksAPI';
 import { groupBooksByShelf } from 'Utils/helpers';
 
 import GeneralScreen from 'Containers/GeneralScreen';
@@ -42,6 +42,23 @@ class BookshelfScreen extends React.PureComponent<void, State> {
     );
   }
 
+  changeShelfFor = book => (event) => {
+    const { name: shelfToMove } = event.target;
+
+    this.setState(
+      () => ({ isLoading: true }),
+      () => {
+        update(book, shelfToMove)
+          .then(() => {
+            getAll()
+              .then(this.separateBooks)
+              .catch(errorGetAll => console.log(`Error GetAll after update book: ${errorGetAll}`));
+          })
+          .catch(errorUpdate => console.log(`Error Update book: ${errorUpdate}`));
+      }
+    );
+  };
+
   separateBooks = (allBooks) => {
     const separateBooks = groupBooksByShelf(allBooks);
 
@@ -62,6 +79,7 @@ class BookshelfScreen extends React.PureComponent<void, State> {
         <BookshelfList
           isLoading={isLoading}
           booksList={shelfToRender}
+          changeShelfFor={this.changeShelfFor}
         />
       </GeneralScreen>
     );
