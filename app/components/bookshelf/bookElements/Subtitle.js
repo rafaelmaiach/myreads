@@ -12,6 +12,7 @@ const Subtitle = ({ subtitleText }: string) => (
 const BookSubtitleContainer = styled.h3`
   font-size: 10px;
   font-weight: normal;
+  width: 89%;
 
   @media only screen and (min-width: 375px) {
     font-size: 12px;

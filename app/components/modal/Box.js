@@ -34,10 +34,10 @@ const Box = (props: Props) => {
 const ModalBoxContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 85%;
-  height: 55%;
-  min-height: 55%;
-  max-height: 55%;
+  width: 95%;
+  height: 60%;
+  min-height: 60%;
+  max-height: 60%;
   background-color: white;
   border-radius: 5px;
   padding: 15px;
@@ -45,9 +45,9 @@ const ModalBoxContainer = styled.div`
 
   @media only screen and (min-width: 1200px) {
     width: 50%;
-    height: 60%;
-    min-height: 60%;
-    max-height: 60%;
+    height: 65%;
+    min-height: 65%;
+    max-height: 65%;
   }
 `;
 

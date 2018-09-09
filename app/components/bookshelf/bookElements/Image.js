@@ -22,18 +22,18 @@ Image.defaultProps = {
 
 const BookImageContainer = styled.div`
   position: relative;
-  width: ${({ isModal }) => !isModal ? '80px' : '60px'};
-  height: ${({ isModal }) => !isModal ? '110px' : '90px'};
+  width: ${({ isModal }) => !isModal ? '70px' : '60px'};
+  height: ${({ isModal }) => !isModal ? '100px' : '90px'};
   margin-right: 10px;
 
   @media only screen and (min-width: 375px) {
-    width: ${({ isModal }) => !isModal ? '100px' : '80px'};
-    height: ${({ isModal }) => !isModal ? '130px' : '110px'};
+    width: ${({ isModal }) => !isModal ? '80px' : '80px'};
+    height: ${({ isModal }) => !isModal ? '110px' : '110px'};
   }
 
   @media only screen and (min-width: 1200px) {
-    width: ${({ isModal }) => !isModal ? '150px' : '140px'};
-    height: ${({ isModal }) => !isModal ? '200px' : '170px'};
+    width: ${({ isModal }) => !isModal ? '120px' : '140px'};
+    height: ${({ isModal }) => !isModal ? '170px' : '170px'};
     margin-right: 15px;
   }
 `;

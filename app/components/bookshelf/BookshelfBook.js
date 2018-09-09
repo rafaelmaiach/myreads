@@ -72,7 +72,7 @@ const BookshelfBook = (props: Props) => {
   const { thumbnail } = imageLinks;
 
   const authorsNames = authors.length ? `by: ${authors.join(' and ')}` : 'Author not found';
-  const descriptionReduced = `${description.split(' ').slice(0, 35).join(' ')}...`;
+  const descriptionReduced = `${description.split(' ').slice(0, 25).join(' ')}...`;
 
   return (
     <BookContainer>
@@ -108,36 +108,37 @@ const BookshelfBook = (props: Props) => {
 
 const BookContainer = styled.div`
   display: flex;
-  margin: 15px 15px 0 15px;
-  padding: 15px 20px 15px 15px;
+  margin: 10px 10px 0 10px;
+  padding: 10px;
   background-color: rgba(255, 255, 255, 0.85);
-  width: 90%;
-  height: 230px;
-  min-height: 230px;
-  max-height: 230px;
+  width: 95%;
+  height: 180px;
+  min-height: 180px;
+  max-height: 180px;
   position: relative;
 
   @media only screen and (min-width: 375px) {
-    height: 260px;
-    min-height: 260px;
-    max-height: 260px;
+    height: 210px;
+    min-height: 210px;
+    max-height: 210px;
   }
 
   @media only screen and (min-width: 1200px) {
     width: 45%;
-    height: 250px;
-    min-height: 250px;
-    max-height: 250px;
+    height: 200px;
+    min-height: 200px;
+    max-height: 200px;
   }
 `;
 
 const BookInformation = styled.div`
   display: flex;
   flex-direction: column;
-  width: 65%;
+  width: 70%;
   height: 100%;
   color: #05386b;
   position: relative;
+  justify-content: space-between;
 `;
 
 export default compose(

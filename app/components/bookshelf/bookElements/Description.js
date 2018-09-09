@@ -12,6 +12,7 @@ const Description = ({ descriptionReduced }: string) => (
 const BookDescriptionContainer = styled.p`
   font-size: 10px;
   margin: 0;
+  height: 45%;
 
   @media only screen and (min-width: 375px) {
     font-size: 12px;

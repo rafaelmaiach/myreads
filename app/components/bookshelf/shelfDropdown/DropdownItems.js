@@ -48,7 +48,7 @@ const DropdownItems = ({ book, updateBook }: Props) => {
 const ShelfDropdownItems = styled.div`
   display: none;
   position: absolute;
-  min-width: 135px;
+  min-width: 115px;
   overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
@@ -57,9 +57,14 @@ const ShelfDropdownItems = styled.div`
   margin-top: 5px;
   background-color: #05386b;
   color: #edf5e1;
+  padding: 5px;
 
   &.showDropdown {
     display: block;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    min-width: 145px;
   }
 `;
 
@@ -68,7 +73,7 @@ const ShelfDropdownItem = styled.button`
   border: none;
   display: block;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 10px;
   padding: 7px;
   margin: 0;
   width: 100%;
@@ -77,6 +82,10 @@ const ShelfDropdownItem = styled.button`
 
   &:hover {
     background-color: #4cc984;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    font-size: 14px;
   }
 `;
 

@@ -21,6 +21,7 @@ Title.defaultProps = {
 const BookTitleContainer = styled.h1`
   font-size: ${({ isModal }) => !isModal ? '14px' : '12px'};
   font-weight: bold;
+  width: 89%;
 
   @media only screen and (min-width: 1200px) {
     font-size: 18px;

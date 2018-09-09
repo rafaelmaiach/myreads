@@ -29,9 +29,15 @@ const ShelfDropdownContainer = styled.div`
   position: absolute;
   display: inline-block;
   top: 5px;
-  right: 15px;
-  width: 35px;
-  height: 35px;
+  right: 5px;
+  width: 25px;
+  height: 25px;
+
+  @media only screen and (min-width: 1200px) {
+    right: 15px;
+    width: 35px;
+    height: 35px;
+  }
 `;
 
 const ShelfDropdownButton = styled.button`
@@ -41,10 +47,18 @@ const ShelfDropdownButton = styled.button`
   background-color: #05386b;
   color: #edf5e1;
   padding-bottom: 25%;
-  font-size: 18px;
+  font-size: 13px;
   cursor: pointer;
   width: 100%;
   height: 100%;
+
+  &:hover {
+    background-color: #4cc984;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    font-size: 18px;
+  }
 `;
 
 export default Dropdown;
