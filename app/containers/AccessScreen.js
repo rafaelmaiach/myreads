@@ -1,4 +1,5 @@
-import React from 'react';
+// @flow
+import * as React from 'react';
 import { Redirect } from 'react-router-dom';
 import Loadable from 'react-loadable';
 
@@ -6,12 +7,12 @@ import Loading from 'Components/loading/Loading';
 
 import AuthorQuotes from 'Components/access/AuthorQuotes';
 
-const LoginFormContainer = Loadable({
+const AccessFormContainer = Loadable({
   loader: () => import(/* webpackChunkName: 'accessFormContainer' */ 'Components/access/FormContainer'),
   loading: Loading,
 });
 
-const LoginScreen = (props) => {
+const AccessScreen = () => {
   const { userAuthenticated } = sessionStorage;
 
   if (userAuthenticated) {
@@ -33,7 +34,7 @@ const LoginScreen = (props) => {
         </div>
         <div className="login-container__form__fields">
           <div className="fields__box">
-            <LoginFormContainer {...props} />
+            <AccessFormContainer />
           </div>
         </div>
       </section>
@@ -41,4 +42,4 @@ const LoginScreen = (props) => {
   );
 };
 
-export default LoginScreen;
+export default AccessScreen;

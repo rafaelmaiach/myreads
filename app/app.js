@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  BrowserRouter,
+  HashRouter,
   Route,
   Switch,
   Redirect,
@@ -9,7 +9,7 @@ import {
 import { AuthProvider } from 'Components/control/AuthContext';
 import ProtectedRoute from 'Components/control/ProtectedRoute';
 import StartScreen from 'Containers/StartScreen';
-import LoginScreen from 'Containers/LoginScreen';
+import AccessScreen from 'Containers/AccessScreen';
 import BookshelfScreen from 'Containers/BookshelfScreen';
 import SearchScreen from 'Containers/SearchScreen';
 
@@ -21,17 +21,17 @@ import './index.scss';
  * It renders the specific component for each route defined
  */
 const App = () => (
-  <BrowserRouter>
+  <HashRouter>
     <AuthProvider>
       <Switch>
         <Route exact path="/" render={props => <StartScreen {...props} />} />
-        <Route path="/auth" render={props => <LoginScreen {...props} />} />
+        <Route path="/auth" component={AccessScreen} />
         <ProtectedRoute path="/bookshelf" component={BookshelfScreen} />
         <ProtectedRoute path="/search" component={SearchScreen} />
         <Redirect from="*" to="/" />
       </Switch>
     </AuthProvider>
-  </BrowserRouter>
+  </HashRouter>
 );
 
 export default App;

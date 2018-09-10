@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react';
+import withRouter from 'react-router-dom/withRouter';
 
 import { AuthConsumer } from 'Components/control/AuthContext';
 
@@ -119,4 +120,4 @@ class LoginFormContainer extends React.PureComponent<void, State> {
   }
 }
 
-export default LoginFormContainer;
+export default withRouter(LoginFormContainer);
