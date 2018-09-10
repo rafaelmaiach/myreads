@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import styled from 'styled-components';
+import sortBy from 'sort-by';
 
 import Loading from 'Components/loading/Loading';
 import BookshelfBook from 'Components/bookshelf/BookshelfBook';
@@ -17,9 +18,11 @@ const BookshelfList = ({ isLoading, booksList, changeShelfFor }: Props) => {
     return <BookshelfBook key={bookInfo.id} updateBook={updateBook} bookInfo={bookInfo} />;
   });
 
+  const sortedBooks = books.sort(sortBy('props.bookInfo.title'));
+
   return (
     <BookshelfListContainer>
-      {isLoading ? <Loading /> : books}
+      {isLoading ? <Loading /> : sortedBooks}
     </BookshelfListContainer>
   );
 };
