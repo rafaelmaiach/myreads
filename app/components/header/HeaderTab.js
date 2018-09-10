@@ -3,6 +3,8 @@ import * as React from 'react';
 import styled from 'styled-components';
 import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
+import HeaderTabButton from './HeaderTabButton';
+
 type TabProps = {
   text: string,
   active: boolean,
@@ -11,7 +13,7 @@ type TabProps = {
 
 const HeaderTab = ({ active, text, onClick }: TabProps) => (
   <Tab active={active}>
-    <Button type="button" onClick={onClick}>{text}</Button>
+    <HeaderTabButton onClick={onClick} text={text} />
   </Tab>
 );
 
@@ -31,20 +33,4 @@ const Tab = styled.div`
   }
 `;
 
-const Button = styled.button`
-  -webkit-appearance: none;
-  border: none;
-  background: none;
-  font-weight: 600;
-  color: #edf5e1;
-  cursor: pointer;
-  font-size: 10px;
-  pointer-events: auto;
-  padding: 0 10px;
-
-  @media only screen and (min-width: 1200px) {
-    font-size: 24px;
-  }
-`;
-
-export default onlyUpdateForKeys(['text', 'active'])(HeaderTab);
+export default onlyUpdateForKeys(['active'])(HeaderTab);

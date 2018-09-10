@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import styled from 'styled-components';
+import shouldUpdate from 'recompose/shouldUpdate';
 
 const Close = ({ closeAction }: Function) => (
   <CloseButton
@@ -34,4 +35,4 @@ const CloseButton = styled.button`
   }
 `;
 
-export default Close;
+export default shouldUpdate(() => false)(Close);

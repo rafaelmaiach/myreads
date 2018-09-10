@@ -1,20 +1,18 @@
 // @flow
 import * as React from 'react';
 import styled from 'styled-components';
-import withRouter from 'react-router-dom/withRouter';
+import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
 import Header from 'Components/header/Header';
 import HeaderTab from 'Components/header/HeaderTab';
-
-import SearchIcon from 'Assets/icons/search.svg';
+import HeaderSearchIcon from 'Components/header/HeaderSearchIcon';
 
 type Props = {
   changeShelf: Function,
   currentShelf: string,
-  history: Function,
 }
 
-const BookshelfHeader = ({ changeShelf, currentShelf, history }: Props) => {
+const BookshelfHeader = ({ changeShelf, currentShelf }: Props) => {
   const shelfsTab = [
     {
       shelf: 'currentlyReading',
@@ -41,18 +39,12 @@ const BookshelfHeader = ({ changeShelf, currentShelf, history }: Props) => {
       onClick={onClick}
     />));
 
-  const goToSearchPage = () => {
-    history.push('/search');
-  };
-
   return (
     <Header>
       <BookshelfHeaderTabs>
         {headerTabs}
       </BookshelfHeaderTabs>
-      <BookshelfHeaderSearchIconContainer>
-        <BookshelfHeaderSearchIcon src={SearchIcon} onClick={goToSearchPage} />
-      </BookshelfHeaderSearchIconContainer>
+      <HeaderSearchIcon />
     </Header>
   );
 };
@@ -64,24 +56,4 @@ const BookshelfHeaderTabs = styled.div`
   padding-left: 10px;
 `;
 
-const BookshelfHeaderSearchIconContainer = styled.div`
-  display: flex;
-  width: 10%;
-  min-height: 100%;
-  justify-content: center;
-  align-items: center;
-  pointer-events: none;
-
-  &:hover {
-    background-color: #4cc984;
-  }
-`;
-
-const BookshelfHeaderSearchIcon = styled.img`
-  width: 70%;
-  height: 70%;
-  pointer-events: auto;
-  cursor: pointer;
-`;
-
-export default withRouter(BookshelfHeader);
+export default onlyUpdateForKeys(['currentShelf'])(BookshelfHeader);

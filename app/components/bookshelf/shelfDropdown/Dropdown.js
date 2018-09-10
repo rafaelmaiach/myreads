@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import styled from 'styled-components';
+import shouldUpdate from 'recompose/shouldUpdate';
 
 import DropdownItems from './DropdownItems';
 type Props = {
@@ -61,4 +62,4 @@ const ShelfDropdownButton = styled.button`
   }
 `;
 
-export default Dropdown;
+export default shouldUpdate(() => false)(Dropdown);
