@@ -5,6 +5,7 @@ import { AppContainer } from 'react-hot-loader';
 import App from './Application';
 
 const nodeEnv = process.env.NODE_ENV;
+const isDevEnv = nodeEnv === 'development';
 
 const renderApp = Component => render(
   <AppContainer>
@@ -16,7 +17,13 @@ const renderApp = Component => render(
 renderApp(App);
 
 // Webpack Hot Module Replacement API
-if (nodeEnv === 'development') {
+if (isDevEnv && module.hot) {
+  module.hot.accept('./Application', () => {
+    renderApp(App);
+  });
+}
+
+if (isDevEnv) {
   const { whyDidYouUpdate } = require('why-did-you-update'); // eslint-disable-line
   whyDidYouUpdate(React, {
     exclude: [
@@ -25,10 +32,4 @@ if (nodeEnv === 'development') {
       /^AuthProvider/,
     ],
   });
-
-  if (module.hot) {
-    module.hot.accept('./Application', () => {
-      renderApp(App);
-    });
-  }
 }
