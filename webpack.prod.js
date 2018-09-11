@@ -41,6 +41,8 @@ module.exports = {
   mode: 'production',
   entry: {
     react: ['react', 'react-dom', 'react-router-dom'],
+    recompose: ['recompose'],
+    styled: ['styled-components'],
     app: './app/index.js',
   },
   output: {
