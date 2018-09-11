@@ -69,10 +69,15 @@ const BookshelfBook = (props: Props) => {
     title,
   } = bookInformations;
 
-  const { thumbnail } = imageLinks;
+  const thumbnail = imageLinks ? imageLinks.thumbnail : null;
 
-  const authorsNames = authors.length ? `by: ${authors.join(' and ')}` : 'Author not found';
-  const descriptionReduced = `${description.split(' ').slice(0, 25).join(' ')}...`;
+  let authorsNames = 'Author not found';
+
+  if (authors && authors.length) {
+    authorsNames = `by: ${authors.join(' and ')}`;
+  }
+
+  const descriptionReduced = description ? `${description.split(' ').slice(0, 25).join(' ')}...` : '';
 
   return (
     <BookContainer>

@@ -15,7 +15,7 @@ const HeaderContainer = styled.header`
   max-height: 40px;
   min-height: 40px;
 
-  @media only screen and (min-width: 1024px) {
+  @media only screen and (min-width: 768px) {
     max-height: 90px;
     min-height: 90px;
   }

@@ -2,7 +2,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import DebounceInput from './DebounceInput';
+import DebounceInput from 'Components/common/DebounceInput';
 
 type Type = 'text' | 'password'
 

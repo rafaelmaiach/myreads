@@ -62,4 +62,9 @@ const ShelfDropdownButton = styled.button`
   }
 `;
 
-export default shouldUpdate(() => false)(Dropdown);
+const shouldComponentUpdate = (props, nextProps) => {
+  const { shelf } = props.book;
+  return shelf !== nextProps.book.shelf;
+};
+
+export default shouldUpdate(shouldComponentUpdate)(Dropdown);
