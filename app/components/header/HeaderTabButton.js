@@ -6,10 +6,11 @@ import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 type Props = {
   onClick: Function,
   text: string,
+  active: boolean,
 }
 
-const HeaderTabButton = ({ onClick, text }: Props) => (
-  <Button type="button" onClick={onClick}>
+const HeaderTabButton = ({ active, onClick, text }: Props) => (
+  <Button active={active} type="button" onClick={onClick}>
     {text}
   </Button>
 );
