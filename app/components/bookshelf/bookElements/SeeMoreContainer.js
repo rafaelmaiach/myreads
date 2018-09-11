@@ -6,7 +6,7 @@ import shouldUpdate from 'recompose/shouldUpdate';
 const SeeMoreContainer = ({ openModal }: Function) => (
   <BookSeeMoreContainer>
     <BookSeeMoreButton onClick={openModal}>
-      See more
+      SEE MORE
     </BookSeeMoreButton>
   </BookSeeMoreContainer>
 );
@@ -29,11 +29,11 @@ const BookSeeMoreButton = styled.button`
   font-size: 12px;
   background: none;
   cursor: pointer;
-  color: #4cc984;
+  color: #298954;
   font-weight: 600;
 
   &:hover {
-    color: #298954;
+    color: #4cc984;
   }
 
   @media only screen and (min-width: 1200px) {

@@ -22,7 +22,7 @@ const BackButtonContainer = styled.div`
   align-items: center;
 
   @media only screen and (min-width: 1024px) {
-    width: 7%;
+    width: 10%;
   }
 `;
 
@@ -37,7 +37,7 @@ const BackButton = styled.button`
 
   @media only screen and (min-width: 1024px) {
     font-size: 70px;
-    padding: 0 0 20px 0;
+    padding-left: 0 0 20px 0;
   }
 
   &:hover {

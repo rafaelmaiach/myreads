@@ -22,10 +22,6 @@ const SearchInputContainer = styled.div`
   align-items: center;
   padding-left: 20px;
 
-  @media only screen and (min-width: 1024px) {
-    padding-left: 50px;
-  }
-
   & input {
     background: none;
     border: none;

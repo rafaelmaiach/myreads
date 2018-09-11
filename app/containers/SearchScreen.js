@@ -9,9 +9,8 @@ import GeneralScreen from 'Containers/GeneralScreen';
 import Header from 'Components/header/Header';
 import BackButton from 'Components/search/BackButton';
 import SearchInput from 'Components/search/SearchInput';
-import EmptySearch from 'Components/search/EmptySearch';
-import BookshelfList from 'Components/bookshelf/BookshelfList';
-
+import SearchPageContent from 'Components/search/SearchPageContent';
+import Loading from 'Components/loading/Loading';
 import searchPageImage from 'Assets/images/search_page.jpg';
 
 type State = {
@@ -176,15 +175,17 @@ class SearchScreen extends React.Component<void, State> {
           <BackButton />
           <SearchInput textHasChanged={this.searchTextHasChanged} />
         </Header>
-        {bookListNotEmpty && isLoading === false
-          ? (
-            <BookshelfList
+        {isLoading && !isUpdatingBook
+          ? <Loading />
+          : (
+            <SearchPageContent
+              bookListNotEmpty={bookListNotEmpty}
               isLoading={isLoading}
               booksList={booksList}
               changeShelfFor={this.changeShelfFor}
-            />
-          )
-          : <EmptySearch dirty={dirty} isUpdatingBook={isUpdatingBook} />
+              dirty={dirty}
+              isUpdatingBook={isUpdatingBook}
+            />)
         }
       </GeneralScreen>
     );

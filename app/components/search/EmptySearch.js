@@ -59,10 +59,15 @@ const SearchTermsContainer = styled.div`
 `;
 
 const SearchIsUpdatingBook = styled.span`
-  width: 50%;
+  width: 100%;
   text-align: center;
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 800;
+
+  @media only screen and (min-width: 1024px) {
+    width: 50%;
+    font-size: 26px;
+  }
 `;
 
 const NoBooksFoundText = styled.span`
