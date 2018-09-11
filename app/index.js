@@ -23,13 +23,13 @@ if (isDevEnv && module.hot) {
   });
 }
 
-if (isDevEnv) {
-  const { whyDidYouUpdate } = require('why-did-you-update'); // eslint-disable-line
-  whyDidYouUpdate(React, {
-    exclude: [
-      /^Route/,
-      /^Switch/,
-      /^AuthProvider/,
-    ],
-  });
-}
+// if (isDevEnv) {
+//   const { whyDidYouUpdate } = require('why-did-you-update'); // eslint-disable-line
+//   whyDidYouUpdate(React, {
+//     exclude: [
+//       /^Route/,
+//       /^Switch/,
+//       /^AuthProvider/,
+//     ],
+//   });
+// }
