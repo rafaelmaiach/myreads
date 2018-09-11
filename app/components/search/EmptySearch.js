@@ -50,8 +50,12 @@ const SearchTermsContainer = styled.div`
     flex-direction: column;
     align-items: center;
     background: rgba(255,255,255,0.8);
-    padding: 20px 30px;
+    padding: 20px 15px;
     color: #05386b;
+
+    @media only screen and (min-width: 1024px) {
+      padding: 20px 30px;
+    }
 `;
 
 const SearchIsUpdatingBook = styled.span`
@@ -62,26 +66,42 @@ const SearchIsUpdatingBook = styled.span`
 `;
 
 const NoBooksFoundText = styled.span`
-  width: 50%;
+  width: 100%;
+  font-size: 22px;
   text-align: center;
-  font-size: 26px;
   padding-bottom: 15px;
   font-weight: 800;
+  color: #4cc984;
+
+  @media only screen and (min-width: 1024px) {
+    width: 50%;
+    font-size: 26px;
+  }
 `;
 
 const SearchTermsTitle = styled.span`
-  width: 50%;
+  width: 100%;
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
+
+  @media only screen and (min-width: 1024px) {
+    width: 50%;
+    font-size: 18px;
+  }
 `;
 
 const SearchTerms = styled.p`
   width: 100%;
   display: flex;
+  font-size: 12px;
   line-height: 1.5;
   text-align: center;
   padding: 0;
+
+  @media only screen and (min-width: 1024px) {
+    font-size: 16px;
+  }
 `;
 
 export default EmptySearch;
