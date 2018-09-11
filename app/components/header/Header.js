@@ -1,7 +1,6 @@
 // @flow
 import * as React from 'react';
 import styled from 'styled-components';
-import shouldUpdate from 'recompose/shouldUpdate';
 
 const Header = ({ children }: React.Node) => (
   <HeaderContainer>
@@ -22,4 +21,4 @@ const HeaderContainer = styled.header`
   }
 `;
 
-export default shouldUpdate(() => false)(Header);
+export default Header;
