@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import styled from 'styled-components';
+import shouldUpdate from 'recompose/shouldUpdate';
 import DebounceInput from 'Components/common/DebounceInput';
 
 const SearchInput = ({ textHasChanged }: { textHasChanged: Function }) => (
@@ -37,4 +38,4 @@ const SearchInputContainer = styled.div`
   }
 `;
 
-export default SearchInput;
+export default shouldUpdate(() => false)(SearchInput);

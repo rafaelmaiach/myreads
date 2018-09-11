@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import styled from 'styled-components';
+import shouldUpdate from 'recompose/shouldUpdate';
 import withRouter from 'react-router-dom/withRouter';
 
 const BackButtonComponent = ({ history }: { history: Function }) => {
@@ -46,4 +47,4 @@ const BackButton = styled.button`
   }
 `;
 
-export default withRouter(BackButtonComponent);
+export default shouldUpdate(() => false)(withRouter(BackButtonComponent));

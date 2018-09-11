@@ -61,22 +61,29 @@ class SearchScreen extends React.Component<void, State> {
   }
 
   searchTextHasChanged = (value) => {
-    this.setState(
-      () => ({
-        isLoading: true,
-        searchInputText: value,
-      }), this.searchCallback
-    );
+    if (value.trim()) {
+      this.setState(
+        () => ({
+          isLoading: true,
+          searchInputText: value,
+        }), this.searchCallback
+      );
+    } else {
+      this.setState(() => ({
+        isLoading: false,
+        isUpdatingBook: false,
+        dirty: false,
+        booksList: [],
+      }));
+    }
   }
 
   searchCallback = () => {
     const { searchInputText } = this.state;
 
-    if (searchInputText.trim()) {
-      search(searchInputText)
-        .then(this.getBooksFromResponse)
-        .catch(this.getErrorFromResponse);
-    }
+    search(searchInputText)
+      .then(this.getBooksFromResponse)
+      .catch(this.getErrorFromResponse);
   }
 
   getBooksFromResponse = (response) => {
