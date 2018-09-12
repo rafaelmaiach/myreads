@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import styled from 'styled-components';
+import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
 type Props = {
   shelf?: string,
@@ -36,4 +37,4 @@ const CurrentShelfTagContainer = styled.span`
   }
 `;
 
-export default CurrentShelfTag;
+export default onlyUpdateForKeys(['shelf'])(CurrentShelfTag);

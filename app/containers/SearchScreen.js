@@ -140,9 +140,9 @@ class SearchScreen extends React.Component<void, State> {
         read: updatedRead,
       } = responseUpdate;
 
-      crBooks = Array.from(new Set([...crBooks, ...updatedCurrentlyReading]));
-      wtrBooks = Array.from(new Set([...wtrBooks, ...updatedWantToRead]));
-      rBooks = Array.from(new Set([...rBooks, ...updatedRead]));
+      crBooks = [...updatedCurrentlyReading];
+      wtrBooks = [...updatedWantToRead];
+      rBooks = [...updatedRead];
     }
 
     const booksListUpdated = booksList.map((book) => {

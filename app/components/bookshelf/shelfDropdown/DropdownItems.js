@@ -43,6 +43,9 @@ const DropdownItems = ({ book, updateBook, removeBook }: Props) => {
 
   return (
     <ShelfDropdownItems id={id}>
+      <ShelfDropDownText>
+        Move to...
+      </ShelfDropDownText>
       {dropdownItems}
       {shelf && (
         <ShelfDropdownRemoveItem name="none" onClick={removeBook}>
@@ -92,8 +95,23 @@ const ShelfDropdownItem = styled.button`
     background-color: #4cc984;
   }
 
-  @media only screen and (min-width: 1200px) {
+  @media only screen and (min-width: 1024px) {
     font-size: 14px;
+  }
+`;
+
+const ShelfDropDownText = styled(ShelfDropdownItem)`
+  color: #cecece;
+  margin-bottom: 5px;
+  cursor: default;
+  font-size: 8px;
+
+  &:hover {
+    background-color: transparent;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    font-size: 12px;
   }
 `;
 
