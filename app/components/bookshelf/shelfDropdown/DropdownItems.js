@@ -49,7 +49,7 @@ const DropdownItems = ({ book, updateBook, removeBook }: Props) => {
         {shelf || 'None'}
       </ShelfDropdownCurrentShelf>
       <ShelfDropdownMoveTo>
-        Move to...
+        Move to:
       </ShelfDropdownMoveTo>
       {dropdownItems}
       {shelf && (

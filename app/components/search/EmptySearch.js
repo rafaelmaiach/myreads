@@ -5,40 +5,25 @@ import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
 type Props = {
   dirty: boolean,
-  isUpdatingBook: boolean,
 }
 
-const EmptySearch = ({ dirty, isUpdatingBook }: Props) => {
-  if (isUpdatingBook) {
-    return (
-      <EmptySearchContainer>
-        <SearchTermsContainer>
-          <SearchIsUpdatingBook>
-            Updating Book...
-          </SearchIsUpdatingBook>
-        </SearchTermsContainer>
-      </EmptySearchContainer>
-    );
-  }
-
-  return (
-    <EmptySearchContainer>
-      <SearchTermsContainer>
-        {dirty && (
-          <NoBooksFoundText>
-            No books were found
-          </NoBooksFoundText>)
-        }
-        <SearchTermsTitle>
-          Some available search terms:
-        </SearchTermsTitle>
-        <SearchTerms>
-          'Android', 'Art', 'Artificial Intelligence', 'Astronomy', 'Austen', 'Baseball', 'Basketball', 'Bhagat', 'Biography', 'Brief', 'Business', 'Camus', 'Cervantes', 'Christie', 'Classics', 'Comics', 'Cook', 'Cricket', 'Cycling', 'Desai', 'Design', 'Development', 'Digital Marketing', 'Drama', 'Drawing', 'Dumas', 'Education', 'Everything', 'Fantasy', 'Film', 'Finance', 'First', 'Fitness', 'Football', 'Future', 'Games', 'Gandhi', 'Homer', 'Horror', 'Hugo', 'Ibsen', 'Journey', 'Kafka', 'King', 'Lahiri', 'Larsson', 'Learn', 'Literary Fiction', 'Make', 'Manage', 'Marquez', 'Money', 'Mystery', 'Negotiate', 'Painting', 'Philosophy', 'Photography', 'Poetry', 'Production', 'Programming', 'React', 'Redux', 'River', 'Robotics', 'Rowling', 'Satire', 'Science Fiction', 'Shakespeare', 'Singh', 'Swimming', 'Tale', 'Thrun', 'Time', 'Tolstoy', 'Travel', 'Ultimate', 'Virtual Reality', 'Web Development', 'iOS'
-        </SearchTerms>
-      </SearchTermsContainer>
-    </EmptySearchContainer>
-  );
-};
+const EmptySearch = ({ dirty }: Props) => (
+  <EmptySearchContainer>
+    <SearchTermsContainer>
+      {dirty && (
+        <NoBooksFoundText>
+          No books were found
+        </NoBooksFoundText>)
+      }
+      <SearchTermsTitle>
+        Some available search terms:
+      </SearchTermsTitle>
+      <SearchTerms>
+        'Android', 'Art', 'Artificial Intelligence', 'Astronomy', 'Austen', 'Baseball', 'Basketball', 'Bhagat', 'Biography', 'Brief', 'Business', 'Camus', 'Cervantes', 'Christie', 'Classics', 'Comics', 'Cook', 'Cricket', 'Cycling', 'Desai', 'Design', 'Development', 'Digital Marketing', 'Drama', 'Drawing', 'Dumas', 'Education', 'Everything', 'Fantasy', 'Film', 'Finance', 'First', 'Fitness', 'Football', 'Future', 'Games', 'Gandhi', 'Homer', 'Horror', 'Hugo', 'Ibsen', 'Journey', 'Kafka', 'King', 'Lahiri', 'Larsson', 'Learn', 'Literary Fiction', 'Make', 'Manage', 'Marquez', 'Money', 'Mystery', 'Negotiate', 'Painting', 'Philosophy', 'Photography', 'Poetry', 'Production', 'Programming', 'React', 'Redux', 'River', 'Robotics', 'Rowling', 'Satire', 'Science Fiction', 'Shakespeare', 'Singh', 'Swimming', 'Tale', 'Thrun', 'Time', 'Tolstoy', 'Travel', 'Ultimate', 'Virtual Reality', 'Web Development', 'iOS'
+      </SearchTerms>
+    </SearchTermsContainer>
+  </EmptySearchContainer>
+);
 
 const EmptySearchContainer = styled.div`
   width: 100%;
@@ -57,18 +42,6 @@ const SearchTermsContainer = styled.div`
     @media only screen and (min-width: 1025px) {
       padding: 20px 30px;
     }
-`;
-
-const SearchIsUpdatingBook = styled.span`
-  width: 100%;
-  text-align: center;
-  font-size: 24px;
-  font-weight: 800;
-
-  @media only screen and (min-width: 1025px) {
-    width: 50%;
-    font-size: 26px;
-  }
 `;
 
 const NoBooksFoundText = styled.span`
@@ -110,4 +83,4 @@ const SearchTerms = styled.p`
   }
 `;
 
-export default onlyUpdateForKeys(['dirty', 'isUpdatingBook'])(EmptySearch);
+export default onlyUpdateForKeys(['dirty'])(EmptySearch);

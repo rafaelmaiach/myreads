@@ -28,7 +28,6 @@ class SearchScreen extends React.Component<void, State> {
     booksList: [],
     searchInputText: '',
     dirty: false,
-    isUpdatingBook: false,
     allBooks: {
       currentlyReading: [],
       wantToRead: [],
@@ -98,6 +97,7 @@ class SearchScreen extends React.Component<void, State> {
     }
 
     this.setState(() => ({
+      isLoading: false,
       booksList: [...response],
       dirty: true,
     }), this.updateShelfForBooks);
@@ -115,23 +115,18 @@ class SearchScreen extends React.Component<void, State> {
       book.shelf = undefined; // eslint-disable-line
     }
 
-    this.setState(
-      () => ({ isLoading: true, isUpdatingBook: true }),
-      () => {
-        update(book, shelfToMove)
-          .then(this.updateShelfForBooks)
-          .catch(errorUpdate => console.log(`Error Update book on Search: ${errorUpdate.message}`));
-      }
-    );
+    update(book, shelfToMove)
+      .then(this.updateShelfForBooks)
+      .catch(errorUpdate => console.log(`Error Update book on Search: ${errorUpdate.message}`));
   };
 
   updateShelfForBooks = (responseUpdate = null) => {
     const { booksList, allBooks } = this.state;
     const { currentlyReading, wantToRead, read } = allBooks;
 
-    let crBooks = [...currentlyReading];
-    let wtrBooks = [...wantToRead];
-    let rBooks = [...read];
+    let crBooks = currentlyReading;
+    let wtrBooks = wantToRead;
+    let rBooks = read;
 
     if (responseUpdate) {
       const {
@@ -140,9 +135,9 @@ class SearchScreen extends React.Component<void, State> {
         read: updatedRead,
       } = responseUpdate;
 
-      crBooks = [...updatedCurrentlyReading];
-      wtrBooks = [...updatedWantToRead];
-      rBooks = [...updatedRead];
+      crBooks = updatedCurrentlyReading;
+      wtrBooks = updatedWantToRead;
+      rBooks = updatedRead;
     }
 
     const booksListUpdated = booksList.map((book) => {
@@ -163,11 +158,7 @@ class SearchScreen extends React.Component<void, State> {
       return bookUpdated;
     });
 
-    this.setState(() => ({
-      isLoading: false,
-      isUpdatingBook: false,
-      booksList: booksListUpdated,
-    }));
+    this.setState(() => ({ booksList: booksListUpdated }));
   }
 
   render() {
@@ -175,7 +166,6 @@ class SearchScreen extends React.Component<void, State> {
       isLoading,
       booksList,
       dirty,
-      isUpdatingBook,
     } = this.state;
 
     const bookListNotEmpty = booksList.length !== 0;
@@ -186,7 +176,7 @@ class SearchScreen extends React.Component<void, State> {
           <BackButton />
           <SearchInput textHasChanged={this.searchTextHasChanged} />
         </Header>
-        {isLoading && !isUpdatingBook
+        {isLoading
           ? <Loading />
           : (
             <SearchPageContent
@@ -195,7 +185,6 @@ class SearchScreen extends React.Component<void, State> {
               booksList={booksList}
               changeShelfFor={this.changeShelfFor}
               dirty={dirty}
-              isUpdatingBook={isUpdatingBook}
             />)
         }
       </GeneralScreen>
@@ -203,6 +192,6 @@ class SearchScreen extends React.Component<void, State> {
   }
 }
 
-const keys = ['isLoading', 'searchInputText', 'dirty', 'isUpdatingBook'];
+const keys = ['isLoading', 'searchInputText', 'dirty'];
 
 export default onlyUpdateForKeys(keys)(SearchScreen);
