@@ -23,12 +23,13 @@ const SearchScreenContent = (props: Props) => {
     isUpdatingBook,
   } = props;
 
-  if (bookListNotEmpty && isLoading === false) {
+  if (bookListNotEmpty && !isLoading) {
     return (
       <BookshelfList
         isLoading={isLoading}
         booksList={booksList}
         changeShelfFor={changeShelfFor}
+        isSearchPage
       />
     );
   }

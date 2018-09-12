@@ -2,7 +2,7 @@
 import * as React from 'react';
 import withRouter from 'react-router-dom/withRouter';
 import styled from 'styled-components';
-import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
+import shouldUpdate from 'recompose/shouldUpdate';
 
 import SearchIcon from 'Assets/icons/search.svg';
 
@@ -39,4 +39,4 @@ const BookshelfHeaderSearchIcon = styled.img`
   cursor: pointer;
 `;
 
-export default onlyUpdateForKeys(['text'])(withRouter(HeaderSearchIcon));
+export default shouldUpdate(() => false)(withRouter(HeaderSearchIcon));

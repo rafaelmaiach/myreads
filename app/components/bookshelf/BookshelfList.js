@@ -10,12 +10,27 @@ type Props = {
   isLoading: boolean,
   booksList: Array<Object>,
   changeShelfFor: Function,
+  isSearchPage?: boolean,
 }
 
-const BookshelfList = ({ isLoading, booksList, changeShelfFor }: Props) => {
+const BookshelfList = (props: Props) => {
+  const {
+    isLoading,
+    booksList,
+    changeShelfFor,
+    isSearchPage,
+  } = props;
+
   const books = booksList.map((bookInfo) => {
     const updateBook = changeShelfFor(bookInfo);
-    return <BookshelfBook key={bookInfo.id} updateBook={updateBook} bookInfo={bookInfo} />;
+    return (
+      <BookshelfBook
+        key={bookInfo.id}
+        updateBook={updateBook}
+        bookInfo={bookInfo}
+        isSearchPage={isSearchPage}
+      />
+    );
   });
 
   const sortedBooks = books.sort(sortBy('props.bookInfo.title'));
@@ -25,6 +40,10 @@ const BookshelfList = ({ isLoading, booksList, changeShelfFor }: Props) => {
       {isLoading ? <Loading /> : sortedBooks}
     </BookshelfListContainer>
   );
+};
+
+BookshelfList.defaultProps = {
+  isSearchPage: false,
 };
 
 const BookshelfListContainer = styled.div`

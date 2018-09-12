@@ -7,6 +7,7 @@ import { compose, withState, withHandlers } from 'recompose';
 import ModalContainer from 'Components/modal/Container';
 
 import ShelfDropdown from './shelfDropdown/Dropdown';
+import CurrentShelf from './bookElements/CurrentShelf';
 import Image from './bookElements/Image';
 import Title from './bookElements/Title';
 import Subtitle from './bookElements/Subtitle';
@@ -43,18 +44,18 @@ type Props = {
   openModal: Function,
   updateBook: Function,
   bookInfo: BookProps,
+  isSearchPage: boolean,
 }
 
 const BookshelfBook = (props: Props) => {
-  const {
-    bookInfo: bookInformations,
-  }:BookProps = props;
+  const { bookInfo: bookInformations }: BookProps = props;
 
   const {
     isModalOpen,
     closeModal,
     openModal,
     updateBook,
+    isSearchPage,
   } = props;
 
   const {
@@ -67,6 +68,7 @@ const BookshelfBook = (props: Props) => {
     publishedDate,
     subtitle,
     title,
+    shelf,
   } = bookInformations;
 
   const thumbnail = imageLinks ? imageLinks.thumbnail : null;
@@ -81,6 +83,7 @@ const BookshelfBook = (props: Props) => {
 
   return (
     <BookContainer>
+      {isSearchPage && <CurrentShelf shelf={shelf} />}
       <ShelfDropdown book={bookInformations} updateBook={updateBook} />
       {
         isModalOpen && (

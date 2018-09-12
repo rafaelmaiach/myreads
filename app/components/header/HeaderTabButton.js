@@ -31,4 +31,4 @@ padding: 0 10px;
 }
 `;
 
-export default onlyUpdateForKeys(['active'])(HeaderTabButton);
+export default onlyUpdateForKeys(['text'])(HeaderTabButton);
