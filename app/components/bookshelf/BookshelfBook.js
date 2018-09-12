@@ -7,7 +7,7 @@ import { compose, withState, withHandlers } from 'recompose';
 import ModalContainer from 'Components/modal/Container';
 
 import ShelfDropdown from './shelfDropdown/Dropdown';
-import CurrentShelf from './bookElements/CurrentShelf';
+import CurrentShelfTag from './bookElements/CurrentShelfTag';
 import Image from './bookElements/Image';
 import Title from './bookElements/Title';
 import Subtitle from './bookElements/Subtitle';
@@ -100,7 +100,7 @@ const BookshelfBook = (props: Props) => {
           />
         )
       }
-      {isSearchPage && <CurrentShelf shelf={shelf} />}
+      {isSearchPage && <CurrentShelfTag shelf={shelf} />}
       <Image thumbnail={thumbnail} />
       <BookInformation>
         <Title titleText={title} />

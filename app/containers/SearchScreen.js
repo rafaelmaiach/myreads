@@ -176,8 +176,6 @@ class SearchScreen extends React.Component<void, State> {
 
     const bookListNotEmpty = booksList.length !== 0;
 
-    console.log(booksList);
-
     return (
       <GeneralScreen image={searchPageImage}>
         <Header>

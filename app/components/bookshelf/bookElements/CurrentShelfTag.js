@@ -5,32 +5,35 @@ import styled from 'styled-components';
 type Props = {
   shelf?: string,
 }
-const CurrentShelf = ({ shelf }: Props) => (
+const CurrentShelfTag = ({ shelf }: Props) => (
   shelf && (
-    <CurrentShelfContainer>
+    <CurrentShelfTagContainer>
       {shelf}
-    </CurrentShelfContainer>)
+    </CurrentShelfTagContainer>)
 );
 
-CurrentShelf.defaultProps = {
+CurrentShelfTag.defaultProps = {
   shelf: '',
 };
 
-const CurrentShelfContainer = styled.span`
+const CurrentShelfTagContainer = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 20%;
+  height: 15px;
+  font-size: 8px;
   position: absolute;
   z-index: 1;
   background: #4cc984;
   color: #edf5e1;
-  bottom: 0;
+  bottom: 50px;
 
   @media only screen and (min-width: 1024px) {
-    width: 20%;
     height: 25px;
     font-size: 14px;
+    bottom: 0;
   }
 `;
 
-export default CurrentShelf;
+export default CurrentShelfTag;
