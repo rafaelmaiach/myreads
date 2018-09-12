@@ -83,7 +83,6 @@ const BookshelfBook = (props: Props) => {
 
   return (
     <BookContainer>
-      {isSearchPage && <CurrentShelf shelf={shelf} />}
       <ShelfDropdown book={bookInformations} updateBook={updateBook} />
       {
         isModalOpen && (
@@ -101,6 +100,7 @@ const BookshelfBook = (props: Props) => {
           />
         )
       }
+      {isSearchPage && <CurrentShelf shelf={shelf} />}
       <Image thumbnail={thumbnail} />
       <BookInformation>
         <Title titleText={title} />

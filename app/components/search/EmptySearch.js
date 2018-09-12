@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
 import styled from 'styled-components';
+import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
 type Props = {
   dirty: boolean,
@@ -109,4 +110,4 @@ const SearchTerms = styled.p`
   }
 `;
 
-export default EmptySearch;
+export default onlyUpdateForKeys(['dirty', 'isUpdatingBook'])(EmptySearch);

@@ -136,9 +136,9 @@ class SearchScreen extends React.Component<void, State> {
         read: updatedRead,
       } = responseUpdate;
 
-      crBooks = [...Array.from(new Set([...crBooks, ...updatedCurrentlyReading]))];
-      wtrBooks = [...Array.from(new Set([...wtrBooks, ...updatedWantToRead]))];
-      rBooks = [...Array.from(new Set([...rBooks, ...updatedRead]))];
+      crBooks = Array.from(new Set([...crBooks, ...updatedCurrentlyReading]));
+      wtrBooks = Array.from(new Set([...wtrBooks, ...updatedWantToRead]));
+      rBooks = Array.from(new Set([...rBooks, ...updatedRead]));
     }
 
     const booksListUpdated = booksList.map((book) => {
@@ -176,6 +176,8 @@ class SearchScreen extends React.Component<void, State> {
 
     const bookListNotEmpty = booksList.length !== 0;
 
+    console.log(booksList);
+
     return (
       <GeneralScreen image={searchPageImage}>
         <Header>
@@ -199,4 +201,6 @@ class SearchScreen extends React.Component<void, State> {
   }
 }
 
-export default onlyUpdateForKeys(['searchInputText'])(SearchScreen);
+const keys = ['isLoading', 'searchInputText', 'dirty', 'isUpdatingBook'];
+
+export default onlyUpdateForKeys(keys)(SearchScreen);
