@@ -43,6 +43,7 @@ type Props = {
   isModalOpen: boolean,
   openModal: Function,
   updateBook: Function,
+  removeBook: Function,
   bookInfo: BookProps,
   isSearchPage: boolean,
 }
@@ -55,6 +56,7 @@ const BookshelfBook = (props: Props) => {
     closeModal,
     openModal,
     updateBook,
+    removeBook,
     isSearchPage,
   } = props;
 
@@ -83,7 +85,7 @@ const BookshelfBook = (props: Props) => {
 
   return (
     <BookContainer>
-      <ShelfDropdown book={bookInformations} updateBook={updateBook} />
+      <ShelfDropdown book={bookInformations} updateBook={updateBook} removeBook={removeBook} />
       {
         isModalOpen && (
           <ModalContainer

@@ -5,9 +5,10 @@ import styled from 'styled-components';
 type Props = {
   book: Object,
   updateBook: Function,
+  removeBook: Function,
 }
 
-const DropdownItems = ({ book, updateBook }: Props) => {
+const DropdownItems = ({ book, updateBook, removeBook }: Props) => {
   const allShelfs = [
     {
       key: 'dropdownCurrentlyReading',
@@ -38,9 +39,16 @@ const DropdownItems = ({ book, updateBook }: Props) => {
       {text}
     </ShelfDropdownItem>));
 
+  const { id, shelf } = book;
+
   return (
-    <ShelfDropdownItems id={book.id}>
+    <ShelfDropdownItems id={id}>
       {dropdownItems}
+      {shelf && (
+        <ShelfDropdownRemoveItem name="none" onClick={removeBook}>
+          Remove
+        </ShelfDropdownRemoveItem>)
+      }
     </ShelfDropdownItems>
   );
 };
@@ -87,6 +95,12 @@ const ShelfDropdownItem = styled.button`
   @media only screen and (min-width: 1200px) {
     font-size: 14px;
   }
+`;
+
+const ShelfDropdownRemoveItem = styled(ShelfDropdownItem)`
+  margin-top: 5px;
+  padding-top: 5px;
+  border-top: 1px solid white;
 `;
 
 export default DropdownItems;

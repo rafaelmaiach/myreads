@@ -42,8 +42,12 @@ class BookshelfScreen extends React.PureComponent<void, State> {
     );
   }
 
-  changeShelfFor = book => (event) => {
+  changeShelfFor = (book, isRemoveFunction = false) => (event) => {
     const { name: shelfToMove } = event.target;
+
+    if (isRemoveFunction) {
+      book.shelf = undefined; // eslint-disable-line
+    }
 
     this.setState(
       () => ({ isLoading: true }),

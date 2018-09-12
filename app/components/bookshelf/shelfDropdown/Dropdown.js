@@ -7,6 +7,7 @@ import DropdownItems from './DropdownItems';
 type Props = {
   book: Object,
   updateBook: Function,
+  removeBook: Function,
 }
 
 // Get the dropdown list and toggle a class to show the values
@@ -15,13 +16,13 @@ const openDropdown = (id: string) => () => {
   document.getElementById(id).classList.toggle('showDropdown');
 };
 
-const Dropdown = ({ book, updateBook }: Props) => {
+const Dropdown = ({ book, updateBook, removeBook }: Props) => {
   const openShelvesList = openDropdown(book.id);
 
   return (
     <ShelfDropdownContainer>
       <ShelfDropdownButton type="button" onClick={openShelvesList}>...</ShelfDropdownButton>
-      <DropdownItems book={book} updateBook={updateBook} />
+      <DropdownItems book={book} updateBook={updateBook} removeBook={removeBook} />
     </ShelfDropdownContainer>
   );
 };

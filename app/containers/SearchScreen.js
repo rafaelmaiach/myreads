@@ -108,8 +108,12 @@ class SearchScreen extends React.Component<void, State> {
     this.setState(() => ({ dirty: true }));
   }
 
-  changeShelfFor = book => (event) => {
+  changeShelfFor = (book, isRemoveFunction = false) => (event) => {
     const { name: shelfToMove } = event.target;
+
+    if (isRemoveFunction) {
+      book.shelf = undefined; // eslint-disable-line
+    }
 
     this.setState(
       () => ({ isLoading: true, isUpdatingBook: true }),

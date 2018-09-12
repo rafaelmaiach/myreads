@@ -23,10 +23,13 @@ const BookshelfList = (props: Props) => {
 
   const books = booksList.map((bookInfo) => {
     const updateBook = changeShelfFor(bookInfo);
+    const removeBook = changeShelfFor(bookInfo, true);
+
     return (
       <BookshelfBook
         key={bookInfo.id}
         updateBook={updateBook}
+        removeBook={removeBook}
         bookInfo={bookInfo}
         isSearchPage={isSearchPage}
       />
