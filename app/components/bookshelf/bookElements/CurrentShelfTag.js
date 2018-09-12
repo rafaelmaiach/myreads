@@ -21,7 +21,7 @@ const CurrentShelfTagContainer = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20%;
+  width: 70px;
   height: 15px;
   font-size: 8px;
   position: absolute;
@@ -30,10 +30,15 @@ const CurrentShelfTagContainer = styled.span`
   color: #edf5e1;
   bottom: 50px;
 
+  @media only screen and (min-width: 375px) {
+    width: 80px;
+  }
+
   @media only screen and (min-width: 1024px) {
     height: 25px;
     font-size: 14px;
     bottom: 0;
+    width: 120px;
   }
 `;
 

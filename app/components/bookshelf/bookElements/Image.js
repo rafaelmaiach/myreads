@@ -27,13 +27,13 @@ const BookImageContainer = styled.div`
   margin-right: 10px;
 
   @media only screen and (min-width: 375px) {
-    width: ${({ isModal }) => !isModal ? '80px' : '80px'};
-    height: ${({ isModal }) => !isModal ? '110px' : '110px'};
+    width: 80px;
+    height: 110px;
   }
 
   @media only screen and (min-width: 1200px) {
     width: ${({ isModal }) => !isModal ? '120px' : '140px'};
-    height: ${({ isModal }) => !isModal ? '170px' : '170px'};
+    height: 170px;
     margin-right: 15px;
   }
 `;
