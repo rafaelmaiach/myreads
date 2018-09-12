@@ -22,14 +22,3 @@ if (isDevEnv && module.hot) {
     renderApp(App);
   });
 }
-
-// if (isDevEnv) {
-//   const { whyDidYouUpdate } = require('why-did-you-update'); // eslint-disable-line
-//   whyDidYouUpdate(React, {
-//     exclude: [
-//       /^Route/,
-//       /^Switch/,
-//       /^AuthProvider/,
-//     ],
-//   });
-// }
