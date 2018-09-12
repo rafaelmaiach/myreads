@@ -22,9 +22,10 @@ const BookTitleContainer = styled.h1`
   font-size: ${({ isModal }) => !isModal ? '14px' : '12px'};
   font-weight: bold;
   width: 89%;
+  padding-right: 10px;
 
-  @media only screen and (min-width: 1200px) {
-    font-size: 18px;
+  @media only screen and (min-width: 1025px) {
+    font-size: 16px;
   }
 `;
 

@@ -43,7 +43,7 @@ const ModalBoxContainer = styled.div`
   padding: 15px;
   position: relative;
 
-  @media only screen and (min-width: 1200px) {
+  @media only screen and (min-width: 1025px) {
     width: 50%;
     height: 65%;
     min-height: 65%;

@@ -57,7 +57,7 @@ const BookStarsContainer = styled.div`
     margin: 0;
   }
 
-  @media only screen and (min-width: 1200px) {
+  @media only screen and (min-width: 1025px) {
     height: 40px;
     width: 110px;
     font-size: 16px;
@@ -77,7 +77,7 @@ const BookStarNotFound = styled.span`
   color: grey;
   font-size: 12px;
 
-  @media only screen and (min-width: 1200px) {
+  @media only screen and (min-width: 1025px) {
     font-size: 14px;
   }
 `;

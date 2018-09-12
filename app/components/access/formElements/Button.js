@@ -23,7 +23,7 @@ const FormButtonContainer = styled.div`
   width: 50%;
   margin: 5px 0;
 
-  @media only screen and (min-width: 1024px) {
+  @media only screen and (min-width: 1025px) {
     width: 70%;
   }
 `;
@@ -42,7 +42,7 @@ const FormButton = styled.button`
     cursor: pointer;
   }
 
-  @media only screen and (min-width: 1024px) {
+  @media only screen and (min-width: 1025px) {
     padding: 20px;
     width: 40%;
     font-size: 20px;

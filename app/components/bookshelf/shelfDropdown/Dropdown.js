@@ -35,7 +35,7 @@ const ShelfDropdownContainer = styled.div`
   width: 25px;
   height: 25px;
 
-  @media only screen and (min-width: 1200px) {
+  @media only screen and (min-width: 1025px) {
     right: 15px;
     width: 35px;
     height: 35px;
@@ -58,7 +58,7 @@ const ShelfDropdownButton = styled.button`
     background-color: #4cc984;
   }
 
-  @media only screen and (min-width: 1200px) {
+  @media only screen and (min-width: 1025px) {
     font-size: 18px;
   }
 `;

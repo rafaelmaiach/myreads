@@ -31,7 +31,7 @@ const BookImageContainer = styled.div`
     height: 110px;
   }
 
-  @media only screen and (min-width: 1200px) {
+  @media only screen and (min-width: 1025px) {
     width: ${({ isModal }) => !isModal ? '120px' : '140px'};
     height: 170px;
     margin-right: 15px;
@@ -61,7 +61,7 @@ const ImageNotFound = styled.div`
     font-size: 16px;
   }
 
-  @media only screen and (min-width: 1200px) {
+  @media only screen and (min-width: 1025px) {
     font-size: 36px;
   }
 `;

@@ -17,7 +17,7 @@ const BookPublishedDateContainer = styled.span`
     padding: 3px 0;
   }
 
-  @media only screen and (min-width: 1200px) {
+  @media only screen and (min-width: 1025px) {
     font-size: 14px;
     padding: 5px 0;
   }

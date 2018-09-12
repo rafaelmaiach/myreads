@@ -32,7 +32,7 @@ const SearchInputContainer = styled.div`
     color: #edf5e1;
     width: 100%;
 
-    @media only screen and (min-width: 1024px) {
+    @media only screen and (min-width: 1025px) {
       font-size: 26px;
     }
 

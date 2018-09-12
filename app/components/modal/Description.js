@@ -21,7 +21,7 @@ const ModalDescriptionContainer = styled.section`
     height: 280px;
   }
 
-  @media only screen and (min-width: 1200px) {
+  @media only screen and (min-width: 1025px) {
     font-size: 16px;
   }
 `;

@@ -18,7 +18,7 @@ const BookSubtitleContainer = styled.h3`
     font-size: 12px;
   }
 
-  @media only screen and (min-width: 1200px) {
+  @media only screen and (min-width: 1025px) {
     font-size: 14px;
   }
 `;

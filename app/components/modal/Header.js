@@ -56,7 +56,7 @@ const ModalHeaderContainer = styled.header`
   height: 40%;
   position: relative;
 
-  @media only screen and (min-width: 1200px) {
+  @media only screen and (min-width: 1025px) {
     width: 100%;
   }
 `;
@@ -68,7 +68,7 @@ const ModalInformationsContainer = styled.div`
   color: #05386b;
   position: relative;
 
-  @media only screen and (min-width: 1200px) {
+  @media only screen and (min-width: 1025px) {
     width: 60%;
   }
 `;

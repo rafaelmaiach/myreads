@@ -128,16 +128,13 @@ const BookContainer = styled.div`
   position: relative;
 
   @media only screen and (min-width: 375px) {
-    height: 210px;
-    min-height: 210px;
-    max-height: 210px;
+    height: 215px;
+    min-height: 215px;
+    max-height: 215px;
   }
 
-  @media only screen and (min-width: 1200px) {
+  @media only screen and (min-width: 1025px) {
     width: 45%;
-    height: 200px;
-    min-height: 200px;
-    max-height: 200px;
   }
 `;
 

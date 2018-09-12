@@ -56,7 +56,7 @@ const BookshelfListContainer = styled.div`
   height: 100%;
   overflow-y: scroll;
 
-  @media only screen and (min-width: 1200px) {
+  @media only screen and (min-width: 1025px) {
     flex-direction: row;
     flex-wrap: wrap;
     align-content: flex-start;

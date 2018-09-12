@@ -28,7 +28,7 @@ const CloseButton = styled.button`
     color: #4cc984;
   }
 
-  @media only screen and (min-width: 1200px) {
+  @media only screen and (min-width: 1025px) {
     top: 10px;
     right: 10px;
     font-size: 36px;

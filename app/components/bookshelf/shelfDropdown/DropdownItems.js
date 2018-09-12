@@ -43,14 +43,19 @@ const DropdownItems = ({ book, updateBook, removeBook }: Props) => {
 
   return (
     <ShelfDropdownItems id={id}>
-      <ShelfDropDownText>
+      <ShelfDropdownCurrentShelf>
+        Current:
+        <br />
+        {shelf || 'None'}
+      </ShelfDropdownCurrentShelf>
+      <ShelfDropdownMoveTo>
         Move to...
-      </ShelfDropDownText>
+      </ShelfDropdownMoveTo>
       {dropdownItems}
       {shelf && (
-        <ShelfDropdownRemoveItem name="none" onClick={removeBook}>
+        <ShelfDropdownSection name="none" onClick={removeBook}>
           Remove
-        </ShelfDropdownRemoveItem>)
+        </ShelfDropdownSection>)
       }
     </ShelfDropdownItems>
   );
@@ -74,7 +79,7 @@ const ShelfDropdownItems = styled.div`
     display: block;
   }
 
-  @media only screen and (min-width: 1200px) {
+  @media only screen and (min-width: 1025px) {
     min-width: 145px;
   }
 `;
@@ -85,7 +90,7 @@ const ShelfDropdownItem = styled.button`
   display: block;
   cursor: pointer;
   font-size: 10px;
-  padding: 7px;
+  padding: 5px;
   margin: 0;
   width: 100%;
   text-align: left;
@@ -95,30 +100,40 @@ const ShelfDropdownItem = styled.button`
     background-color: #4cc984;
   }
 
-  @media only screen and (min-width: 1024px) {
-    font-size: 14px;
+  @media only screen and (min-width: 1025px) {
+    font-size: 13px;
   }
 `;
 
-const ShelfDropDownText = styled(ShelfDropdownItem)`
+const ShelfDropdownCurrentShelf = styled(ShelfDropdownItem)`
   color: #cecece;
-  margin-bottom: 5px;
   cursor: default;
   font-size: 8px;
+  margin-bottom: 3px;
 
   &:hover {
     background-color: transparent;
   }
 
-  @media only screen and (min-width: 1024px) {
-    font-size: 12px;
+  @media only screen and (min-width: 1025px) {
+    font-size: 11px;
   }
 `;
 
-const ShelfDropdownRemoveItem = styled(ShelfDropdownItem)`
+const ShelfDropdownSection = styled(ShelfDropdownItem)`
+  border-top: 1px solid white;
   margin-top: 5px;
   padding-top: 5px;
-  border-top: 1px solid white;
+`;
+
+const ShelfDropdownMoveTo = styled(ShelfDropdownSection)`
+  color: #cecece;
+  font-size: 11px;
+  cursor: default;
+
+  &:hover {
+    background-color: transparent;
+  }
 `;
 
 export default DropdownItems;
