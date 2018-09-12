@@ -70,24 +70,12 @@
     &__box {
       width: 40%;
 
-      &.hidden {
+      &__logo--text {
+        font-size: 85px;
       }
 
-      &__logo {
-
-        &--img {
-        }
-
-        &--text {
-          font-size: 85px;
-        }
-      }
-
-      &__button {
-
-        button {
-          font-size: 35px;
-        }
+      &__button button {
+        font-size: 35px;
       }
     }
   }
