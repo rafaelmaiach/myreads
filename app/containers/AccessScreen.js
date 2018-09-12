@@ -1,22 +1,27 @@
 // @flow
 import * as React from 'react';
-import { Redirect } from 'react-router-dom';
+import withRouter from 'react-router-dom/withRouter';
 import Loadable from 'react-loadable';
 
 import Loading from 'Components/loading/Loading';
 
 import AuthorQuotes from 'Components/access/AuthorQuotes';
 
+type Props = {
+  history: Function,
+}
+
 const AccessFormContainer = Loadable({
   loader: () => import(/* webpackChunkName: 'accessFormContainer' */ 'Components/access/FormContainer'),
   loading: Loading,
 });
 
-const AccessScreen = () => {
+const AccessScreen = ({ history }: Props) => {
   const { userAuthenticated } = sessionStorage;
 
   if (userAuthenticated) {
-    return <Redirect to="/bookshelf" />;
+    history.push('/');
+    return null;
   }
 
   setTimeout(() => {
@@ -42,4 +47,4 @@ const AccessScreen = () => {
   );
 };
 
-export default AccessScreen;
+export default withRouter(AccessScreen);

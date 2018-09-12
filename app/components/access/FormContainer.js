@@ -32,7 +32,7 @@ class LoginFormContainer extends React.PureComponent<void, State> {
 
   returnStartScreen = () => {
     const { history } = this.props;
-    history.push('/');
+    history.push('/main');
   }
 
   // Using closure to create different function for each field
@@ -71,12 +71,12 @@ class LoginFormContainer extends React.PureComponent<void, State> {
 
     const validEmail = email === '';
     const validPassword = password === '';
-    const signInValid = validEmail && validPassword;
+    const signInIsValid = validEmail && validPassword;
 
-    if (signInValid) {
+    if (signInIsValid) {
       const { history } = this.props;
       login();
-      history.push('/bookshelf');
+      history.push('/');
     }
   }
 

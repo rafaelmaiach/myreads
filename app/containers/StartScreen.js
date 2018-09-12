@@ -1,10 +1,15 @@
 // @flow
-import React from 'react';
+import * as React from 'react';
 import moize from 'moize';
+import withRouter from 'react-router-dom/withRouter';
 
 import logoSvg from 'Assets/icons/logo.svg';
 
-const StartScreen = ({ history }: { history: Function }) => {
+type Props = {
+  history: Function,
+}
+
+const StartScreen = ({ history }: Props) => {
   const { userAuthenticated } = sessionStorage;
 
   const redirectUser = () => {
@@ -13,7 +18,7 @@ const StartScreen = ({ history }: { history: Function }) => {
       return;
     }
 
-    history.push('/bookshelf');
+    history.push('/');
   };
 
   return (
@@ -39,4 +44,4 @@ const StartScreen = ({ history }: { history: Function }) => {
   );
 };
 
-export default moize.reactSimple(StartScreen);
+export default withRouter(moize.reactSimple(StartScreen));

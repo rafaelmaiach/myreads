@@ -16,17 +16,17 @@ import SearchScreen from 'Containers/SearchScreen';
 import './index.scss';
 
 /**
- * @constructor App
+ * @constructor Application
  * @description Represents the application's main component.
  * It renders the specific component for each route defined
  */
-const App = () => (
+const Application = () => (
   <HashRouter>
     <AuthProvider>
       <Switch>
-        <Route exact path="/" render={props => <StartScreen {...props} />} />
+        <Route path="/main" component={StartScreen} />
         <Route path="/auth" component={AccessScreen} />
-        <ProtectedRoute path="/bookshelf" component={BookshelfScreen} />
+        <ProtectedRoute path="/" component={BookshelfScreen} />
         <ProtectedRoute path="/search" component={SearchScreen} />
         <Redirect from="*" to="/" />
       </Switch>
@@ -34,4 +34,4 @@ const App = () => (
   </HashRouter>
 );
 
-export default App;
+export default Application;

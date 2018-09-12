@@ -4,8 +4,12 @@ import styled from 'styled-components';
 import shouldUpdate from 'recompose/shouldUpdate';
 import withRouter from 'react-router-dom/withRouter';
 
-const BackButtonComponent = ({ history }: { history: Function }) => {
-  const goBackToBookshelf = () => history.push('/bookshelf');
+type Props = {
+  history: Function
+}
+
+const BackButtonComponent = ({ history }: Props) => {
+  const goBackToBookshelf = () => history.push('/');
 
   return (
     <BackButtonContainer>
