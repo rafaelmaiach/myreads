@@ -37,16 +37,16 @@ const SearchInputContainer = styled.div`
     }
 
     &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-      color: $primary-text-color-transparent;
+      color: rgba(237, 245, 225, 0.5);
       opacity: 1; /* Firefox */
     }
 
     &:-ms-input-placeholder { /* Internet Explorer 10-11 */
-      color: $primary-text-color-transparent;
+      color: rgba(237, 245, 225, 0.5);
     }
 
     &::-ms-input-placeholder { /* Microsoft Edge */
-      color: $primary-text-color-transparent;
+      color: rgba(237, 245, 225, 0.5);
     }
   }
 
