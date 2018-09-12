@@ -20,7 +20,7 @@ const AccessScreen = ({ history }: Props) => {
   const { userAuthenticated } = sessionStorage;
 
   if (userAuthenticated) {
-    history.push('/');
+    history.push('/main');
     return null;
   }
 
