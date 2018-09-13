@@ -108,19 +108,26 @@ class LoginFormContainer extends React.PureComponent<void, State> {
 
   signIn = (login) => {
     const {
-      email,
-      password,
+      email: loginEmail,
+      password: loginPassword,
     } = this.state;
 
-    const validEmail = email === '';
-    const validPassword = password === '';
-    const signInIsValid = validEmail && validPassword;
+    const usersList = JSON.parse(sessionStorage.getItem('usersList'));
 
-    if (signInIsValid) {
+    const userFound = usersList.find(({ email, password }) => (
+      (email === loginEmail) && (password === loginPassword)
+    ));
+
+    if (userFound) {
       const { history } = this.props;
       login();
       history.push('/');
+      return;
     }
+
+    this.setState(() => ({
+      invalidFormType: 'invalidUser',
+    }));
   }
 
   updateFullname = this.updateStateFieldFor('fullname');

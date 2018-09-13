@@ -23,8 +23,8 @@ const LoginFormSignUp = ({ updateFullname, updateEmail, updatePassword }: Props)
 
     <FormFieldHOC
       fieldId="email"
-      label="Email"
-      placeholder="email@example.com"
+      label="E-mail"
+      placeholder="e-mail@example.com"
       onStateChanged={updateEmail}
       required
       needToValidate

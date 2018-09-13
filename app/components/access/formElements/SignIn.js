@@ -13,8 +13,8 @@ const LoginFormSignIn = ({ updateEmail, updatePassword }: Props) => (
   <React.Fragment>
     <FormFieldHOC
       fieldId="email"
-      label="Email"
-      placeholder="email@example.com"
+      label="E-mail"
+      placeholder="e-mail@example.com"
       onStateChanged={updateEmail}
     />
 

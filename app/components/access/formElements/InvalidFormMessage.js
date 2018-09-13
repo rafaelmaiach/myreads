@@ -14,7 +14,7 @@ const getMessageFor = (type) => {
       message = 'This e-mail is already registered';
       break;
     case 'invalidUser':
-      message = 'This user is not registered';
+      message = 'Invalid e-mail or password';
       break;
     case 'invalidForm':
       message = 'Invalid form';
