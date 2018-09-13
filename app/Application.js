@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  // I'm using HashRouter because the express server, serves static files
   HashRouter,
   Route,
   Switch,
@@ -19,6 +20,7 @@ import './index.scss';
  * @constructor Application
  * @description Represents the application's main component.
  * It renders the specific component for each route defined
+ * It's wrapped by AuthProvider from ContextAPI to enable access system to work on some components
  */
 const Application = () => (
   <HashRouter>

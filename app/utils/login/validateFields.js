@@ -1,8 +1,8 @@
 // @flow
 import { string } from 'yup';
 
-// Obs: validateSync throws ValidationError if not valid
-
+// Create a object with validation rules from yup to be used on access form fields validation
+// Each property validates its own field by a defined rule.
 const validateSchemas = {
   fullname: string().min(6, 'Fullname is short. Should be at least 6 characters'),
   email: string().email('E-mail is not valid!'),
@@ -14,6 +14,15 @@ const validateSchemas = {
     .matches(/^(?=.*[!@#$%^&*])/, 'Should have at least one of !,@,#,$,%,^,&,*'),
 };
 
-export default (field: string) => (value: string) => {
+/**
+ * @function Helpers#validateFields
+ * @param {string} field - Stores the field to be validated
+ * @description This is a closure where the first function stores the field to be validated
+ * and the result function receives the value to be validated and return if it's valid or not.
+ * If it's not valid, validateSync throws ValidationError
+ */
+const validationFunction = (field: string) => (value: string) => {
   validateSchemas[field].validateSync(value);
 };
+
+export default validationFunction;

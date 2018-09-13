@@ -9,9 +9,18 @@ type Props = {
   history: Function,
 }
 
+/**
+ * @constructor StartScreen
+ * @param {object} history - Browser history object
+ * @description StartScreen is the start screen for the application. It shows the
+ * app name and a button that sends user to authentication page or bookshelf page,
+ * depending on the authenticated status.
+ */
 const StartScreen = ({ history }: Props) => {
+  // Get the authenticate status from sessionStorage
   const { userAuthenticated } = sessionStorage;
 
+  // Redirect to auth page if not authenticated and to bookshelf page if it is
   const redirectUser = () => {
     if (!userAuthenticated) {
       history.push('/auth');

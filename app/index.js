@@ -2,11 +2,17 @@ import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 
-import App from './Application';
+import Application from './Application';
+
+/**
+ * This index.js is the entrypoint for the application to enable hot load
+ * when running the project in development mode
+ */
 
 const nodeEnv = process.env.NODE_ENV;
 const isDevEnv = nodeEnv === 'development';
 
+// Wrap the Application component to react-hot-loader HOC
 const renderApp = Component => render(
   <AppContainer>
     <Component />
@@ -14,11 +20,11 @@ const renderApp = Component => render(
   document.getElementById('root'),
 );
 
-renderApp(App);
+renderApp(Application);
 
-// Webpack Hot Module Replacement API
+// If in dev mode, enable the hot load
 if (isDevEnv && module.hot) {
   module.hot.accept('./Application', () => {
-    renderApp(App);
+    renderApp(Application);
   });
 }
