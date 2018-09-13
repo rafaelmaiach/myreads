@@ -92,16 +92,16 @@ const defaultConfig = {
   },
   plugins: [],
   resolve: {
-    modules: ['node_modules', 'app'],
+    modules: ['node_modules', 'client'],
     extensions: ['.js', '.jsx', '.react.js'],
     mainFields: ['browser', 'jsnext:main', 'main'],
     alias: {
-      Src: path.resolve(__dirname, 'app'),
-      Containers: path.resolve(__dirname, 'app', 'containers'),
-      Components: path.resolve(__dirname, 'app', 'components'),
-      Styles: path.resolve(__dirname, 'app', 'styles'),
-      Assets: path.resolve(__dirname, 'app', 'assets'),
-      Utils: path.resolve(__dirname, 'app', 'utils'),
+      Src: path.resolve(__dirname, 'client'),
+      Containers: path.resolve(__dirname, 'client', 'containers'),
+      Components: path.resolve(__dirname, 'client', 'components'),
+      Styles: path.resolve(__dirname, 'client', 'styles'),
+      Assets: path.resolve(__dirname, 'client', 'assets'),
+      Utils: path.resolve(__dirname, 'client', 'utils'),
     },
   },
 };

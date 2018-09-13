@@ -23,7 +23,7 @@ const shouldCompress = (req, res) => {
 app.use(compression({ filter: shouldCompress }));
 
 if (isInProduction) {
-  app.get('/dist/*.js', (req, res, next) => {
+  app.get('*.js', (req, res, next) => {
     req.url = `${req.url}.gz`;
     res.set('Content-Encoding', 'gzip');
     next();
@@ -45,9 +45,15 @@ if (!isInProduction) {
   app.use(webpackHotMiddleware(compiler));
 }
 
-const publicPath = express.static(path.join(__dirname, '../dist'));
+const publicPath = express.static(path.join(__dirname, '../public'));
 
 app.use('/', publicPath);
+
+const indexHtml = isInProduction
+  ? path.resolve(__dirname, '../public/index.html')
+  : path.resolve(__dirname, '../client/views/dev/index.html');
+
+app.get('/:page?', (_, res) => res.sendFile(indexHtml));
 
 app.listen(process.env.PORT || 3000, '0.0.0.0', () => {
   console.log(`Server starting on: ${process.env.PORT || 3000}`);

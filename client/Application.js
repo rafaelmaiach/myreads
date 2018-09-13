@@ -1,7 +1,6 @@
 import React from 'react';
 import {
-  // I'm using HashRouter because the express server, serves static files
-  HashRouter,
+  BrowserRouter,
   Route,
   Switch,
   Redirect,
@@ -23,7 +22,7 @@ import './index.scss';
  * It's wrapped by AuthProvider from ContextAPI to enable access system to work on some components
  */
 const Application = () => (
-  <HashRouter>
+  <BrowserRouter>
     <AuthProvider>
       <Switch>
         <Route path="/main" component={StartScreen} />
@@ -33,7 +32,7 @@ const Application = () => (
         <Redirect from="*" to="/" />
       </Switch>
     </AuthProvider>
-  </HashRouter>
+  </BrowserRouter>
 );
 
 export default Application;

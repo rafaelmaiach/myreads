@@ -2,7 +2,7 @@
 .*/node_modules/config-chain/test/broken.json
 
 [include]
-app
+client
 
 [libs]
 
@@ -12,11 +12,11 @@ app
 esproposal.class_static_fields=enable
 esproposal.class_instance_fields=enable
 esproposal.export_star_as=enable
-module.name_mapper='^Src' ->'<PROJECT_ROOT>/app'
-module.name_mapper='^Containers' ->'<PROJECT_ROOT>/app/containers'
-module.name_mapper='^Components' ->'<PROJECT_ROOT>/app/components'
-module.name_mapper='^Styles' ->'<PROJECT_ROOT>/app/styles'
-module.name_mapper='^Utils' ->'<PROJECT_ROOT>/app/utils'
-module.name_mapper='^Assets' ->'<PROJECT_ROOT>/app/assets'
+module.name_mapper='^Src' ->'<PROJECT_ROOT>/client'
+module.name_mapper='^Containers' ->'<PROJECT_ROOT>/client/containers'
+module.name_mapper='^Components' ->'<PROJECT_ROOT>/client/components'
+module.name_mapper='^Styles' ->'<PROJECT_ROOT>/client/styles'
+module.name_mapper='^Utils' ->'<PROJECT_ROOT>/client/utils'
+module.name_mapper='^Assets' ->'<PROJECT_ROOT>/client/assets'
 
 [strict]

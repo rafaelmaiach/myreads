@@ -17,7 +17,7 @@
     "start": "cross-env NODE_ENV=development node server",
     "start:prod": "npm run build && npm run start:production",
     "start:production": "cross-env NODE_ENV=production node --optimize_for_size --max_old_space_size=460 --gc_interval=100 server/index.js",
-    "lint": "eslint app",
+    "lint": "eslint client",
     "flow": "flow"
   },
   "dependencies": {

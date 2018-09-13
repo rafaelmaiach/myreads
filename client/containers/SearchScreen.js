@@ -22,12 +22,18 @@ type State = {
   allBooks: Object
 }
 
+/**
+ * @class SearchScreen
+ * @description Represents the Search page where the user can search for a book and
+ * move it or remove it from a shelf
+ */
 class SearchScreen extends React.Component<void, State> {
   state = {
     isLoading: false,
-    booksList: [],
-    searchInputText: '',
-    dirty: false,
+    booksList: [], // List of books to be rendered
+    searchInputText: '', // Search text to use on search api
+    dirty: false, // Checks if the user has write something on search input
+    // Represents each book on its shelf
     allBooks: {
       currentlyReading: [],
       wantToRead: [],
@@ -39,6 +45,11 @@ class SearchScreen extends React.Component<void, State> {
     this.getAllBooks();
   }
 
+  /**
+   * @method SearchScreen#getAllBooks
+   * @description Get the result of getAll api and calls a function to separate
+   * the books on each shelf
+   */
   getAllBooks = () => {
     this.setState(
       () => ({ isLoading: true }),
@@ -50,6 +61,13 @@ class SearchScreen extends React.Component<void, State> {
     );
   }
 
+  /**
+   * @method SearchScreen#separateBooks
+   * @description Separate each book for its own shelf using groupBooksByShelf
+   * In this usage, I pass "id" to retrieve only the ids from each book. I do this
+   * because "update" api only returns the list of ids, so I'll use them to check
+   * if the book listed on search result is already in a shelf
+   */
   separateBooks = (allBooks) => {
     const separateBooks = groupBooksByShelf(allBooks, 'id');
 
@@ -59,7 +77,14 @@ class SearchScreen extends React.Component<void, State> {
     }));
   }
 
-  searchTextHasChanged = (value) => {
+  /**
+   * @method SearchScreen#searchTextHasChanged
+   * @param {string} value - The text on search input
+   * @description Updates the searchInputText state after the user write
+   * something on search input. As a callback, it calls the search api if the value
+   * is valid.
+   */
+  searchTextHasChanged = (value: string) => {
     if (value.trim()) {
       this.setState(
         () => ({
@@ -77,6 +102,10 @@ class SearchScreen extends React.Component<void, State> {
     }
   }
 
+  /**
+   * @method SearchScreen#searchCallback
+   * @description Calls the search api to retrieve the books from the query
+   */
   searchCallback = () => {
     const { searchInputText } = this.state;
 

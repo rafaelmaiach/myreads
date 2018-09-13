@@ -41,7 +41,7 @@ module.exports = {
   mode: 'production',
   entry: {
     react: ['react', 'react-dom', 'react-router-dom'],
-    app: './app/index.js',
+    app: './client/index.js',
   },
   output: {
     filename: '[name].[chunkhash].js',
@@ -72,7 +72,7 @@ module.exports = {
       },
       {
         test: /\.(js|jsx)$/,
-        include: path.resolve(__dirname, 'app'),
+        include: path.resolve(__dirname, 'client'),
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -93,7 +93,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'MyReads - Rafael Maia Chieregatto',
       template: 'public/index.html',
-      favicon: 'app/assets/icons/favicon.ico',
+      favicon: 'client/assets/icons/favicon.ico',
       minify: {
         removeComments: true,
         collapseWhitespace: true,
