@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPugPlugin = require('html-webpack-pug-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -12,7 +13,14 @@ const WebpackMd5Hash = require('webpack-md5-hash');
 const productionEnv = new webpack.EnvironmentPlugin({ NODE_ENV: 'production' });
 
 const pathsToClean = [
-  'dist',
+  'public/*.html',
+  'public/*.js',
+  'public/*.gz',
+  'public/*.css',
+  'public/*.map',
+  'public/*.jpg',
+  'public/*.ico',
+  'public/views/*.pug',
 ];
 
 const cleanOptions = {
@@ -44,8 +52,10 @@ module.exports = {
     app: './client/index.js',
   },
   output: {
+    path: path.resolve(__dirname, 'public'),
     filename: '[name].[chunkhash].js',
     chunkFilename: '[name].[chunkhash].chunk.js',
+    publicPath: '/public/',
   },
   optimization: {
     minimize: true,
@@ -62,12 +72,10 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.html$/,
+        test: /\.css$/,
         use: [
-          {
-            loader: 'html-loader',
-            options: { minimize: true },
-          },
+          MiniCssExtractPlugin.loader,
+          'css-loader',
         ],
       },
       {
@@ -92,11 +100,12 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       title: 'MyReads - Rafael Maia Chieregatto',
-      template: 'public/index.html',
+      filename: './views/index.pug',
+      template: './client/views/prod/index.pug',
       favicon: 'client/assets/icons/favicon.ico',
       minify: {
         removeComments: true,
-        collapseWhitespace: true,
+        collapseWhitespace: false,
         removeRedundantAttributes: true,
         useShortDoctype: true,
         removeEmptyAttributes: true,
@@ -108,6 +117,7 @@ module.exports = {
       },
       inject: true,
     }),
+    new HtmlWebpackPugPlugin(),
     new webpack.HashedModuleIdsPlugin({
       hashFunction: 'sha256',
       hashDigest: 'hex',

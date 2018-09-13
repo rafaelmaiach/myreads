@@ -2,6 +2,9 @@
 const autoprefixer = require('autoprefixer');
 const path = require('path');
 const merge = require('webpack-merge');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const devMode = process.env.NODE_ENV !== 'production';
 
 const defaultConfig = {
   module: {
@@ -56,17 +59,12 @@ const defaultConfig = {
       {
         test: /\.scss$/,
         use: [
-          {
-            loader: require.resolve('style-loader'),
-          },
+          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           {
             loader: require.resolve('css-loader'),
             options: {
               importLoaders: 1,
             },
-          },
-          {
-            loader: require.resolve('sass-loader'),
           },
           {
             loader: require.resolve('postcss-loader'),
@@ -86,6 +84,7 @@ const defaultConfig = {
               ],
             },
           },
+          'sass-loader',
         ],
       },
     ],

@@ -8,12 +8,15 @@ now.json
 npm-debug.log
 .idea
 
-public/*.eot
 public/*.svg
-public/*.woff2
-public/*.ttf
-public/*.woff
+public/*.js
+public/*.js.gz
+public/*.css
+public/*.html
 public/*.js
 public/*.gz
 public/*.css
-public/views
+public/*.map
+public/*.jpg
+public/icons/*.ico
+public/views/*.pug
