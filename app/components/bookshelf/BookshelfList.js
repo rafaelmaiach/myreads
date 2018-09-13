@@ -61,6 +61,7 @@ const BookshelfListContainer = styled.div`
     flex-wrap: wrap;
     align-content: flex-start;
     padding: 0 55px 0 55px;
+    justify-content: space-between;
   }
 `;
 

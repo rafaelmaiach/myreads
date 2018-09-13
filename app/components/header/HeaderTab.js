@@ -28,7 +28,7 @@ const Tab = styled.div`
     background-color: #4cc984;
   }
 
-  @media only screen and (min-width: 1025px) {
+  @media only screen and (min-width: 768px) {
     margin: 0 10px;
   }
 `;

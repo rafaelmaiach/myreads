@@ -134,7 +134,7 @@ const BookContainer = styled.div`
   }
 
   @media only screen and (min-width: 1025px) {
-    width: 45%;
+    width: 47%;
   }
 `;
 

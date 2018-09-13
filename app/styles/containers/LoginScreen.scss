@@ -89,7 +89,26 @@
   }
 }
 
-@media only screen and (min-width: 1025px) {
+@media only screen and (min-width: 768px) and (orientation : portrait) {
+  .login-container {
+    &__form {
+      &.active {
+        .quotes__box {
+          &--text {
+            font-size: 36px;
+          }
+
+          &--author {
+            font-size: 24px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1025px),
+only screen and (min-width: 768px) and (orientation: landscape) {
   .login-container {
     .quotes__box,
     .fields__box {

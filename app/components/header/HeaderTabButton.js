@@ -26,7 +26,7 @@ font-size: 10px;
 pointer-events: auto;
 padding: 0 10px;
 
-@media only screen and (min-width: 1025px) {
+@media only screen and (min-width: 768px) {
   font-size: 24px;
 }
 `;
