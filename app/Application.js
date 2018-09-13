@@ -24,10 +24,10 @@ const Application = () => (
   <HashRouter>
     <AuthProvider>
       <Switch>
-        <Route exact path="/main" component={StartScreen} />
-        <Route exact path="/auth" component={AccessScreen} />
+        <Route path="/main" component={StartScreen} />
+        <Route path="/auth" component={AccessScreen} />
         <ProtectedRoute exact path="/" component={BookshelfScreen} />
-        <ProtectedRoute exact path="/search" component={SearchScreen} />
+        <ProtectedRoute path="/search" component={SearchScreen} />
         <Redirect from="*" to="/" />
       </Switch>
     </AuthProvider>

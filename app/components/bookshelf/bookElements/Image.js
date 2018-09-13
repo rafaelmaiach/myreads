@@ -62,7 +62,7 @@ const ImageNotFound = styled.div`
   }
 
   @media only screen and (min-width: 1025px) {
-    font-size: 36px;
+    font-size: 30px;
   }
 `;
 

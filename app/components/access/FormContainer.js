@@ -8,12 +8,15 @@ import Close from 'Components/common/Close';
 import Fields from './formElements/Fields';
 import Button from './formElements/Button';
 import MemberInformation from './formElements/MemberInformation';
+import InvalidFormMessage from './formElements/InvalidFormMessage';
 
 type State = {
   fullname: string,
   email: string,
   password: string,
   formType: string,
+  invalidForm: boolean,
+  invalidFormType: string,
 }
 
 type FormFieldState = {
@@ -28,6 +31,7 @@ class LoginFormContainer extends React.PureComponent<void, State> {
     email: '',
     password: '',
     formType: 'signin',
+    invalidFormType: '', // userExists, invalidUser, invalidForm
   };
 
   returnStartScreen = () => {
@@ -45,29 +49,68 @@ class LoginFormContainer extends React.PureComponent<void, State> {
     fullname: '',
     email: '',
     password: '',
+    invalidFormType: '',
     formType: formType === 'signup' ? 'signin' : 'signup',
   }));
 
   formAction = (login) => {
     const {
-      fullname,
-      email,
-      password,
       formType,
     } = this.state;
 
     const isSignUp = formType === 'signup';
-    const formIsValid = fullname && email && password;
 
     if (isSignUp) {
-      if (formIsValid) {
-        this.toggleForm();
+      this.signUp();
+      return;
+    }
+
+    this.signIn(login);
+  }
+
+  signUp = () => {
+    const {
+      fullname,
+      email,
+      password,
+    } = this.state;
+
+    const formIsValid = fullname && email && password;
+
+    if (formIsValid) {
+      const usersList = JSON.parse(sessionStorage.getItem('usersList'));
+
+      const userFound = usersList.find(obj => obj.email === email);
+
+      if (userFound) {
+        this.setState(() => ({
+          invalidFormType: 'userExists',
+        }));
         return;
       }
 
-      console.log('Invalid form');
+      const newUser = {
+        fullname,
+        email,
+        password,
+      };
+
+      usersList.push(newUser);
+      sessionStorage.setItem('usersList', JSON.stringify(usersList));
+      this.toggleForm();
       return;
     }
+
+    this.setState(() => ({
+      invalidFormType: 'invalidForm',
+    }));
+  }
+
+  signIn = (login) => {
+    const {
+      email,
+      password,
+    } = this.state;
 
     const validEmail = email === '';
     const validPassword = password === '';
@@ -89,6 +132,7 @@ class LoginFormContainer extends React.PureComponent<void, State> {
   render() {
     const {
       formType,
+      invalidFormType,
     } = this.state;
 
     const isSignUpForm = formType === 'signup';
@@ -107,6 +151,7 @@ class LoginFormContainer extends React.PureComponent<void, State> {
               updateEmail={this.updateEmail}
               updatePassword={this.updatePassword}
             />
+            <InvalidFormMessage type={invalidFormType} />
             <Button text={buttonText} formAction={() => this.formAction(login)} />
             <MemberInformation
               text={memberText}

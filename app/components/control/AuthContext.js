@@ -13,6 +13,20 @@ const AuthContext = React.createContext();
  * @description Provides an authentication system for the application
  */
 class AuthProvider extends React.Component<Props> {
+  setupUserList = () => {
+    const usersList = sessionStorage.getItem('userList');
+
+    if (!usersList) {
+      const adminUser = {
+        fullname: 'admin',
+        email: 'admin@admin.com',
+        password: 'adminpassword',
+      };
+
+      sessionStorage.setItem('usersList', JSON.stringify([adminUser]));
+    }
+  }
+
   login = () => {
     sessionStorage.setItem('userAuthenticated', true);
   }
@@ -25,6 +39,7 @@ class AuthProvider extends React.Component<Props> {
 
   render() {
     const { children } = this.props;
+    this.setupUserList();
 
     const config = {
       isUserAuthenticated: this.isUserAuthenticated,
