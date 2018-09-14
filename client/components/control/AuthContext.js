@@ -1,48 +1,37 @@
 // @flow
 import * as React from 'react';
+import withRouter from 'react-router-dom/withRouter';
 
 type Props = {
   children: React.Node,
+  history: Function,
 }
 
 // Create a context from ContextAPI to store user authentication value
 const AuthContext = React.createContext();
 
 /**
- * @constructor AuthProvider
+ * @constructor ProviderAuth
  * @description Provides an authentication system for the application
  */
-class AuthProvider extends React.Component<Props> {
-  setupUserList = () => {
-    const usersList = localStorage.getItem('usersList');
-
-    if (!usersList) {
-      const adminUser = {
-        fullname: 'admin',
-        email: 'admin@admin.com',
-        password: 'adminpassword',
-        token: '570s76vv',
-      };
-
-      localStorage.setItem('usersList', JSON.stringify([adminUser]));
-    }
-  }
-
+class ProviderAuth extends React.Component<Props> {
   login = (user) => {
     const { token } = user;
-    localStorage.setItem('userAuthenticated', true);
+    localStorage.setItem('userAuthenticated', JSON.stringify(user));
     localStorage.setItem('token', token);
   }
 
   logout = () => {
+    const { history } = this.props;
     localStorage.removeItem('userAuthenticated');
+    localStorage.removeItem('token');
+    history.push('/main');
   }
 
   isUserAuthenticated = () => localStorage.getItem('userAuthenticated');
 
   render() {
     const { children } = this.props;
-    this.setupUserList();
 
     const config = {
       isUserAuthenticated: this.isUserAuthenticated,
@@ -59,5 +48,7 @@ class AuthProvider extends React.Component<Props> {
 }
 
 const AuthConsumer = AuthContext.Consumer;
+
+const AuthProvider = withRouter(ProviderAuth);
 
 export { AuthProvider, AuthConsumer };

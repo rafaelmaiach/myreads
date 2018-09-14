@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
 import Header from 'Components/header/Header';
+import UserLogout from 'Components/header/HeaderUserLogout';
 import HeaderTab from 'Components/header/HeaderTab';
 import HeaderSearchIcon from 'Components/header/HeaderSearchIcon';
 
@@ -41,6 +42,7 @@ const BookshelfHeader = ({ changeShelf, currentShelf }: Props) => {
 
   return (
     <Header>
+      <UserLogout />
       <BookshelfHeaderTabs>
         {headerTabs}
       </BookshelfHeaderTabs>
@@ -51,9 +53,8 @@ const BookshelfHeader = ({ changeShelf, currentShelf }: Props) => {
 
 const BookshelfHeaderTabs = styled.div`
   display: flex;
-  width: 100%;
+  width: 65%;
   justify-content: flex-start;
-  padding-left: 10px;
 `;
 
 export default onlyUpdateForKeys(['currentShelf'])(BookshelfHeader);

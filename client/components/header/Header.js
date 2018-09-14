@@ -2,7 +2,11 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-const Header = ({ children }: React.Node) => (
+type Props = {
+  children: React.Node,
+}
+
+const Header = ({ children }: Props) => (
   <HeaderContainer>
     {children}
   </HeaderContainer>
