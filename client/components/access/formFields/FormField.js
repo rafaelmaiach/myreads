@@ -92,13 +92,13 @@ class FormField extends React.PureComponent<Props, State> {
 const FormFieldInputContainer = styled.div`
   display: flex;
   flex-direction: column;
-  font-size: 16px;
+  font-size: 12px;
   width: 100%;
   height: 100px;
 
   &::after {
     content: '${props => props.error}';
-    font-size: 12px;
+    font-size: 8px;
     color: red;
     padding-top: 3px;
   }
@@ -109,9 +109,21 @@ const FormFieldInputContainer = styled.div`
   }
 
   & input {
-    font-size: 14px;
+    font-size: 10px;
     border: none;
     border-bottom: 1px solid black;
+  }
+
+  @media only screen and (min-width: 375px) {
+    font-size: 16px;
+
+    &::after {
+      font-size: 12px;
+    }
+
+    & input {
+      font-size: 14px;
+    }
   }
 
   @media only screen and (min-width: 768px) {

@@ -44,7 +44,11 @@ const FormFieldsContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 70%;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+
+  @media only screen and (min-width: 375px) {
+    margin-bottom: 30px;
+  }
 
   @media only screen and (min-width: 768px) {
     margin-bottom: 10px;

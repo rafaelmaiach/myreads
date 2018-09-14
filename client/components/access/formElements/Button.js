@@ -30,8 +30,8 @@ const FormButtonContainer = styled.div`
 
 const FormButton = styled.button`
   width: 100%;
-  padding: 15px;
-  font-size: 16px;
+  padding: 5px;
+  font-size: 12px;
   font-weight: 600;
   background-color: #05386b;
   color: #edf5e1;
@@ -40,6 +40,11 @@ const FormButton = styled.button`
     background-color: #4cc984;
     color: #05386b;
     cursor: pointer;
+  }
+
+  @media only screen and (min-width: 375px) {
+    padding: 15px;
+    font-size: 16px;
   }
 
   @media only screen and (min-width: 768px) {

@@ -19,21 +19,29 @@ const MemberInformation = ({ text, actionText, toggleForm }: Props) => (
 );
 
 const MemberInformationContainer = styled.div`
-    font-size: 14px;
+    font-size: 10px;
     padding-top: 5px;
 
   & button {
     -webkit-appearance: none;
     border: none;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 10px;
     background: none;
     font-weight: bold;
 
     &:hover {
       color: #4cc984;
     }
+
+    @media only screen and (min-width: 375px) {
+      font-size: 14px;
+    }
   }
+
+  @media only screen and (min-width: 375px) {
+      font-size: 14px;
+    }
 `;
 
 const shouldComponentUpdate = (props, nextProps) => {

@@ -3,7 +3,7 @@
   .fields__box {
     position: absolute;
     width: 100%;
-    padding: 30px;
+    padding: 15px;
     opacity: 0;
     -webkit-transition: opacity 0.45s, -webkit-transform 0.45s;
     transition: opacity 0.45s, -webkit-transform 0.45s, -moz-transform 0.45s, -o-transform 0.45s, transform 0.45s;
@@ -76,13 +76,36 @@
         }
 
         &--text {
-          font-size: 20px;
+          font-size: 16px;
           font-style: italic;
         }
 
         &--author {
-          font-size: 14px;
+          font-size: 12px;
           text-transform: capitalize;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 375px) {
+  .login-container {
+    .quotes__box,
+    .fields__box {
+      padding: 30px;
+    }
+
+    &__form {
+      &.active {
+        .quotes__box {
+          &--text {
+            font-size: 20px;
+          }
+
+          &--author {
+            font-size: 14px;
+          }
         }
       }
     }

@@ -36,13 +36,17 @@ const InvalidFormMessage = ({ type }: Props) => (
 
 const InvalidFormMessageContainer = styled.div`
   display: flex;
-  height: 20px;
+  height: 25px;
   margin-bottom: 10px;
   color: red;
 `;
 
 const InvalidFormText = styled.span`
-  font-size: 14px;
+  font-size: 10px;
+
+  @media only screen and (min-width: 375px) {
+    font-size: 14px;
+  }
 `;
 
 export default InvalidFormMessage;
