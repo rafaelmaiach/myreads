@@ -49,7 +49,7 @@ module.exports = {
   mode: 'production',
   entry: {
     react: ['react', 'react-dom', 'react-router-dom'],
-    app: './client/index.js',
+    app: ['./client/index.js', './client/index.scss'],
   },
   output: {
     path: path.resolve(__dirname, 'public'),
