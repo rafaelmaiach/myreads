@@ -40,3 +40,18 @@ export const debounce = (fn, time) => {
     timeout = setTimeout(functionCall, time);
   };
 };
+
+/**
+ * @function isMobile
+ * @description Check if the user is accessing the site from a mobile device
+ */
+export const isMobile = {
+  getUserAgent: () => navigator.userAgent,
+  Android: () => /Android/i.test(isMobile.getUserAgent()) && !isMobile.Windows(),
+  iPhone: () => /iPhone/i.test(isMobile.getUserAgent()) && !isMobile.iPad() && !isMobile.Windows(),
+  iPod: () => /iPod/i.test(isMobile.getUserAgent()),
+  iPad: () => /iPad/i.test(isMobile.getUserAgent()),
+  iOS: () => isMobile.iPad() || isMobile.iPod() || isMobile.iPhone(),
+  Windows: () => /Windows Phone|IEMobile|WPDesktop/i.test(isMobile.getUserAgent()),
+  any: () => isMobile.Android() || isMobile.iOS() || isMobile.Windows(),
+};
