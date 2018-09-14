@@ -16,7 +16,7 @@
   "scripts": {
     "postinstall": "npm run build",
     "dev": "cross-env NODE_ENV=development node server",
-    "build": "cross-env NODE_ENV=production webpack -p --config ./webpack.config.js --color",
+    "build": "cross-env NODE_ENV=production webpack -p --config ./webpack.config.js",
     "start": "node server",
     "lint": "eslint client",
     "flow": "flow"
