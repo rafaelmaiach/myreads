@@ -5,6 +5,7 @@ import {
   Switch,
   Redirect,
 } from 'react-router-dom';
+import { hot } from 'react-hot-loader';
 
 import { AuthProvider } from 'Components/control/AuthContext';
 import ProtectedRoute from 'Components/control/ProtectedRoute';
@@ -35,4 +36,9 @@ const Application = () => (
   </BrowserRouter>
 );
 
-export default Application;
+const isDevEnv = process.env.NODE_ENV === 'development';
+
+// If it's running on development environment, enables hot load
+const App = isDevEnv ? hot(module)(Application) : Application;
+
+export default App;
