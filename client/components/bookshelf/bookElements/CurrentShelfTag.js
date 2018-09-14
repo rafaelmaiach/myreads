@@ -34,7 +34,7 @@ const CurrentShelfTagContainer = styled.span`
     width: 80px;
   }
 
-  @media only screen and (min-width: 1025px) {
+  @media only screen and (min-width: 768px) {
     height: 25px;
     font-size: 14px;
     bottom: 0;

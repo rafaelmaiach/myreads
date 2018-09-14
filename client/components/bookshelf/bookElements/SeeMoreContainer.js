@@ -18,7 +18,7 @@ const BookSeeMoreContainer = styled.div`
   height: 30px;
   justify-content: flex-end;
 
-  @media only screen and (min-width: 1025px) {
+  @media only screen and (min-width: 768px) {
     height: 50px;
   }
 `;
@@ -36,7 +36,7 @@ const BookSeeMoreButton = styled.button`
     color: #4cc984;
   }
 
-  @media only screen and (min-width: 1025px) {
+  @media only screen and (min-width: 768px) {
     font-size: 14px;
   }
 `;

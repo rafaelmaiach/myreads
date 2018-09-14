@@ -31,6 +31,11 @@ const BookImageContainer = styled.div`
     height: 110px;
   }
 
+  @media only screen and (min-width: 768px) {
+    width: 120px;
+    height: 170px;
+  }
+
   @media only screen and (min-width: 1025px) {
     width: ${({ isModal }) => !isModal ? '120px' : '140px'};
     height: 170px;

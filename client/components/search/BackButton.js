@@ -26,7 +26,7 @@ const BackButtonContainer = styled.div`
   justify-content: center;
   align-items: center;
 
-  @media only screen and (min-width: 1025px) {
+  @media only screen and (min-width: 768px) {
     width: 10%;
   }
 `;
@@ -38,11 +38,16 @@ const BackButton = styled.button`
   font-size: 25px;
   border: none;
   background: none;
-  padding: 0 0 5px 0;
+  padding-bottom: 5px;
+
+  @media only screen and (min-width: 768px) {
+    font-size: 50px;
+    padding-bottom: 10px;
+  }
 
   @media only screen and (min-width: 1025px) {
     font-size: 70px;
-    padding-left: 0 0 20px 0;
+    padding-bottom: 20px;
   }
 
   &:hover {

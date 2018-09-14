@@ -24,7 +24,9 @@ const BookTitleContainer = styled.h1`
   width: 89%;
   padding-right: 10px;
 
-  @media only screen and (min-width: 1025px) {
+  @media only screen and (min-width: 768px) {
+    width: 100%;
+    padding: 0;
     font-size: 16px;
   }
 `;

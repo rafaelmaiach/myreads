@@ -21,7 +21,7 @@ const ModalDescriptionContainer = styled.section`
     height: 280px;
   }
 
-  @media only screen and (min-width: 1025px) {
+  @media only screen and (min-width: 768px) {
     font-size: 16px;
   }
 `;
@@ -30,7 +30,8 @@ const ModalDescriptionText = styled.p`
   line-height: 1.2;
   margin: 5px 0 0 0;
   padding: 5px;
-  height: 100%;
+  max-height: 100%;
+  color: #05386b;
 `;
 
 export default Description;

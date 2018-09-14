@@ -19,8 +19,8 @@ const BookPreviewButton = styled.a`
     color: #298954;
   }
 
-  @media only screen and (min-width: 1025px) {
-    font-size: 14px;
+  @media only screen and (min-width: 768px) {
+    font-size: 16px;
     padding: 5px 0;
   }
 `;

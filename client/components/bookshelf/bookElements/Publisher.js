@@ -17,7 +17,7 @@ const BookPublisherContainer = styled.span`
     padding: 3px 0;
   }
 
-  @media only screen and (min-width: 1025px) {
+  @media only screen and (min-width: 768px) {
     font-size: 14px;
     padding: 5px 0;
   }

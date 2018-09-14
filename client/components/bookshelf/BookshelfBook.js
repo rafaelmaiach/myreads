@@ -146,6 +146,10 @@ const BookInformation = styled.div`
   color: #05386b;
   position: relative;
   justify-content: space-between;
+
+  @media only screen and (min-width: 768px) {
+    width: 80%;
+  }
 `;
 
 export default compose(

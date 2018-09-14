@@ -39,7 +39,7 @@ const SearchTermsContainer = styled.div`
     padding: 20px 15px;
     color: #05386b;
 
-    @media only screen and (min-width: 1025px) {
+    @media only screen and (min-width: 768px) {
       padding: 20px 30px;
     }
 `;
@@ -52,7 +52,7 @@ const NoBooksFoundText = styled.span`
   font-weight: 800;
   color: #4cc984;
 
-  @media only screen and (min-width: 1025px) {
+  @media only screen and (min-width: 768px) {
     width: 50%;
     font-size: 26px;
   }
@@ -64,7 +64,7 @@ const SearchTermsTitle = styled.span`
   font-size: 16px;
   font-weight: 600;
 
-  @media only screen and (min-width: 1025px) {
+  @media only screen and (min-width: 768px) {
     width: 50%;
     font-size: 18px;
   }
@@ -78,7 +78,7 @@ const SearchTerms = styled.p`
   text-align: center;
   padding: 0;
 
-  @media only screen and (min-width: 1025px) {
+  @media only screen and (min-width: 768px) {
     font-size: 16px;
   }
 `;

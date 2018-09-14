@@ -18,7 +18,7 @@ const BookDescriptionContainer = styled.p`
     font-size: 12px;
   }
 
-  @media only screen and (min-width: 1025px) {
+  @media only screen and (min-width: 768px) {
     font-size: 14px;
   }
 `;

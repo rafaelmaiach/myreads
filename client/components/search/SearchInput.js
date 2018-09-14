@@ -32,25 +32,21 @@ const SearchInputContainer = styled.div`
     color: #edf5e1;
     width: 100%;
 
-    @media only screen and (min-width: 1025px) {
+    @media only screen and (min-width: 768px) {
       font-size: 26px;
     }
 
-    &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    &::placeholder,
+    :-ms-input-placeholder,
+    ::-ms-input-placeholder {
       color: rgba(237, 245, 225, 0.5);
-      opacity: 1; /* Firefox */
-    }
-
-    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
-      color: rgba(237, 245, 225, 0.5);
-    }
-
-    &::-ms-input-placeholder { /* Microsoft Edge */
-      color: rgba(237, 245, 225, 0.5);
+      opacity: 1;
     }
   }
 
-
+  @media only screen and (min-width: 768px) {
+    width: 80%;
+  }
 `;
 
 export default shouldUpdate(() => false)(SearchInput);

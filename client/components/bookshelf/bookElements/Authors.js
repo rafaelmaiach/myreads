@@ -14,7 +14,7 @@ const BookAuthorsContainer = styled.h4`
   font-weight: 600;
   padding-top: 5px;
 
-  @media only screen and (min-width: 1025px) {
+  @media only screen and (min-width: 768px) {
     font-size: 12px;
   }
 `;
