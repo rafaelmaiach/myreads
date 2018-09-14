@@ -21,7 +21,7 @@ const validateSchemas = {
     .matches(/(?=.*[a-z])/, 'Should have at least one lowercase character')
     .matches(/^(?=.*[A-Z])/, 'Should have at least one uppercase character')
     .matches(/^(?=.*[0-9])/, 'Should have at least one number')
-    .matches(/^(?=.*[!@#$%^&*])/, 'Should have at least one of !,@,#,$,%,^,&,*'),
+    .matches(/^(?=.*[!@#$%^&*])/, 'Should have at least one symbol'),
 };
 
 /**
