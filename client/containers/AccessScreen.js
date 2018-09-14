@@ -17,7 +17,7 @@ const AccessFormContainer = Loadable({
 });
 
 const AccessScreen = ({ history }: Props) => {
-  const { userAuthenticated } = sessionStorage;
+  const { userAuthenticated } = localStorage;
 
   if (userAuthenticated) {
     history.push('/main');

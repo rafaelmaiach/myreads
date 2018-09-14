@@ -78,7 +78,7 @@ class LoginFormContainer extends React.PureComponent<void, State> {
     const formIsValid = fullname && email && password;
 
     if (formIsValid) {
-      const usersList = JSON.parse(sessionStorage.getItem('usersList'));
+      const usersList = JSON.parse(localStorage.getItem('usersList'));
 
       const userFound = usersList.find(obj => obj.email === email);
 
@@ -93,10 +93,11 @@ class LoginFormContainer extends React.PureComponent<void, State> {
         fullname,
         email,
         password,
+        token: Math.random().toString(36).substr(-8),
       };
 
       usersList.push(newUser);
-      sessionStorage.setItem('usersList', JSON.stringify(usersList));
+      localStorage.setItem('usersList', JSON.stringify(usersList));
       this.toggleForm();
       return;
     }
@@ -112,7 +113,7 @@ class LoginFormContainer extends React.PureComponent<void, State> {
       password: loginPassword,
     } = this.state;
 
-    const usersList = JSON.parse(sessionStorage.getItem('usersList'));
+    const usersList = JSON.parse(localStorage.getItem('usersList'));
 
     const userFound = usersList.find(({ email, password }) => (
       (email === loginEmail) && (password === loginPassword)
@@ -120,7 +121,7 @@ class LoginFormContainer extends React.PureComponent<void, State> {
 
     if (userFound) {
       const { history } = this.props;
-      login();
+      login(userFound);
       history.push('/');
       return;
     }

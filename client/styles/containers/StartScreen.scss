@@ -75,7 +75,23 @@
   }
 }
 
-@media only screen and (min-width: 1025px) {
+@media only screen and (min-width: 1024px) {
+  .login-container {
+    &__box {
+      width: 55%;
+
+      &__logo--text {
+        font-size: 85px;
+      }
+
+      &__button button {
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
   .login-container {
     &__box {
       width: 40%;

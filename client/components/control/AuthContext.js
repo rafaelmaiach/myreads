@@ -14,28 +14,31 @@ const AuthContext = React.createContext();
  */
 class AuthProvider extends React.Component<Props> {
   setupUserList = () => {
-    const usersList = sessionStorage.getItem('userList');
+    const usersList = localStorage.getItem('usersList');
 
     if (!usersList) {
       const adminUser = {
         fullname: 'admin',
         email: 'admin@admin.com',
         password: 'adminpassword',
+        token: '570s76vv',
       };
 
-      sessionStorage.setItem('usersList', JSON.stringify([adminUser]));
+      localStorage.setItem('usersList', JSON.stringify([adminUser]));
     }
   }
 
-  login = () => {
-    sessionStorage.setItem('userAuthenticated', true);
+  login = (user) => {
+    const { token } = user;
+    localStorage.setItem('userAuthenticated', true);
+    localStorage.setItem('token', token);
   }
 
   logout = () => {
-    sessionStorage.removeItem('userAuthenticated');
+    localStorage.removeItem('userAuthenticated');
   }
 
-  isUserAuthenticated = () => sessionStorage.getItem('userAuthenticated');
+  isUserAuthenticated = () => localStorage.getItem('userAuthenticated');
 
   render() {
     const { children } = this.props;

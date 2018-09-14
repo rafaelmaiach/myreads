@@ -34,6 +34,7 @@ const ShelfDropdownContainer = styled.div`
   right: 5px;
   width: 25px;
   height: 25px;
+  z-index: 1;
 
   @media only screen and (min-width: 1025px) {
     right: 15px;
