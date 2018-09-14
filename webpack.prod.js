@@ -101,7 +101,6 @@ module.exports = {
       title: 'MyReads - Rafael Maia Chieregatto',
       filename: './views/index.pug',
       template: './client/views/prod/index.pug',
-      favicon: 'client/assets/icons/favicon.ico',
       minify: {
         removeComments: true,
         collapseWhitespace: false,
