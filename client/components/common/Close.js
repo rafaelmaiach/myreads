@@ -3,7 +3,11 @@ import * as React from 'react';
 import styled from 'styled-components';
 import shouldUpdate from 'recompose/shouldUpdate';
 
-const Close = ({ closeAction }: Function) => (
+type Props = {
+  closeAction: Function,
+}
+
+const Close = ({ closeAction }: Props) => (
   <CloseButton
     type="button"
     onClick={closeAction}

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import ModalBox from './Box';
 
 type Props = {
-  authors: Array<string>,
+  authors: string,
   rating: number,
   closeModal: Function,
   description: string,

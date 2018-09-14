@@ -13,7 +13,10 @@ type Props = {
 // Get the dropdown list and toggle a class to show the values
 // The id shelfDropdownItems is set inside the DropdownItems child component
 const openDropdown = (id: string) => () => {
-  document.getElementById(id).classList.toggle('showDropdown');
+  const dropdown = document.getElementById(id);
+  if (dropdown) {
+    dropdown.classList.toggle('showDropdown');
+  }
 };
 
 const Dropdown = ({ book, updateBook, removeBook }: Props) => {

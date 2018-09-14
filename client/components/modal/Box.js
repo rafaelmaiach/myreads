@@ -7,7 +7,7 @@ import ModalHeader from './Header';
 import ModalDescription from './Description';
 
 type Props = {
-  authors: Array<string>,
+  authors: string,
   rating: number,
   closeModal: Function,
   description: string,

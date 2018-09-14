@@ -17,7 +17,7 @@ const AccessFormContainer = Loadable({
 });
 
 const AccessScreen = ({ history }: Props) => {
-  const { userAuthenticated } = localStorage;
+  const userAuthenticated = localStorage.getItem('userAuthenticated');
 
   if (userAuthenticated) {
     history.push('/main');
@@ -26,7 +26,10 @@ const AccessScreen = ({ history }: Props) => {
 
   setTimeout(() => {
     const form = document.querySelector('.login-container__form');
-    form.classList.add('active');
+
+    if (form) {
+      form.classList.add('active');
+    }
   }, 100);
 
   return (

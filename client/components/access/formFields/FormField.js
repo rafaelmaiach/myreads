@@ -10,7 +10,7 @@ type Props = {
   type: Type,
   label: string,
   fieldId: string,
-  placeholder?: string,
+  placeholder: string,
   required: boolean,
   validator?: ?Function,
   onStateChanged: Function,
@@ -25,7 +25,6 @@ export type State = {
 class FormField extends React.PureComponent<Props, State> {
   static defaultProps = {
     validator: null,
-    placeholder: '',
   }
 
   state = {
@@ -34,7 +33,7 @@ class FormField extends React.PureComponent<Props, State> {
     error: '',
   }
 
-  hasChanged = (value) => {
+  hasChanged = (value:string) => {
     const { dirty } = this.state;
     const {
       label,

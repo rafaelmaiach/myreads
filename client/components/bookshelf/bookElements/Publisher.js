@@ -3,11 +3,23 @@ import * as React from 'react';
 import styled from 'styled-components';
 import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
-const Publisher = ({ publisher }?: string) => (
+type Props = {
+  publisher?: string,
+}
+
+const Publisher = ({ publisher }: Props) => (
   <BookPublisherContainer>
-    {`Publisher: ${publisher}` || 'Publisher not found'}
+    {
+      publisher
+        ? `Publisher: ${publisher}`
+        : 'Publisher not found'
+    }
   </BookPublisherContainer>
 );
+
+Publisher.defaultProps = {
+  publisher: '',
+};
 
 const BookPublisherContainer = styled.span`
   font-size: 12px;

@@ -10,8 +10,18 @@ type Props = {
   debounceTimeout: number,
   onChange: Function,
 }
-class DebounceInput extends React.PureComponent<Props> {
-  constructor(props) {
+
+type State = {
+  value: '',
+  timeout: number,
+}
+
+class DebounceInput extends React.PureComponent<Props, State> {
+  handleChange: Function;
+
+  debouncedOnChange: Function;
+
+  constructor(props: Props) {
     super(props);
 
     const { debounceTimeout } = props;
@@ -23,12 +33,12 @@ class DebounceInput extends React.PureComponent<Props> {
 
     const { timeout } = this.state;
 
-    this.debouncedOnChange = debounce((value) => {
+    this.debouncedOnChange = debounce((value:string) => {
       const { onChange } = this.props;
       onChange(value);
     }, timeout);
 
-    this.handleChange = (event) => {
+    this.handleChange = (event:Object) => {
       event.persist();
       const { value } = event.target;
       this.setState(() => ({ value }));

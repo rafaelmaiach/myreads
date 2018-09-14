@@ -13,13 +13,18 @@ import SearchPageContent from 'Components/search/SearchPageContent';
 import Loading from 'Components/loading/Loading';
 import searchPageImage from 'Assets/images/search_page.jpg';
 
+type AllBooks = {
+  currentlyReading: Array<Object>,
+  wantToRead: Array<Object>,
+  read: Array<Object>,
+}
+
 type State = {
   isLoading: boolean,
-  booksList: Array<React.Node>,
+  booksList: Array<Object>,
   searchInputText: string,
-  dirty: false,
-  isUpdatingBook: boolean,
-  allBooks: Object
+  dirty: boolean,
+  allBooks: AllBooks,
 }
 
 /**
@@ -95,7 +100,6 @@ class SearchScreen extends React.Component<void, State> {
     } else {
       this.setState(() => ({
         isLoading: false,
-        isUpdatingBook: false,
         dirty: false,
         booksList: [],
       }));

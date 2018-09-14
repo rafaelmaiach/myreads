@@ -10,12 +10,15 @@ import Button from './formElements/Button';
 import MemberInformation from './formElements/MemberInformation';
 import InvalidFormMessage from './formElements/InvalidFormMessage';
 
+type Props = {
+  history: Function,
+}
+
 type State = {
   fullname: string,
   email: string,
   password: string,
   formType: string,
-  invalidForm: boolean,
   invalidFormType: string,
 }
 
@@ -25,7 +28,7 @@ type FormFieldState = {
   error: string,
 }
 
-class LoginFormContainer extends React.PureComponent<void, State> {
+class LoginFormContainer extends React.PureComponent<Props, State> {
   state = {
     fullname: '',
     email: '',
@@ -78,28 +81,34 @@ class LoginFormContainer extends React.PureComponent<void, State> {
     const formIsValid = fullname && email && password;
 
     if (formIsValid) {
-      const usersList = JSON.parse(localStorage.getItem('usersList'));
+      let usersList = null;
+      let userFound = null;
 
-      const userFound = usersList.find(obj => obj.email === email);
+      const usersListString = localStorage.getItem('usersList');
 
-      if (userFound) {
-        this.setState(() => ({
-          invalidFormType: 'userExists',
-        }));
+      if (usersListString) {
+        usersList = JSON.parse(usersListString);
+        userFound = usersList.find(obj => obj.email === email);
+
+        if (userFound) {
+          this.setState(() => ({
+            invalidFormType: 'userExists',
+          }));
+          return;
+        }
+
+        const newUser = {
+          fullname,
+          email,
+          password,
+          token: Math.random().toString(36).substr(-8),
+        };
+
+        usersList.push(newUser);
+        localStorage.setItem('usersList', JSON.stringify(usersList));
+        this.toggleForm();
         return;
       }
-
-      const newUser = {
-        fullname,
-        email,
-        password,
-        token: Math.random().toString(36).substr(-8),
-      };
-
-      usersList.push(newUser);
-      localStorage.setItem('usersList', JSON.stringify(usersList));
-      this.toggleForm();
-      return;
     }
 
     this.setState(() => ({
@@ -113,9 +122,14 @@ class LoginFormContainer extends React.PureComponent<void, State> {
       password: loginPassword,
     } = this.state;
 
-    const usersList = JSON.parse(localStorage.getItem('usersList'));
-
+    let usersList = null;
     let userFound = null;
+
+    const usersListString = localStorage.getItem('usersList');
+
+    if (usersListString) {
+      usersList = JSON.parse(usersListString);
+    }
 
     if (usersList) {
       userFound = usersList.find(({ email, password }) => (

@@ -6,20 +6,26 @@ import shouldUpdate from 'recompose/shouldUpdate';
 import { AuthConsumer } from 'Components/control/AuthContext';
 
 const HeaderUserLogout = () => {
-  const user = JSON.parse(localStorage.userAuthenticated);
+  const userInfo = localStorage.getItem('userAuthenticated');
 
-  const name = user.fullname.split(' ')[0];
+  if (userInfo) {
+    const user = JSON.parse(userInfo);
 
-  return (
-    <AuthConsumer>
-      {({ logout }) => (
-        <UserLogoutContainer>
-          <NameText>{`Hello, ${name}!`}</NameText>
-          <LogoutButton onClick={logout}>Logout</LogoutButton>
-        </UserLogoutContainer>
-      )}
-    </AuthConsumer>
-  );
+    const name = user.fullname.split(' ')[0];
+
+    return (
+      <AuthConsumer>
+        {({ logout }) => (
+          <UserLogoutContainer>
+            <NameText>{`Hello, ${name}!`}</NameText>
+            <LogoutButton onClick={logout}>Logout</LogoutButton>
+          </UserLogoutContainer>
+        )}
+      </AuthConsumer>
+    );
+  }
+
+  return null;
 };
 
 const UserLogoutContainer = styled.div`

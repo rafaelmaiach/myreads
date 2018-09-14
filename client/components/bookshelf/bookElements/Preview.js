@@ -2,11 +2,19 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-const Preview = ({ link }?: string) => (
+type Props = {
+  link?: string,
+}
+
+const Preview = ({ link }: Props) => (
   <BookPreviewButton target="_blank" href={link}>
     Preview
   </BookPreviewButton>
 );
+
+Preview.defaultProps = {
+  link: '',
+};
 
 const BookPreviewButton = styled.a`
   font-size: 12px;

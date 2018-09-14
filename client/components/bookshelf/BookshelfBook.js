@@ -46,10 +46,11 @@ type Props = {
   removeBook: Function,
   bookInfo: BookProps,
   isSearchPage: boolean,
+  bookInformations: BookProps,
 }
 
 const BookshelfBook = (props: Props) => {
-  const { bookInfo: bookInformations }: BookProps = props;
+  const { bookInfo: bookInformations } = props;
 
   const {
     isModalOpen,
@@ -73,7 +74,7 @@ const BookshelfBook = (props: Props) => {
     shelf,
   } = bookInformations;
 
-  const thumbnail = imageLinks ? imageLinks.thumbnail : null;
+  const thumbnail = imageLinks ? imageLinks.thumbnail : '';
 
   let authorsNames = 'Author not found';
 

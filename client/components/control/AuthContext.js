@@ -47,7 +47,7 @@ class ProviderAuth extends React.Component<Props> {
   }
 }
 
-const AuthConsumer = AuthContext.Consumer;
+const AuthConsumer:Object = AuthContext.Consumer;
 
 const AuthProvider = withRouter(ProviderAuth);
 

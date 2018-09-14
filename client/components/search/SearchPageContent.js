@@ -4,22 +4,35 @@ import * as React from 'react';
 import EmptySearch from 'Components/search/EmptySearch';
 import BookshelfList from 'Components/bookshelf/BookshelfList';
 
-type RestProps = {
+type Props = {
+  bookListNotEmpty: boolean,
+  dirty: boolean,
   isLoading: boolean,
   booksList: Array<Object>,
   changeShelfFor: Function,
 }
 
-type Props = {
-  bookListNotEmpty: boolean,
-  dirty: boolean,
-  rest: RestProps,
-}
+const SearchPageContent = (props: Props) => {
+  const {
+    bookListNotEmpty,
+    isLoading,
+    booksList,
+    changeShelfFor,
+    dirty,
+  } = props;
 
-const SearchPageContent = ({ bookListNotEmpty, dirty, ...rest }: Props) => (
-  bookListNotEmpty
-    ? <BookshelfList {...rest} isSearchPage />
-    : <EmptySearch dirty={dirty} />
-);
+  return (
+    bookListNotEmpty
+      ? (
+        <BookshelfList
+          bookListNotEmpty={bookListNotEmpty}
+          isLoading={isLoading}
+          booksList={booksList}
+          changeShelfFor={changeShelfFor}
+          isSearchPage
+        />)
+      : <EmptySearch dirty={dirty} />
+  );
+};
 
 export default SearchPageContent;

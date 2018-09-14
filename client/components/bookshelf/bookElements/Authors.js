@@ -3,7 +3,11 @@ import * as React from 'react';
 import styled from 'styled-components';
 import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
-const Authors = ({ authorsNames }: string) => (
+type Props = {
+  authorsNames: string,
+}
+
+const Authors = ({ authorsNames }: Props) => (
   <BookAuthorsContainer>
     {authorsNames}
   </BookAuthorsContainer>

@@ -18,7 +18,7 @@ type Props = {
  */
 const StartScreen = ({ history }: Props) => {
   // Get the authenticate status from localStorage
-  const { userAuthenticated } = localStorage;
+  const userAuthenticated = localStorage.getItem('userAuthenticated');
 
   // Redirect to auth page if not authenticated and to bookshelf page if it is
   const redirectUser = () => {

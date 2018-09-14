@@ -3,11 +3,23 @@ import * as React from 'react';
 import styled from 'styled-components';
 import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
-const PublishedDate = ({ date }?: string) => (
+type Props = {
+  date?: string,
+}
+
+const PublishedDate = ({ date }: Props) => (
   <BookPublishedDateContainer>
-    {`Published date: ${date}` || 'Published date not found'}
+    {
+      date
+        ? `Published date: ${date}`
+        : 'Published date not found'
+    }
   </BookPublishedDateContainer>
 );
+
+PublishedDate.defaultProps = {
+  date: '',
+};
 
 const BookPublishedDateContainer = styled.span`
   font-size: 12px;

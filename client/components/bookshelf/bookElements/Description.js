@@ -3,7 +3,11 @@ import * as React from 'react';
 import styled from 'styled-components';
 import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
-const Description = ({ descriptionReduced }: string) => (
+type Props = {
+  descriptionReduced: string,
+}
+
+const Description = ({ descriptionReduced }: Props) => (
   <BookDescriptionContainer>
     {descriptionReduced}
   </BookDescriptionContainer>

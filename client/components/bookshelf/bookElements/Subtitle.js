@@ -3,7 +3,11 @@ import * as React from 'react';
 import styled from 'styled-components';
 import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
-const Subtitle = ({ subtitleText }: string) => (
+type Props = {
+  subtitleText: string,
+}
+
+const Subtitle = ({ subtitleText }: Props) => (
   <BookSubtitleContainer>
     {subtitleText}
   </BookSubtitleContainer>

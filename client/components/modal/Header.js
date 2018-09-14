@@ -12,7 +12,7 @@ import Subtitle from 'Components/bookshelf/bookElements/Subtitle';
 import Title from 'Components/bookshelf/bookElements/Title';
 
 type Props = {
-  authors: Array<string>,
+  authors: string,
   rating: number,
   thumbnail: string,
   previewLink: string,

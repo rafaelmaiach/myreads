@@ -7,7 +7,7 @@ import Loading from 'Components/loading/Loading';
 import BookshelfBook from 'Components/bookshelf/BookshelfBook';
 
 type Props = {
-  isLoading: boolean,
+  isLoading?: boolean,
   booksList: Array<Object>,
   changeShelfFor: Function,
   isSearchPage?: boolean,
@@ -47,6 +47,7 @@ const BookshelfList = (props: Props) => {
 
 BookshelfList.defaultProps = {
   isSearchPage: false,
+  isLoading: false,
 };
 
 const BookshelfListContainer = styled.div`

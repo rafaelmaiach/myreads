@@ -11,10 +11,11 @@ import BookshelfList from 'Components/bookshelf/BookshelfList';
 import bookshelfPageImage from 'Assets/images/bookshelf_page.jpg';
 
 type State = {
-  currentlyReadingBooks: Array,
-  wantToReadBooks: Array,
-  readBooks: Array,
+  currentlyReading: Array<Object>,
+  wantToRead: Array<Object>,
+  read: Array<Object>,
   currentShelf: string,
+  isLoading: boolean,
 }
 
 class BookshelfScreen extends React.PureComponent<void, State> {
@@ -42,7 +43,7 @@ class BookshelfScreen extends React.PureComponent<void, State> {
     );
   }
 
-  changeShelfFor = (book, isRemoveFunction = false) => (event) => {
+  changeShelfFor = (book:Object, isRemoveFunction:boolean = false) => (event:Object) => {
     const { name: shelfToMove } = event.target;
 
     if (isRemoveFunction) {
@@ -63,7 +64,7 @@ class BookshelfScreen extends React.PureComponent<void, State> {
     );
   };
 
-  separateBooks = (allBooks) => {
+  separateBooks = (allBooks:Array<Object>) => {
     const separateBooks = groupBooksByShelf(allBooks);
 
     this.setState(() => ({
@@ -72,7 +73,7 @@ class BookshelfScreen extends React.PureComponent<void, State> {
     }));
   }
 
-  changeShelf = newShelf => this.setState(() => ({ currentShelf: newShelf }));
+  changeShelf = (newShelf:string) => this.setState(() => ({ currentShelf: newShelf }));
 
   render() {
     const { isLoading, currentShelf, [currentShelf]: shelfToRender } = this.state;

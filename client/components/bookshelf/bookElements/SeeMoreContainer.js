@@ -3,7 +3,11 @@ import * as React from 'react';
 import styled from 'styled-components';
 import shouldUpdate from 'recompose/shouldUpdate';
 
-const SeeMoreContainer = ({ openModal }: Function) => (
+type Props = {
+  openModal: Function,
+}
+
+const SeeMoreContainer = ({ openModal }: Props) => (
   <BookSeeMoreContainer>
     <BookSeeMoreButton onClick={openModal}>
       SEE MORE

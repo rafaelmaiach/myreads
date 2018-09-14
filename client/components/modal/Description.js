@@ -2,7 +2,11 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-const Description = ({ description }: string) => (
+type Props = {
+  description: string,
+}
+
+const Description = ({ description }: Props) => (
   <ModalDescriptionContainer>
     <ModalDescriptionText>
       {description}
