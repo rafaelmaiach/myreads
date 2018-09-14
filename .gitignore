@@ -18,4 +18,6 @@ public/*.gz
 public/*.css
 public/*.map
 public/*.jpg
+public/*.ico
 public/icons/*.ico
+public/views/index.pug

@@ -66,7 +66,6 @@ module.exports = {
       uglifySetup,
       new OptimizeCSSAssetsPlugin(),
     ],
-    runtimeChunk: true,
     splitChunks: { chunks: 'all' },
   },
   module: {

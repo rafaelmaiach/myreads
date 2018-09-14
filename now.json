@@ -1,4 +1,6 @@
 {
+  "name": "myreads",
+  "alias": "myreads-rafaelmaiach",
   "env": {
     "NODE_ENV": "production"
   }
