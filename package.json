@@ -18,8 +18,7 @@
     "start:prod": "npm run build && npm run start:production",
     "start:production": "cross-env NODE_ENV=production node --optimize_for_size --max_old_space_size=460 --gc_interval=100 server/index.js",
     "lint": "eslint client",
-    "flow": "flow",
-    "heroku-postbuild": "npm run build"
+    "flow": "flow"
   },
   "dependencies": {
     "compression": "1.7.3",
