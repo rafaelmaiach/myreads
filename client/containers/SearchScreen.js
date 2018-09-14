@@ -11,7 +11,7 @@ import BackButton from 'Components/search/BackButton';
 import SearchInput from 'Components/search/SearchInput';
 import SearchPageContent from 'Components/search/SearchPageContent';
 import Loading from 'Components/loading/Loading';
-import searchPageImage from '../assets/images/search_page.jpg';
+import searchPageImage from 'Assets/images/search_page.jpg';
 
 type State = {
   isLoading: boolean,
