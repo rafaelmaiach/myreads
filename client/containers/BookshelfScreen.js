@@ -8,7 +8,7 @@ import GeneralScreen from 'Containers/GeneralScreen';
 import BookshelfHeader from 'Components/bookshelf/BookshelfHeader';
 import BookshelfList from 'Components/bookshelf/BookshelfList';
 
-import bookshelfPageImage from 'Assets/images/bookshelf_page.jpg';
+import bookshelfPageImage from '../assets/images/bookshelf_page.jpg';
 
 type State = {
   currentlyReadingBooks: Array,
