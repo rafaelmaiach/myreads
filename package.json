@@ -13,13 +13,13 @@
     "url": "https://rafaelmaiach.github.io/"
   },
   "scripts": {
-    "postinstall": "npm run build",
     "build": "cross-env NODE_ENV=production webpack --config ./webpack.config.js --color -p --progress --hide-modules --display-optimization-bailout",
     "start": "cross-env NODE_ENV=development node server",
     "start:prod": "npm run build && npm run start:production",
     "start:production": "cross-env NODE_ENV=production node --optimize_for_size --max_old_space_size=460 --gc_interval=100 server/index.js",
     "lint": "eslint client",
-    "flow": "flow"
+    "flow": "flow",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "compression": "1.7.3",
