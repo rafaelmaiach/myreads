@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import shouldUpdate from 'recompose/shouldUpdate';
-import validateField from 'Utils/login/validateFields';
+import validateField from 'Utils/access/validateFields';
 
 import FormField from './FormField';
 

@@ -45,6 +45,10 @@ const FormFieldsContainer = styled.div`
   justify-content: center;
   width: 70%;
   margin-bottom: 30px;
+
+  @media only screen and (min-width: 768px) {
+    margin-bottom: 10px;
+  }
 `;
 
 const shouldComponentUpdate = (props, nextProps) => {

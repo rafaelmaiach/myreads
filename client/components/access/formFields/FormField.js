@@ -116,6 +116,15 @@ const FormFieldInputContainer = styled.div`
   }
 
   @media only screen and (min-width: 768px) {
+    font-size: 20px;
+    margin-bottom: 5px;
+
+    & input {
+      font-size: 18px;
+    }
+  }
+
+  @media only screen and (min-width: 1025px) {
     font-size: 24px;
 
     & input {

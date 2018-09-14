@@ -115,9 +115,13 @@ class LoginFormContainer extends React.PureComponent<void, State> {
 
     const usersList = JSON.parse(localStorage.getItem('usersList'));
 
-    const userFound = usersList.find(({ email, password }) => (
-      (email === loginEmail) && (password === loginPassword)
-    ));
+    let userFound = null;
+
+    if (usersList) {
+      userFound = usersList.find(({ email, password }) => (
+        (email === loginEmail) && (password === loginPassword)
+      ));
+    }
 
     if (userFound) {
       const { history } = this.props;
