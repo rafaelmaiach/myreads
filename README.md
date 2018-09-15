@@ -17,8 +17,7 @@
 	 - [Bookshelf page](#bookshelf-page)
 	 - [Search page](#search-page)
  - [Walkthrough the project](#walkthrough-the-project)
-	 - [Migrating from third-parties boilerplates to my own boilerplate](#migrating-from-third-parties-boilerplates-to-my-own-boilerplate)
-	 - [From SCSS to Styled-Components](#from-scss-to-styled-components)
+	 - [Migrating from third-party boilerplates to my own boilerplate](#migrating-from-third-party-boilerplates-to-my-own-boilerplate)
 	 - [Thinking about performance](#thinking-about-performance)
   - [Built with](#built-with)
  - [Contact me](#contact-me)
@@ -108,7 +107,7 @@ If the search doesn't find any book, a message of **no books were found** is sho
 ## Walkthrough the project
 When I started the project I knew that I wanted to give my best to it and not just make it but learn new things, mainly about [performance](#thinking-about-performance) and below are the learns I got after finishing it.
 
-### Migrating from third-parties boilerplates to my own boilerplate
+### Migrating from third-party boilerplates to my own boilerplate
 
 **CRA:** I started the project using the [create-react-app](https://github.com/facebook/create-react-app) boilerplate as it is simple to use. Everything was going well until I build the project to production. I didn't like the bundle it generated and even ejecting the boilerplate to have access to its hidden scripts, I wasn't satisfied, so I changed to [react-boilerplate](https://github.com/react-boilerplate/react-boilerplate).
 
@@ -116,9 +115,9 @@ When I started the project I knew that I wanted to give my best to it and not ju
 
 **My own boilerplate**: Finally, I decided to remove everything from react-boilerplate and start my own boilerplate. I had already created one for my webpack studies ([react-start-environment](https://github.com/rafaelmaiach/react-start-environment)), so I take it and improve it from what I learned from react-boilerplate configuration. I've also fixed a lot of errors on my server file that wasn't allowing me to use BrowserRouter from react-router-dom. Oh, and I could delete a lot of unused dependencies.
 
-So what I learned: Using third-party boilerplates are simple and let you settup an environment fast, but creating yours gives you full control and knowledge about your project and what is happening on it. And this is my tip, as a developer you need to always be curious about learning new stuff and on an ecosystem like React, in my opinion, is a must have to learn about the technologies which almost always are present on a react project, so, go ahead and build your own boilerplate.
+**So what I learned:** Using third-party boilerplates are simple and let you settup an environment fast, but creating yours gives you full control and knowledge about your project and what is happening on it. 
 
-### From SCSS to Styled-Components
+**My advice:** As a developer you always need to be curious about learning new stuff and on an ecosystem like React projects, is a must have to learn about the technologies which almost always are present on it, so go ahead and build your own boilerplate, it will be a great experience!
 
 ### Thinking about performance
 
