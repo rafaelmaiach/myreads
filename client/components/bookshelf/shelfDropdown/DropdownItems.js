@@ -50,6 +50,27 @@ const DropdownItems = (props: Props) => {
     toggleShelvesList();
   };
 
+  // Converts the shelfId to a better written name
+  const getShelfName = (shelfId) => {
+    let name = '';
+    switch (shelfId) {
+      case 'currentlyReading':
+        name = 'Currently Reading';
+        break;
+      case 'wantToRead':
+        name = 'Want to Read';
+        break;
+      case 'read':
+        name = 'Read';
+        break;
+      default:
+        name = 'None';
+        break;
+    }
+
+    return name;
+  };
+
   // Filter the shelfs user can move the book to
   const shelfsToMove = allShelfs.filter(({ shelf }) => shelf !== book.shelf);
 
@@ -66,15 +87,17 @@ const DropdownItems = (props: Props) => {
 
   const { id, shelf } = book;
 
+  const shelfName = getShelfName(shelf);
+
   return (
     <ShelfDropdownItems id={id}>
       <ShelfDropdownCurrentShelf>
-        Current:
+        Current shelf:
         <br />
-        {shelf || 'None'}
+        {shelfName}
       </ShelfDropdownCurrentShelf>
       <ShelfDropdownMoveTo>
-        Move to:
+        Move to shelf:
       </ShelfDropdownMoveTo>
       {dropdownItems}
       {shelf && (
