@@ -7,7 +7,7 @@ type Props = {
 }
 
 /**
- * @constructor Preview
+ * @constructor Book#Preview
  * @param {string} link - Preview link
  * @description Renders Preview button
  */

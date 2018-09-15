@@ -8,7 +8,7 @@ type Props = {
 }
 
 /**
- * @constructor Publisher
+ * @constructor Book#Publisher
  * @param {string} publisher - Publisher name
  * @description Renders publisher name
  */

@@ -8,7 +8,7 @@ type Props = {
 }
 
 /**
- * @constructor SeeMoreContainer
+ * @constructor Book#SeeMoreContainer
  * @param {function} openModal - Open modal function
  * @description See more button
  */

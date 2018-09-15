@@ -8,7 +8,7 @@ type Props = {
 }
 
 /**
- * @constructor Stars
+ * @constructor Book#Stars
  * @param {number} rating - Book rating
  * @description Renders Stars rating
  */

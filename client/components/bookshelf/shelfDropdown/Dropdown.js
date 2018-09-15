@@ -23,7 +23,7 @@ const openDropdown = (id: string) => () => {
 };
 
 /**
- * @constructor Dropdown
+ * @constructor Book#Dropdown
  * @param {object} book - Book information
  * @param {function} updateBook - Function to update the book shelf
  * @param {function} removeBook - Function to remove book from shelf

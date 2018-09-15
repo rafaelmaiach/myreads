@@ -8,7 +8,7 @@ type Props = {
 }
 
 /**
- * @constructor Subtitle
+ * @constructor Book#Subtitle
  * @param {string} subtitleText - Subtitle text
  * @description Renders book subtitle
  */

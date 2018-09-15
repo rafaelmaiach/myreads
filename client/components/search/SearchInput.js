@@ -4,7 +4,16 @@ import styled from 'styled-components';
 import shouldUpdate from 'recompose/shouldUpdate';
 import DebounceInput from 'Components/common/DebounceInput';
 
-const SearchInput = ({ textHasChanged }: { textHasChanged: Function }) => (
+type Props = {
+  textHasChanged: Function,
+}
+
+/**
+ * @constructor Search#SearchInput
+ * @param {function} textHasChanged - Function to handle input change
+ * @description Renders the debounce input for search
+ */
+const SearchInput = ({ textHasChanged }: Props) => (
   <SearchInputContainer>
     <DebounceInput
       id="searchInput"

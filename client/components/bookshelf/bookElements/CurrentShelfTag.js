@@ -8,7 +8,7 @@ type Props = {
 }
 
 /**
- * @constructor CurrentShelfTag
+ * @constructor Book#CurrentShelfTag
  * @param {string} shelf - Shelf name
  * @description Renders current shelf tag
  */

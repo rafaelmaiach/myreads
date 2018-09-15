@@ -9,7 +9,7 @@ type Props = {
 }
 
 /**
- * @constructor Image
+ * @constructor Book#Image
  * @param {string} thumbnail - Book image
  * @param {boolean} isModal - If the image is inside modal
  * @description Renders book image

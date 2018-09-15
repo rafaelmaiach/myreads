@@ -8,6 +8,11 @@ type Props = {
   history: Function
 }
 
+/**
+ * @constructor Search#BackButton
+ * @param {object} history - History object
+ * @description Renders the back button on search page to send back to bookshelf page
+ */
 const BackButtonComponent = ({ history }: Props) => {
   const goBackToBookshelf = () => history.push('/');
 

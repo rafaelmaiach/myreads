@@ -8,7 +8,7 @@ type Props = {
 }
 
 /**
- * @constructor Description
+ * @constructor Book#Description
  * @param {string} descriptionReduced - Reduced description
  * @description Renders book description
  */

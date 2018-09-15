@@ -7,6 +7,11 @@ type Props = {
   dirty: boolean,
 }
 
+/**
+ * @constructor Search#EmptySearch
+ * @param {boolean} dirty - If user has written on input
+ * @description Renders the empty search message and search terms
+ */
 const EmptySearch = ({ dirty }: Props) => (
   <EmptySearchContainer>
     <SearchTermsContainer>

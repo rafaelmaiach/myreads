@@ -9,7 +9,7 @@ type Props = {
 }
 
 /**
- * @constructor DropdownItems
+ * @constructor Book#DropdownItems
  * @param {object} book - Book information
  * @param {function} updateBook - Function to update the book shelf
  * @param {function} removeBook - Function to remove book from shelf

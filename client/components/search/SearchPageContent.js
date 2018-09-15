@@ -12,6 +12,11 @@ type Props = {
   changeShelfFor: Function,
 }
 
+/**
+ * @constructor Search#SearchPageContent
+ * @param {object} props - Search page props
+ * @description Renders book list or empty search
+ */
 const SearchPageContent = (props: Props) => {
   const {
     bookListNotEmpty,

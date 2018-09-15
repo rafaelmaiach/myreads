@@ -9,7 +9,7 @@ type Props = {
 }
 
 /**
- * @constructor Title
+ * @constructor Book#Title
  * @param {string} titleText - Title text
  * @param {boolean} isModal - If the value is being rendered inside modal
  * @description Renders book title

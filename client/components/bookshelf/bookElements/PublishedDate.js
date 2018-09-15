@@ -8,7 +8,7 @@ type Props = {
 }
 
 /**
- * @constructor PublishedDate
+ * @constructor Book#PublishedDate
  * @param {string} date - Date value
  * @description Renders book published date
  */
