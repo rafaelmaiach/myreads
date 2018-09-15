@@ -5,15 +5,18 @@ import Loadable from 'react-loadable';
 
 import Loading from 'Components/loading/Loading';
 
-import AuthorQuotes from 'Components/access/AuthorQuotes';
-
 type Props = {
   history: Function,
 }
 
 // Add loadable to access form
-const AccessFormContainer = Loadable({
+const AccessFormLoadable = Loadable({
   loader: () => import(/* webpackChunkName: 'accessFormContainer' */ 'Components/access/FormContainer'),
+  loading: Loading,
+});
+
+const AuthorQuotesLoadable = Loadable({
+  loader: () => import(/* webpackChunkName: 'authorQuotesContainer' */ 'Components/access/AuthorQuotes'),
   loading: Loading,
 });
 
@@ -46,12 +49,12 @@ const AccessScreen = ({ history }: Props) => {
       <section className="login-container__form">
         <div className="login-container__form__quotes">
           <div className="quotes__box">
-            <AuthorQuotes />
+            <AuthorQuotesLoadable />
           </div>
         </div>
         <div className="login-container__form__fields">
           <div className="fields__box">
-            <AccessFormContainer />
+            <AccessFormLoadable />
           </div>
         </div>
       </section>

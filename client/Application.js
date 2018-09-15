@@ -1,4 +1,5 @@
 import React from 'react';
+import Loadable from 'react-loadable';
 import {
   BrowserRouter,
   Route,
@@ -8,13 +9,26 @@ import {
 import { hot } from 'react-hot-loader';
 
 import { AuthProvider } from 'Components/control/AuthContext';
-import ProtectedRoute from 'Components/control/ProtectedRoute';
-import StartScreen from 'Containers/StartScreen';
 import AccessScreen from 'Containers/AccessScreen';
-import BookshelfScreen from 'Containers/BookshelfScreen';
-import SearchScreen from 'Containers/SearchScreen';
+import ProtectedRoute from 'Components/control/ProtectedRoute';
+import Loading from 'Components/loading/Loading';
 
 import './index.scss';
+
+const StartScreenLoadable = Loadable({
+  loader: () => import(/* webpackChunkName: 'startScreenContainer' */ 'Containers/StartScreen'),
+  loading: Loading,
+});
+
+const BookshelfScreenLoadable = Loadable({
+  loader: () => import(/* webpackChunkName: 'bookshelfScreenContainer' */ 'Containers/BookshelfScreen'),
+  loading: Loading,
+});
+
+const SearchScreenLoadable = Loadable({
+  loader: () => import(/* webpackChunkName: 'searchScreenContainer' */ 'Containers/SearchScreen'),
+  loading: Loading,
+});
 
 /**
  * @constructor Application
@@ -26,10 +40,10 @@ const Application = () => (
   <BrowserRouter>
     <AuthProvider>
       <Switch>
-        <Route path="/main" component={StartScreen} />
+        <Route path="/main" component={StartScreenLoadable} />
         <Route path="/auth" component={AccessScreen} />
-        <ProtectedRoute exact path="/" component={BookshelfScreen} />
-        <ProtectedRoute path="/search" component={SearchScreen} />
+        <ProtectedRoute exact path="/" component={BookshelfScreenLoadable} />
+        <ProtectedRoute path="/search" component={SearchScreenLoadable} />
         <Redirect from="*" to="/" />
       </Switch>
     </AuthProvider>
