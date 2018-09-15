@@ -14,12 +14,12 @@
     "url": "https://rafaelmaiach.github.io/"
   },
   "scripts": {
-    "postinstall": "npm run build",
     "dev": "cross-env NODE_ENV=development node server",
     "build": "cross-env NODE_ENV=production webpack -p --config ./webpack.config.js",
-    "start": "node server",
+    "start": "cross-env NODE_ENV=production node server",
     "lint": "eslint client",
-    "flow": "flow"
+    "flow": "flow",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "compression": "1.7.3",
@@ -28,13 +28,13 @@
     "express": "4.16.3",
     "flow-bin": "0.80.0",
     "moize": "5.4.0",
-    "pug": "^2.0.3",
+    "pug": "2.0.3",
     "react": "16.5.0",
     "react-dom": "16.5.0",
     "react-loadable": "5.5.0",
     "react-router-dom": "4.3.1",
     "recompose": "0.30.0",
-    "sort-by": "^1.2.0",
+    "sort-by": "1.2.0",
     "styled-components": "3.4.5",
     "yup": "0.26.3"
   },
