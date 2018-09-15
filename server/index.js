@@ -25,14 +25,9 @@ app.set('view engine', 'pug');
 const viewsPath = (isInProduction) ? './public/views' : './client/views/dev';
 app.set('views', viewsPath);
 
-const shouldCompress = (req, res) => {
-  if (req.headers['x-no-compression']) { return false; }
-  return compression.filter(req, res);
-};
-
-app.use(compression({ filter: shouldCompress }));
-
 if (isInProduction) {
+  app.use(compression());
+
   app.get('/public/*.js', (req, res, next) => {
     req.url = `${req.url}.gz`;
     res.set('Content-Encoding', 'gzip');
