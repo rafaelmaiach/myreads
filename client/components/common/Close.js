@@ -7,6 +7,11 @@ type Props = {
   closeAction: Function,
 }
 
+/**
+ * @constructor Close
+ * @param {function} closeAction - Function when click the close button
+ * @description Renders the close button
+ */
 const Close = ({ closeAction }: Props) => (
   <CloseButton
     type="button"

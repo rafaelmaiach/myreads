@@ -16,6 +16,10 @@ type State = {
   timeout: number,
 }
 
+/**
+ * @class DebounceInput
+ * @description Create a wrapper for the input to apply debounce functionality
+ */
 class DebounceInput extends React.PureComponent<Props, State> {
   handleChange: Function;
 
@@ -33,12 +37,21 @@ class DebounceInput extends React.PureComponent<Props, State> {
 
     const { timeout } = this.state;
 
+    /**
+     * @method DebounceInput#debouncedOnChange
+     * @description Create the debounce function who will update the form value after timeout
+     */
     this.debouncedOnChange = debounce((value:string) => {
       const { onChange } = this.props;
       onChange(value);
     }, timeout);
 
-    this.handleChange = (event:Object) => {
+    /**
+     * @method DebounceInput#handleChange
+     * @param {object} event - Event object from input
+     * @description Update the debounceinput value on change and call debounce to update form value
+     */
+    this.handleChange = (event: Object) => {
       event.persist();
       const { value } = event.target;
       this.setState(() => ({ value }));
