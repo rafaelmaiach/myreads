@@ -5,6 +5,10 @@ import shouldUpdate from 'recompose/shouldUpdate';
 
 import { AuthConsumer } from 'Components/control/AuthContext';
 
+/**
+ * @constructor HeaderUserLogout
+ * @description Renders user name and logout button (from context api)
+ */
 const HeaderUserLogout = () => {
   const userInfo = localStorage.getItem('userAuthenticated');
 

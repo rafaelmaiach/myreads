@@ -6,6 +6,11 @@ import shouldUpdate from 'recompose/shouldUpdate';
 
 import SearchIcon from 'Assets/icons/search.svg';
 
+/**
+ * @constructor HeaderSearchIcon
+ * @param {object} history - History object
+ * @description Renders search icon to send to search page
+ */
 const HeaderSearchIcon = ({ history }: { history: Function }) => {
   const goToSearchPage = () => {
     history.push('/search');

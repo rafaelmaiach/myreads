@@ -6,6 +6,11 @@ type Props = {
   children: React.Node,
 }
 
+/**
+ * @constructor Header
+ * @param {React.Node} children - Components passed inside Header
+ * @description Renders header
+ */
 const Header = ({ children }: Props) => (
   <HeaderContainer>
     {children}
