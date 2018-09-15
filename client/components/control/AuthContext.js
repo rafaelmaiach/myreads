@@ -11,16 +11,26 @@ type Props = {
 const AuthContext = React.createContext();
 
 /**
- * @constructor ProviderAuth
+ * @class ProviderAuth
  * @description Provides an authentication system for the application
  */
 class ProviderAuth extends React.Component<Props> {
+  /**
+   * @method ProviderAuth#login
+   * @param {object} user - User information
+   * @description Saves the user token and its information to localStorage. As well, this set the user
+   * as authenticated, allowing it to stay connected
+   */
   login = (user) => {
     const { token } = user;
     localStorage.setItem('userAuthenticated', JSON.stringify(user));
     localStorage.setItem('token', token);
   }
 
+  /**
+   * @method ProviderAuth#logout
+   * @description Removes the user information from localStorage and redirect to main page
+   */
   logout = () => {
     const { history } = this.props;
     localStorage.removeItem('userAuthenticated');
@@ -28,6 +38,10 @@ class ProviderAuth extends React.Component<Props> {
     history.push('/main');
   }
 
+  /**
+   * @method ProviderAuth#isUserAuthenticated
+   * @description Check if the user is authenticated
+   */
   isUserAuthenticated = () => localStorage.getItem('userAuthenticated');
 
   render() {
