@@ -43,28 +43,7 @@ class BookshelfScreen extends React.PureComponent<void, State> {
     );
   }
 
-  changeShelfFor = (book:Object, isRemoveFunction:boolean = false) => (event:Object) => {
-    const { name: shelfToMove } = event.target;
-
-    if (isRemoveFunction) {
-      book.shelf = undefined; // eslint-disable-line
-    }
-
-    this.setState(
-      () => ({ isLoading: true }),
-      () => {
-        update(book, shelfToMove)
-          .then(() => {
-            getAll()
-              .then(this.separateBooks)
-              .catch(errorGetAll => console.log(`Error GetAll after update book: ${errorGetAll}`));
-          })
-          .catch(errorUpdate => console.log(`Error Update book: ${errorUpdate}`));
-      }
-    );
-  };
-
-  separateBooks = (allBooks:Array<Object>) => {
+  separateBooks = (allBooks: Array<Object>) => {
     const separateBooks = groupBooksByShelf(allBooks);
 
     this.setState(() => ({
@@ -73,7 +52,61 @@ class BookshelfScreen extends React.PureComponent<void, State> {
     }));
   }
 
-  changeShelf = (newShelf:string) => this.setState(() => ({ currentShelf: newShelf }));
+  changeShelfFor = (book: Object, isRemoveFunction: boolean = false) => (event: Object) => {
+    const { name: shelfToMove } = event.target;
+
+    if (isRemoveFunction) {
+      delete book.shelf; // eslint-disable-line
+    }
+
+    update(book, shelfToMove)
+      .then(response => this.updateShelfs(response, shelfToMove, book.id))
+      .catch(errorUpdate => console.log(`Error Update book: ${errorUpdate}`));
+  };
+
+  updateShelfs = (responseBooks, movedShelfName, bookMovedId) => {
+    const {
+      // Name of the current shelf
+      currentShelf,
+      // Get the current state of array that corresponds to the current shelf and name it as oldCurrentShelf
+      [currentShelf]: oldCurrentShelf,
+      // Get the current state of array that corresponds to the shelf the book is being moved
+      [movedShelfName]: oldMovedShelf,
+    } = this.state;
+
+    const {
+      // Get the updated array of the current shelf. This array doesn't contain the id of the book that was moved or removed
+      [currentShelf]: oldShelfUpdated,
+    } = responseBooks;
+
+    // Get the moving book from the current shelf
+    const movingBook = oldCurrentShelf.find(book => book.id === bookMovedId);
+
+    // Creates the new current book list for the current shelf by filtering the current book list
+    // and getting only those who still are on the updated list
+    const newCurrentShelf = oldCurrentShelf.filter(book => oldShelfUpdated.includes(book.id));
+
+    // If is not none, so we are moving the book to another shelf, so we need to update the
+    // oldMovedShelf, who represents the shelf that can receive the book if this condition is true
+    if (movedShelfName !== 'none') {
+      // Create a new book list for the moved shelf using the existing books plus the one who was moved to it
+      const newMovedShelf = [...oldMovedShelf, movingBook];
+
+      // Update the current shelf and the moved shelf
+      this.setState(() => ({
+        [currentShelf]: newCurrentShelf,
+        [movedShelfName]: newMovedShelf,
+      }));
+      return;
+    }
+
+    // Update only the current shelf, because the moved was none, so it was a remove action
+    this.setState(() => ({
+      [currentShelf]: newCurrentShelf,
+    }));
+  }
+
+  changeShelf = (newShelf: string) => this.setState(() => ({ currentShelf: newShelf }));
 
   render() {
     const { isLoading, currentShelf, [currentShelf]: shelfToRender } = this.state;

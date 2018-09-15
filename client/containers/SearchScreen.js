@@ -145,7 +145,7 @@ class SearchScreen extends React.Component<void, State> {
     const { name: shelfToMove } = event.target;
 
     if (isRemoveFunction) {
-      book.shelf = undefined; // eslint-disable-line
+      delete book.shelf; // eslint-disable-line
     }
 
     update(book, shelfToMove)
