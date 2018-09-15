@@ -64,7 +64,7 @@ class BookshelfScreen extends React.PureComponent<void, State> {
       .catch(errorUpdate => console.log(`Error Update book: ${errorUpdate}`));
   };
 
-  updateShelfs = (responseBooks, movedShelfName, bookMovedId) => {
+  updateShelfs = (responseBooks: Object, movedShelfName: string, bookMovedId: string) => {
     const {
       // Name of the current shelf
       currentShelf,
