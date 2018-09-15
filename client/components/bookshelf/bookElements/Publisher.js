@@ -7,6 +7,11 @@ type Props = {
   publisher?: string,
 }
 
+/**
+ * @constructor Publisher
+ * @param {string} publisher - Publisher name
+ * @description Renders publisher name
+ */
 const Publisher = ({ publisher }: Props) => (
   <BookPublisherContainer>
     {

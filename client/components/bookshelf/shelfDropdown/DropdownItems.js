@@ -8,6 +8,13 @@ type Props = {
   removeBook: Function,
 }
 
+/**
+ * @constructor DropdownItems
+ * @param {object} book - Book information
+ * @param {function} updateBook - Function to update the book shelf
+ * @param {function} removeBook - Function to remove book from shelf
+ * @description Renders the dropdown items
+ */
 const DropdownItems = ({ book, updateBook, removeBook }: Props) => {
   const allShelfs = [
     {
@@ -27,8 +34,10 @@ const DropdownItems = ({ book, updateBook, removeBook }: Props) => {
     },
   ];
 
+  // Filter the shelfs user can move the book to
   const shelfsToMove = allShelfs.filter(({ shelf }) => shelf !== book.shelf);
 
+  // Create each dropdown item
   const dropdownItems = shelfsToMove.map(({ key, shelf, text }) => (
     <ShelfDropdownItem
       key={key}

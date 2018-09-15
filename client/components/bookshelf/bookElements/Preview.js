@@ -6,6 +6,11 @@ type Props = {
   link?: string,
 }
 
+/**
+ * @constructor Preview
+ * @param {string} link - Preview link
+ * @description Renders Preview button
+ */
 const Preview = ({ link }: Props) => (
   <BookPreviewButton target="_blank" href={link}>
     Preview

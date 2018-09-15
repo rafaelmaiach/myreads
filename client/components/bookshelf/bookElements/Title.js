@@ -8,6 +8,12 @@ type Props = {
   isModal?: ?boolean,
 }
 
+/**
+ * @constructor Title
+ * @param {string} titleText - Title text
+ * @param {boolean} isModal - If the value is being rendered inside modal
+ * @description Renders book title
+ */
 const Title = ({ titleText, isModal }: Props) => (
   <BookTitleContainer isModal={isModal}>
     {titleText}

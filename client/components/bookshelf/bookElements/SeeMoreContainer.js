@@ -7,6 +7,11 @@ type Props = {
   openModal: Function,
 }
 
+/**
+ * @constructor SeeMoreContainer
+ * @param {function} openModal - Open modal function
+ * @description See more button
+ */
 const SeeMoreContainer = ({ openModal }: Props) => (
   <BookSeeMoreContainer>
     <BookSeeMoreButton onClick={openModal}>

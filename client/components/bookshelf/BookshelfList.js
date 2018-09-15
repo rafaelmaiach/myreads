@@ -13,6 +13,11 @@ type Props = {
   isSearchPage?: boolean,
 }
 
+/**
+ * @constructor BookshelfList
+ * @param {object} props - Bookshelf list props
+ * @description Renders the books list
+ */
 const BookshelfList = (props: Props) => {
   const {
     isLoading,
@@ -21,6 +26,7 @@ const BookshelfList = (props: Props) => {
     isSearchPage,
   } = props;
 
+  // Create all books elements
   const books = booksList.map((bookInfo) => {
     const updateBook = changeShelfFor(bookInfo);
     const removeBook = changeShelfFor(bookInfo, true);
@@ -36,6 +42,7 @@ const BookshelfList = (props: Props) => {
     );
   });
 
+  // Sort them by title
   const sortedBooks = books.sort(sortBy('props.bookInfo.title'));
 
   return (

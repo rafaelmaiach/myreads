@@ -7,6 +7,11 @@ type Props = {
   authorsNames: string,
 }
 
+/**
+ * @constructor Authors
+ * @param {string} authorsNames - Authors names
+ * @description Renders Authors names
+ */
 const Authors = ({ authorsNames }: Props) => (
   <BookAuthorsContainer>
     {authorsNames}

@@ -13,7 +13,14 @@ type Props = {
   currentShelf: string,
 }
 
+/**
+ * @constructor BookshelfHeader
+ * @param {function} changeShelf - Function to change the bookshelf screen to other bookshelf
+ * @param {string} currentShelf - Current shelf name
+ * @description Renders the Header on bookshelf screen
+ */
 const BookshelfHeader = ({ changeShelf, currentShelf }: Props) => {
+  // Creates info to each header tab
   const shelfsTab = [
     {
       shelf: 'currentlyReading',
@@ -32,6 +39,7 @@ const BookshelfHeader = ({ changeShelf, currentShelf }: Props) => {
     },
   ];
 
+  // Create each header tab
   const headerTabs = shelfsTab.map(({ shelf, text, onClick }) => (
     <HeaderTab
       key={shelf}

@@ -7,6 +7,11 @@ type Props = {
   descriptionReduced: string,
 }
 
+/**
+ * @constructor Description
+ * @param {string} descriptionReduced - Reduced description
+ * @description Renders book description
+ */
 const Description = ({ descriptionReduced }: Props) => (
   <BookDescriptionContainer>
     {descriptionReduced}

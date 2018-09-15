@@ -49,6 +49,11 @@ type Props = {
   bookInformations: BookProps,
 }
 
+/**
+ * @constructor BookshelfBook
+ * @param {object} props - Book props
+ * @description Renders the book
+ */
 const BookshelfBook = (props: Props) => {
   const { bookInfo: bookInformations } = props;
 
@@ -74,14 +79,17 @@ const BookshelfBook = (props: Props) => {
     shelf,
   } = bookInformations;
 
+  // Get the image
   const thumbnail = imageLinks ? imageLinks.thumbnail : '';
 
   let authorsNames = 'Author not found';
 
+  // Get the authors
   if (authors && authors.length) {
     authorsNames = `by: ${authors.join(' and ')}`;
   }
 
+  // Get the description reduced
   const descriptionReduced = description ? `${description.split(' ').slice(0, 25).join(' ')}...` : '';
 
   return (

@@ -7,6 +7,11 @@ type Props = {
   date?: string,
 }
 
+/**
+ * @constructor PublishedDate
+ * @param {string} date - Date value
+ * @description Renders book published date
+ */
 const PublishedDate = ({ date }: Props) => (
   <BookPublishedDateContainer>
     {

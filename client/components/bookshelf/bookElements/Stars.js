@@ -7,6 +7,11 @@ type Props = {
   rating?: number,
 }
 
+/**
+ * @constructor Stars
+ * @param {number} rating - Book rating
+ * @description Renders Stars rating
+ */
 const Stars = ({ rating }: Props) => {
   if (!rating) {
     return (

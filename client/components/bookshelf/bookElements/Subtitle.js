@@ -7,6 +7,11 @@ type Props = {
   subtitleText: string,
 }
 
+/**
+ * @constructor Subtitle
+ * @param {string} subtitleText - Subtitle text
+ * @description Renders book subtitle
+ */
 const Subtitle = ({ subtitleText }: Props) => (
   <BookSubtitleContainer>
     {subtitleText}

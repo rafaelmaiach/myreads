@@ -10,8 +10,11 @@ type Props = {
   removeBook: Function,
 }
 
-// Get the dropdown list and toggle a class to show the values
-// The id shelfDropdownItems is set inside the DropdownItems child component
+/**
+ * @function openDropdown
+ * @description Get the dropdown list and toggle a class to show the values
+ * The id shelfDropdownItems is set inside the DropdownItems child component
+ */
 const openDropdown = (id: string) => () => {
   const dropdown = document.getElementById(id);
   if (dropdown) {
@@ -19,6 +22,13 @@ const openDropdown = (id: string) => () => {
   }
 };
 
+/**
+ * @constructor Dropdown
+ * @param {object} book - Book information
+ * @param {function} updateBook - Function to update the book shelf
+ * @param {function} removeBook - Function to remove book from shelf
+ * @description Renders the dropdown button to book
+ */
 const Dropdown = ({ book, updateBook, removeBook }: Props) => {
   const openShelvesList = openDropdown(book.id);
 

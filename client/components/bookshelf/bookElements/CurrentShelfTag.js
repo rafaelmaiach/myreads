@@ -6,6 +6,12 @@ import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 type Props = {
   shelf?: string,
 }
+
+/**
+ * @constructor CurrentShelfTag
+ * @param {string} shelf - Shelf name
+ * @description Renders current shelf tag
+ */
 const CurrentShelfTag = ({ shelf }: Props) => (
   shelf && (
     <CurrentShelfTagContainer>

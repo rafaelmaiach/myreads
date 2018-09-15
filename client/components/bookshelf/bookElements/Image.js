@@ -7,6 +7,13 @@ type Props = {
   thumbnail: string,
   isModal?: ?boolean,
 }
+
+/**
+ * @constructor Image
+ * @param {string} thumbnail - Book image
+ * @param {boolean} isModal - If the image is inside modal
+ * @description Renders book image
+ */
 const Image = ({ thumbnail, isModal }: Props) => (
   <BookImageContainer isModal={isModal}>
     {thumbnail
