@@ -28,26 +28,43 @@ type FormFieldState = {
   error: string,
 }
 
-class LoginFormContainer extends React.PureComponent<Props, State> {
+/**
+ * @class FormContainer
+ * @description Represents the access form component. It's used as a wrapper for signin and singup forms
+ */
+class FormContainer extends React.PureComponent<Props, State> {
   state = {
     fullname: '',
     email: '',
     password: '',
-    formType: 'signin',
+    formType: 'signin', // signin / signup. Chose the form to be rendered
     invalidFormType: '', // userExists, invalidUser, invalidForm
   };
 
+  /**
+   * @method FormContainer#returnStartScreen
+   * @description Used when the user clicks on the X button. Send back to main screen
+   */
   returnStartScreen = () => {
     const { history } = this.props;
     history.push('/main');
   }
 
-  // Using closure to create different function for each field
+  /**
+   * @method FormContainer#updateStateFieldFor
+   * @param {string} field - Represents a state property
+   * @description Creates a closure to create different function for each state field (fullname, email, password)
+   * @returns Returns a function to update the passed state property with the value or empty string if the value is invalid
+   */
   updateStateFieldFor = (field: string) => (state: FormFieldState) => {
     const { value, error } = state;
     this.setState(() => ({ [field]: !error ? value : '' }));
   };
 
+  /**
+   * @method FormContainer#toggleForm
+   * @description Change the form between signin and signup
+   */
   toggleForm = () => this.setState(({ formType }) => ({
     fullname: '',
     email: '',
@@ -56,7 +73,12 @@ class LoginFormContainer extends React.PureComponent<Props, State> {
     formType: formType === 'signup' ? 'signin' : 'signup',
   }));
 
-  formAction = (login) => {
+  /**
+   * @method FormContainer#formAction
+   * @param {function} login - Login function stored on ContextAPI
+   * @description Check if the validation function will be for signin or signup form
+   */
+  formAction = (login: Function) => {
     const {
       formType,
     } = this.state;
@@ -71,6 +93,10 @@ class LoginFormContainer extends React.PureComponent<Props, State> {
     this.signIn(login);
   }
 
+  /**
+   * @method FormContainer#signUp
+   * @description Validate the signup form and creates user if valid
+   */
   signUp = () => {
     const {
       fullname,
@@ -83,6 +109,8 @@ class LoginFormContainer extends React.PureComponent<Props, State> {
     if (formIsValid) {
       let usersList = [];
       let userFound = null;
+
+      // Creates the new user object
       const newUser = {
         fullname,
         email,
@@ -90,12 +118,17 @@ class LoginFormContainer extends React.PureComponent<Props, State> {
         token: Math.random().toString(36).substr(-8),
       };
 
+      // LocalStorage is being used as our DB.
+      // Get the list of registered users
       const usersListString = localStorage.getItem('usersList');
 
       if (usersListString) {
+        // Parse the users list
         usersList = JSON.parse(usersListString);
+        // Check if the email is already registered
         userFound = usersList.find(obj => obj.email === email);
 
+        // If userFound, the email is invalid because it was previously registered
         if (userFound) {
           this.setState(() => ({
             invalidFormType: 'userExists',
@@ -104,6 +137,7 @@ class LoginFormContainer extends React.PureComponent<Props, State> {
         }
       }
 
+      // If not, just push the new user to the users list on localStorage
       usersList.push(newUser);
       localStorage.setItem('usersList', JSON.stringify(usersList));
       this.toggleForm();
@@ -115,7 +149,12 @@ class LoginFormContainer extends React.PureComponent<Props, State> {
     }));
   }
 
-  signIn = (login) => {
+  /**
+   * @method FormContainer#signIn
+   * @param {function} login - Login function stored on ContextAPI
+   * @description Validate the signin form
+   */
+  signIn = (login: Function) => {
     const {
       email: loginEmail,
       password: loginPassword,
@@ -130,12 +169,15 @@ class LoginFormContainer extends React.PureComponent<Props, State> {
       usersList = JSON.parse(usersListString);
     }
 
+    // Check if the user is registered by checking email and password on users list
     if (usersList) {
       userFound = usersList.find(({ email, password }) => (
         (email === loginEmail) && (password === loginPassword)
       ));
     }
 
+    // If user found, the user can login, so send it to bookshelf screen and call contextapi login
+    // Login function will store the user as authenticated
     if (userFound) {
       const { history } = this.props;
       login(userFound);
@@ -148,10 +190,13 @@ class LoginFormContainer extends React.PureComponent<Props, State> {
     }));
   }
 
+  // Get the closure for fullname
   updateFullname = this.updateStateFieldFor('fullname');
 
+  // Get the closure for email
   updateEmail = this.updateStateFieldFor('email');
 
+  // Get the closure for password
   updatePassword = this.updateStateFieldFor('password');
 
   render() {
@@ -190,4 +235,4 @@ class LoginFormContainer extends React.PureComponent<Props, State> {
   }
 }
 
-export default withRouter(LoginFormContainer);
+export default withRouter(FormContainer);
