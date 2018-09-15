@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 
+// Create a list of author and quotes
 const authorQuotes = [
   {
     quote: 'I try to create sympathy for my characters, then turn the monsters loose.',
@@ -235,6 +236,7 @@ const authorQuotes = [
   },
 ];
 
+// Get a random number
 const randomNumberInRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 const getRandomQuote = () => {
@@ -242,6 +244,10 @@ const getRandomQuote = () => {
   return authorQuotes[randomNumber];
 };
 
+/**
+ * @constructor AuthorQuotes
+ * @description Renders a random author and quote to screen
+ */
 const AuthorQuotes = () => {
   const { quote, author } = getRandomQuote();
 
