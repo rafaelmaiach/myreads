@@ -14,7 +14,7 @@ type Props = {
 const Description = ({ description }: Props) => (
   <ModalDescriptionContainer>
     <ModalDescriptionText>
-      {description}
+      {description || 'Description not found'}
     </ModalDescriptionText>
   </ModalDescriptionContainer>
 );

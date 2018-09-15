@@ -90,7 +90,9 @@ const BookshelfBook = (props: Props) => {
   }
 
   // Get the description reduced
-  const descriptionReduced = description ? `${description.split(' ').slice(0, 25).join(' ')}...` : '';
+  const descriptionReduced = description
+    ? `${description.split(' ').slice(0, 25).join(' ')}...`
+    : 'Description not found';
 
   return (
     <BookContainer>
