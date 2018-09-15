@@ -41,6 +41,27 @@ export const debounce = (fn, time) => {
   };
 };
 
+// Converts the shelfId to a better written name
+export const getShelfName = (shelfId) => {
+  let name = '';
+  switch (shelfId) {
+    case 'currentlyReading':
+      name = 'Currently Reading';
+      break;
+    case 'wantToRead':
+      name = 'Want to Read';
+      break;
+    case 'read':
+      name = 'Read';
+      break;
+    default:
+      name = 'None';
+      break;
+  }
+
+  return name;
+};
+
 // Check if the user is accessing the site from a mobile device
 export const isMobile = {
   getUserAgent: () => navigator.userAgent,

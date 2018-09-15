@@ -16,11 +16,11 @@
 	 - [Access page](#access-page)
 	 - [Bookshelf page](#bookshelf-page)
 	 - [Search page](#search-page)
- - [Built with](#built-with)
  - [Walkthrough the project](#walkthrough-the-project)
 	 - [Migrating from third-parties boilerplates to my own boilerplate](#migrating-from-third-parties-boilerplates-to-my-own-boilerplate)
 	 - [From SCSS to Styled-Components](#from-scss-to-styled-components)
 	 - [Thinking about performance](#thinking-about-performance)
+  - [Built with](#built-with)
  - [Contact me](#contact-me)
  
 
@@ -95,6 +95,17 @@ For each bookshelf, the user will see the set of books that are present on that 
 
 [(Back to top)](#myreads)
 
+## Walkthrough the project
+
+
+### Migrating from third-parties boilerplates to my own boilerplate
+
+### From SCSS to Styled-Components
+
+### Thinking about performance
+
+[(Back to top)](#myreads)
+
 ## Built with
 [Eslint AirBnb](https://www.npmjs.com/package/eslint-config-airbnb) - The Airbnb JavaScript lint rules to follow their style guide
 [Express-static-gzip](https://www.npmjs.com/package/express-static-gzip) - Provides a small layer on top of _serve-static_, which allows to serve pre-gzipped files.
@@ -108,16 +119,5 @@ For each bookshelf, the user will see the set of books that are present on that 
 [Yup](https://github.com/jquense/yup) - A JavaScript object schema validator and object parser.
 
 You can check the other dependencies on _package.json_ file.
-
-[(Back to top)](#myreads)
-
-## Walkthrough the project
-
-
-### Migrating from third-parties boilerplates to my own boilerplate
-
-### From SCSS to Styled-Components
-
-### Thinking about performance
 
 [(Back to top)](#myreads)

@@ -2,6 +2,8 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
+import { getShelfName } from 'Utils/helpers';
+
 type Props = {
   book: Object,
   updateBook: Function,
@@ -48,27 +50,6 @@ const DropdownItems = (props: Props) => {
   const callUpdateBook = (event, callback) => {
     callback(event);
     toggleShelvesList();
-  };
-
-  // Converts the shelfId to a better written name
-  const getShelfName = (shelfId) => {
-    let name = '';
-    switch (shelfId) {
-      case 'currentlyReading':
-        name = 'Currently Reading';
-        break;
-      case 'wantToRead':
-        name = 'Want to Read';
-        break;
-      case 'read':
-        name = 'Read';
-        break;
-      default:
-        name = 'None';
-        break;
-    }
-
-    return name;
   };
 
   // Filter the shelfs user can move the book to

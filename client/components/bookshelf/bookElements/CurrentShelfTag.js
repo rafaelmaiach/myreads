@@ -2,6 +2,8 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
+import { getShelfName } from 'Utils/helpers';
+
 type Props = {
   shelf?: string,
 }
@@ -14,7 +16,7 @@ type Props = {
 const CurrentShelfTag = ({ shelf }: Props) => (
   shelf && (
     <CurrentShelfTagContainer>
-      {shelf}
+      {getShelfName(shelf)}
     </CurrentShelfTagContainer>)
 );
 
