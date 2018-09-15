@@ -18,6 +18,10 @@ type State = {
   isLoading: boolean,
 }
 
+/**
+ * @class BookshelfScreen
+ * @description Renders the current bookshelf
+ */
 class BookshelfScreen extends React.PureComponent<void, State> {
   state = {
     // These three arrays will be used on shelfToRender variable
@@ -43,6 +47,11 @@ class BookshelfScreen extends React.PureComponent<void, State> {
     );
   }
 
+  /**
+   * @method BookshelfScreen#separateBooks
+   * @param {array} allBooks - List of all books for each shelf
+   * @description Separate the books on each shelf
+   */
   separateBooks = (allBooks: Array<Object>) => {
     const separateBooks = groupBooksByShelf(allBooks);
 
@@ -52,19 +61,35 @@ class BookshelfScreen extends React.PureComponent<void, State> {
     }));
   }
 
+  /**
+   * @method BookshelfScreen#changeShelfFor
+   * @param {object} book - Book information
+   * @param {boolean} isRemoveFunction - Knows if the change shelf will be to remove or to move
+   * @description Creates a closure for each book have its own change shelf functionality
+   * @returns Returns a function that will get the book information and move it or remove it from a shelf
+   */
   changeShelfFor = (book: Object, isRemoveFunction: boolean = false) => (event: Object) => {
     const { name: shelfToMove } = event.target;
 
+    // If remove, deletes the shelf
     if (isRemoveFunction) {
       delete book.shelf; // eslint-disable-line
     }
 
+    // Calls the update api
+    // As callback, pass the result, the shelf to move and the book id
     update(book, shelfToMove)
-      .then(response => this.updateShelfs(response, shelfToMove, book.id))
+      .then(result => this.updateShelfs(result, shelfToMove, book.id))
       .catch(errorUpdate => console.log(`Error Update book: ${errorUpdate}`));
   };
 
-  updateShelfs = (responseBooks: Object, movedShelfName: string, bookMovedId: string) => {
+  /**
+   * @method BookshelfScreen#updateShelfs
+   * @param {object} resultBooks - List of books id on each shelf
+   * @param {string} movedShelfName - Name of shelf the book was moved / removed (shelf name == none)
+   * @param {string} bookMovedId - Id of the moved book
+   */
+  updateShelfs = (resultBooks: Object, movedShelfName: string, bookMovedId: string) => {
     const {
       // Name of the current shelf
       currentShelf,
@@ -77,7 +102,7 @@ class BookshelfScreen extends React.PureComponent<void, State> {
     const {
       // Get the updated array of the current shelf. This array doesn't contain the id of the book that was moved or removed
       [currentShelf]: oldShelfUpdated,
-    } = responseBooks;
+    } = resultBooks;
 
     // Get the moving book from the current shelf
     const movingBook = oldCurrentShelf.find(book => book.id === bookMovedId);
@@ -106,6 +131,11 @@ class BookshelfScreen extends React.PureComponent<void, State> {
     }));
   }
 
+  /**
+   * @method BookshelfScreen#changeShelf
+   * @param {string} newShelf
+   * @description Change the shelf
+   */
   changeShelf = (newShelf: string) => this.setState(() => ({ currentShelf: newShelf }));
 
   render() {

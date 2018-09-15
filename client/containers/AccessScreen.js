@@ -11,19 +11,28 @@ type Props = {
   history: Function,
 }
 
+// Add loadable to access form
 const AccessFormContainer = Loadable({
   loader: () => import(/* webpackChunkName: 'accessFormContainer' */ 'Components/access/FormContainer'),
   loading: Loading,
 });
 
+/**
+ * @constructor AccessScreen
+ * @param {object} history - History object
+ * @description Renders the access screen
+ */
 const AccessScreen = ({ history }: Props) => {
+  // Get the user info
   const userAuthenticated = localStorage.getItem('userAuthenticated');
 
+  // If exists, the user is already logged in, just send to bookshelf page
   if (userAuthenticated) {
     history.push('/main');
     return null;
   }
 
+  // Triggers the animation effect
   setTimeout(() => {
     const form = document.querySelector('.login-container__form');
 

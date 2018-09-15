@@ -7,6 +7,12 @@ type Props = {
   children: React.Node,
 }
 
+/**
+ * @constructor GeneralScreen
+ * @param {image} image - Image file
+ * @param {React.Node} children - React components
+ * @description Renders the layer of images for bookshelf and search page
+ */
 const GeneralScreen = ({ image, children }: Props) => (
   <GeneralScreenBackground image={image}>
     <GeneralScreenBackgroundLayer>

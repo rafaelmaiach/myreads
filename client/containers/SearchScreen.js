@@ -118,6 +118,11 @@ class SearchScreen extends React.Component<void, State> {
       .catch(this.getErrorFromResponse);
   }
 
+  /**
+   * @method SearchScreen#getBooksFromResponse
+   * @param {object} response - Result from search api
+   * @description Set the state to error or set the books list with books found
+   */
   getBooksFromResponse = (response) => {
     if (response.error) {
       this.setState(() => ({
@@ -136,43 +141,68 @@ class SearchScreen extends React.Component<void, State> {
     }), this.updateShelfForBooks);
   }
 
+  /**
+   * @method SearchScreen#getErrorFromResponse
+   * @param {object} error - Error message
+   * @description Get the error message from search
+   */
   getErrorFromResponse = (error) => {
     console.log(`Error on search book: ${error.message}`);
     this.setState(() => ({ dirty: true }));
   }
 
+  /**
+   * @method SearchScreen#changeShelfFor
+   * @param {object} book - Book information
+   * @param {boolean} isRemoveFunction - Knows if the change shelf will be to remove or to move
+   * @description Creates a closure for each book have its own change shelf functionality
+   * @returns Returns a function that will get the book information and move it or remove it from a shelf
+   */
   changeShelfFor = (book, isRemoveFunction = false) => (event) => {
     const { name: shelfToMove } = event.target;
 
+    // To remove a book from a shelf, delete the shelf property
+    // The "none" shelf is being set on JSX for dropdown item remove
     if (isRemoveFunction) {
       delete book.shelf; // eslint-disable-line
     }
 
+    // Calls the update api to move/remove the book
     update(book, shelfToMove)
       .then(this.updateShelfForBooks)
       .catch(errorUpdate => console.log(`Error Update book on Search: ${errorUpdate.message}`));
   };
 
+  /**
+   * @method SearchScreen#changeShelfFor
+   * @param {object} responseUpdate - List of books ids on each shelf
+   * @description Update the books list with the updated book
+   */
   updateShelfForBooks = (responseUpdate = null) => {
     const { booksList, allBooks } = this.state;
     const { currentlyReading, wantToRead, read } = allBooks;
 
+    // Get each current shelf book list
     let crBooks = currentlyReading;
     let wtrBooks = wantToRead;
     let rBooks = read;
 
+    // If true, the function was called from update api, so need to update the book list
     if (responseUpdate) {
+      // Get book list ids
       const {
         currentlyReading: updatedCurrentlyReading,
         wantToRead: updatedWantToRead,
         read: updatedRead,
       } = responseUpdate;
 
+      // Update the books shelfs to the updated list
       crBooks = updatedCurrentlyReading;
       wtrBooks = updatedWantToRead;
       rBooks = updatedRead;
     }
 
+    // Go through each book and update its shelf tag
     const booksListUpdated = booksList.map((book) => {
       const { id } = book;
       const bookUpdated = { ...book };

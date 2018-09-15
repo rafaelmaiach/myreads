@@ -41,10 +41,7 @@ export const debounce = (fn, time) => {
   };
 };
 
-/**
- * @function isMobile
- * @description Check if the user is accessing the site from a mobile device
- */
+// Check if the user is accessing the site from a mobile device
 export const isMobile = {
   getUserAgent: () => navigator.userAgent,
   Android: () => /Android/i.test(isMobile.getUserAgent()) && !isMobile.Windows(),
