@@ -22,6 +22,11 @@ type Props = {
   title: string,
 }
 
+/**
+ * @constructor Modal#Header
+ * @param {object} props - Book props
+ * @description Renders the modal Header
+ */
 const Header = (props: Props) => {
   const {
     authors,

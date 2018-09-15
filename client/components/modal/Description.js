@@ -6,6 +6,11 @@ type Props = {
   description: string,
 }
 
+/**
+ * @constructor Modal#Description
+ * @param {text} description - Book description
+ * @description Renders the modal description
+ */
 const Description = ({ description }: Props) => (
   <ModalDescriptionContainer>
     <ModalDescriptionText>
