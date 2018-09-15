@@ -92,13 +92,31 @@ On the header of this page, user can:
 For each bookshelf, the user will see the set of books that are present on that bookshelf and, for each book, the user can see informations about it and clicking on **See more** button, a modal appears with more information. The books can also be moved to another bookshelf or removed from the current one using the **(...)** dropdown button which shows a list of the bookshelves to move it or a option to remove it.
 
 ### Search page
+This page can be accessed through **/search** path, but only if the user is successful authenticated and logged in. If not, this page will redirect it to [Start Page](#start-page). 
+
+On the header of this page, user can:
+
+ - **Go back** to the [Bookshelf Page](#bookshelf-page) using the arrow **(<-)** button
+ - Search for books using the input field
+
+As this project is built using BooksAPI from Udacity, a list of Search Terms was given and they are shown on the page when there are no results being shown.
+
+If the search doesn't find any book, a message of **no books were found** is shown. If the search finds, it will show a list of books that have the same set of information and functionality from the books on the [Bookshelf Page](#bookshelf-page). The only aditional information is that the current bookshelf is shown on a tag below the book image.
 
 [(Back to top)](#myreads)
 
 ## Walkthrough the project
-
+When I started the project I knew that I wanted to give my best to it and not just make it but learn new things, mainly about [performance](#thinking-about-performance) and below are the learns I got after finishing it.
 
 ### Migrating from third-parties boilerplates to my own boilerplate
+
+**CRA:** I started the project using the [create-react-app](https://github.com/facebook/create-react-app) boilerplate as it is simple to use. Everything was going well until I build the project to production. I didn't like the bundle it generated and even ejecting the boilerplate to have access to its hidden scripts, I wasn't satisfied, so I changed to [react-boilerplate](https://github.com/react-boilerplate/react-boilerplate).
+
+**React-boilerplate:** This boilerplate is very famous, it has a lot of things built in it and many dependencies already configured, this makes it very complex to understand and as I didn't need all of those stuff, I deleted almost 90% of the project, lefting only the webpack configuration that I liked and used to improve my Webpack knowledge. Again, everything was going well, the build was generating good bundle files, but I wanted more, I wanted to compress them to serve as **gzip** to reduce size. I had problems because I'm still new to backend stuff and their server configuration was hard to me to understand, so I decided to make it from zero.
+
+**My own boilerplate**: Finally, I decided to remove everything from react-boilerplate and start my own boilerplate. I had already created one for my webpack studies ([react-start-environment](https://github.com/rafaelmaiach/react-start-environment)), so I take it and improve it from what I learned from react-boilerplate configuration. I've also fixed a lot of errors on my server file that wasn't allowing me to use BrowserRouter from react-router-dom. Oh, and I could delete a lot of unused dependencies.
+
+So what I learned: Using third-party boilerplates are simple and let you settup an environment fast, but creating yours gives you full control and knowledge about your project and what is happening on it. And this is my tip, as a developer you need to always be curious about learning new stuff and on an ecosystem like React, in my opinion, is a must have to learn about the technologies which almost always are present on a react project, so, go ahead and build your own boilerplate.
 
 ### From SCSS to Styled-Components
 
