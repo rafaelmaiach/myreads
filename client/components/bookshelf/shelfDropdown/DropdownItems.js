@@ -6,6 +6,7 @@ type Props = {
   book: Object,
   updateBook: Function,
   removeBook: Function,
+  toggleShelvesList: Function,
 }
 
 /**
@@ -13,9 +14,17 @@ type Props = {
  * @param {object} book - Book information
  * @param {function} updateBook - Function to update the book shelf
  * @param {function} removeBook - Function to remove book from shelf
+ * @param {function} toggleShelvesList - Function to open/close dropdown
  * @description Renders the dropdown items
  */
-const DropdownItems = ({ book, updateBook, removeBook }: Props) => {
+const DropdownItems = (props: Props) => {
+  const {
+    book,
+    updateBook,
+    removeBook,
+    toggleShelvesList,
+  } = props;
+
   const allShelfs = [
     {
       key: 'dropdownCurrentlyReading',
@@ -34,6 +43,13 @@ const DropdownItems = ({ book, updateBook, removeBook }: Props) => {
     },
   ];
 
+  // Calls the updateBook or removeBook function depending on which element triggered it
+  // And close the dropdown after that
+  const callUpdateBook = (event, callback) => {
+    callback(event);
+    toggleShelvesList();
+  };
+
   // Filter the shelfs user can move the book to
   const shelfsToMove = allShelfs.filter(({ shelf }) => shelf !== book.shelf);
 
@@ -43,7 +59,7 @@ const DropdownItems = ({ book, updateBook, removeBook }: Props) => {
       key={key}
       type="button"
       name={shelf}
-      onClick={updateBook}
+      onClick={event => callUpdateBook(event, updateBook)}
     >
       {text}
     </ShelfDropdownItem>));
@@ -62,7 +78,10 @@ const DropdownItems = ({ book, updateBook, removeBook }: Props) => {
       </ShelfDropdownMoveTo>
       {dropdownItems}
       {shelf && (
-        <ShelfDropdownSection name="none" onClick={removeBook}>
+        <ShelfDropdownSection
+          name="none"
+          onClick={event => callUpdateBook(event, removeBook)}
+        >
           Remove
         </ShelfDropdownSection>)
       }

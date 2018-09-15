@@ -115,6 +115,7 @@ class BookshelfScreen extends React.PureComponent<void, State> {
     // oldMovedShelf, who represents the shelf that can receive the book if this condition is true
     if (movedShelfName !== 'none') {
       // Create a new book list for the moved shelf using the existing books plus the one who was moved to it
+      movingBook.shelf = movedShelfName;
       const newMovedShelf = [...oldMovedShelf, movingBook];
 
       // Update the current shelf and the moved shelf

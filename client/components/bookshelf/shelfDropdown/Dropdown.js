@@ -1,7 +1,6 @@
 // @flow
 import * as React from 'react';
 import styled from 'styled-components';
-import shouldUpdate from 'recompose/shouldUpdate';
 
 import DropdownItems from './DropdownItems';
 type Props = {
@@ -11,11 +10,11 @@ type Props = {
 }
 
 /**
- * @function openDropdown
+ * @function toggleDropdown
  * @description Get the dropdown list and toggle a class to show the values
  * The id shelfDropdownItems is set inside the DropdownItems child component
  */
-const openDropdown = (id: string) => () => {
+const toggleDropdown = (id: string) => () => {
   const dropdown = document.getElementById(id);
   if (dropdown) {
     dropdown.classList.toggle('showDropdown');
@@ -30,12 +29,17 @@ const openDropdown = (id: string) => () => {
  * @description Renders the dropdown button to book
  */
 const Dropdown = ({ book, updateBook, removeBook }: Props) => {
-  const openShelvesList = openDropdown(book.id);
+  const toggleShelvesList = toggleDropdown(book.id);
 
   return (
     <ShelfDropdownContainer>
-      <ShelfDropdownButton type="button" onClick={openShelvesList}>...</ShelfDropdownButton>
-      <DropdownItems book={book} updateBook={updateBook} removeBook={removeBook} />
+      <ShelfDropdownButton type="button" onClick={toggleShelvesList}>...</ShelfDropdownButton>
+      <DropdownItems
+        book={book}
+        toggleShelvesList={toggleShelvesList}
+        updateBook={updateBook}
+        removeBook={removeBook}
+      />
     </ShelfDropdownContainer>
   );
 };
@@ -77,9 +81,4 @@ const ShelfDropdownButton = styled.button`
   }
 `;
 
-const shouldComponentUpdate = (props, nextProps) => {
-  const { shelf } = props.book;
-  return shelf !== nextProps.book.shelf;
-};
-
-export default shouldUpdate(shouldComponentUpdate)(Dropdown);
+export default Dropdown;
