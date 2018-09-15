@@ -2,6 +2,10 @@ import React from 'react';
 import moize from 'moize';
 import styled, { keyframes } from 'styled-components';
 
+/**
+ * @constructor Loading
+ * @description Renders Loading component
+ */
 const Loading = () => (
   <Container>
     <Book>
