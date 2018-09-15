@@ -22,6 +22,10 @@ export type State = {
   error: string,
 }
 
+/**
+ * @class FormField
+ * @description Represents each form field on sign in and sign up screen
+ */
 class FormField extends React.PureComponent<Props, State> {
   static defaultProps = {
     validator: null,
@@ -33,6 +37,11 @@ class FormField extends React.PureComponent<Props, State> {
     error: '',
   }
 
+  /**
+  * @method FormField#hasChanged
+  * @param {string} value - Input value
+  * @description Validate the form field and save the value if valid
+  */
   hasChanged = (value:string) => {
     const { dirty } = this.state;
     const {
@@ -51,6 +60,7 @@ class FormField extends React.PureComponent<Props, State> {
       error = `${label} is required`;
     } else if (validator) {
       try {
+        // Runs the YUP validator. As yup throws an error, I'm using try catch
         validator(value);
       } catch (ValidationError) {
         error = ValidationError.message;

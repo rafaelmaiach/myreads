@@ -9,6 +9,13 @@ type Props = {
   toggleForm: Function,
 }
 
+/**
+ * @constructor MemberInformation
+ * @param {string} text - Text to be shown before the button
+ * @param {string} actionText - Button text
+ * @param {function} toggleForm - Toggle form function to change between signin and signup
+ * @description Renders the message below the signin / signup button. To ask user to register or login on system
+ */
 const MemberInformation = ({ text, actionText, toggleForm }: Props) => (
   <MemberInformationContainer>
     {text}

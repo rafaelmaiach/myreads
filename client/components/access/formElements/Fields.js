@@ -13,6 +13,11 @@ type Props = {
   updatePassword: Function,
 }
 
+/**
+ * @constructor Field
+ * @param {props} - Fields props
+ * @description Renders the specific form field (signin or signup)
+ */
 const Fields = (props: Props) => {
   const {
     isSignUpForm,

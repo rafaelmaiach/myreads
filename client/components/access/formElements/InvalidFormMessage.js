@@ -6,7 +6,12 @@ type Props = {
   type: string,
 }
 
-const getMessageFor = (type) => {
+/**
+ * @function getMessageFor
+ * @param {string} type - Error type
+ * @description Get the message for each error type
+ */
+const getMessageFor = (type: string) => {
   let message = '';
 
   switch (type) {
@@ -26,6 +31,11 @@ const getMessageFor = (type) => {
   return message;
 };
 
+/**
+ * @constructor InvalidFormMessage
+ * @param {string} type - Type error
+ * @description Renders specific message error for invalid form
+ */
 const InvalidFormMessage = ({ type }: Props) => (
   <InvalidFormMessageContainer>
     <InvalidFormText>

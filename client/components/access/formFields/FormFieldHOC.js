@@ -14,9 +14,15 @@ type Props = {
   needToValidate: boolean,
 }
 
+/**
+ * @constructor FormFieldHOC
+ * @param {object} props - Props for form field
+ * @description HOC to set the validator function and the type of input for each form field
+ */
 const FormFieldHOC = (props: Props) => {
   const { fieldId, needToValidate } = props;
 
+  // If needs to validate, gets the corresponding YUP schema
   const validator = needToValidate ? validateField(fieldId) : null;
 
   const type = fieldId === 'password' ? fieldId : 'text';

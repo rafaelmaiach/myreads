@@ -10,6 +10,13 @@ type Props = {
   updatePassword: Function,
 }
 
+/**
+ * @constructor LoginFormSignUp
+ * @param {function} updateFullname - Update function for fullname field
+ * @param {function} updateEmail - Update function for email field
+ * @param {function} updatePassword - Update function for password field
+ * @description Renders the signup form
+ */
 const LoginFormSignUp = ({ updateFullname, updateEmail, updatePassword }: Props) => (
   <React.Fragment>
     <FormFieldHOC

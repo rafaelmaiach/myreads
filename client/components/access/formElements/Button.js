@@ -8,6 +8,12 @@ type Props = {
   formAction: Function,
 }
 
+/**
+ * @constructor Button
+ * @param {string} text - Button Text
+ * @param {function} formAction - What will happen when click on button
+ * @description Renders the form button
+ */
 const Button = ({ text, formAction }: Props) => (
   <FormButtonContainer>
     <FormButton type="button" onClick={formAction}>
