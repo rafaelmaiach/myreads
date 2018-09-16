@@ -157,8 +157,8 @@ You can check the other dependencies on _package.json_ file.
 
 ## Contact me
 I'm always learning new things and I'm opened to feedbacks or just meet new people.  I'll be glad to talk to you about JavaScript, React, Web Development, Harry Potter or anything you want to. Find me on: 
-[**LinkedIn**](#https://www.linkedin.com/in/rafaelmaiach)
-[**Instagram**](#https://www.instagram.com/rafaelmaia.js)
-[**Facebook**](#https://www.facebook.com/rafaelmaiach)
+- [LinkedIn](https://www.linkedin.com/in/rafaelmaiach)
+- [Instagram](https://www.instagram.com/rafaelmaia.js)
+- [Facebook](https://www.facebook.com/rafaelmaiach)
 
 [(Back to top)](#myreads)
