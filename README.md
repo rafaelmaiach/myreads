@@ -126,16 +126,14 @@ That's why I looked for some libraries that could help me create a better perfor
 
 But, as I was learning more and more about performance, I've noticed that not only React could be optimized but using Webpack correctly could make your bundles smaller and this way the client-side would download small packages at time which will improve performance. So I studied more about Webpack and made a production configuration that I liked the generated bundle and even more when I learned how to compress them to gzip (omg, the bundles decreased their size so much). And with the gzipped version of my bundle, I found [express-static-gzip](#built-with) package for Node.js which makes my server serves the **gz** version of the bundle.
 
-Below you can check some images from the production bundle and the result of Chrome DevTool Audit analysis. If you have any tips or feedback, [contact me](#contact-me).
+Below you can check some images from the production bundle and the result of Chrome DevTools Audit analysis. If you have any tips or feedback, [contact me](#contact-me).
 <div align="center" />
 <h4>Production Bundle
-<div align="center"/>
 <img src="https://raw.githubusercontent.com/rafaelmaiach/myreads/master/readme-images/bundle.png" alt="bundle"/>
 
-<div align="center" />
 <h4>Chrome DevTool Audit from Bookshelf Page
-<div align="center"/>
 <img src="https://raw.githubusercontent.com/rafaelmaiach/myreads/master/readme-images/performance.png" alt="performance"/>
+</div>
 
 So, I learned a lot of performance and I'll continue learning more to create great projects at the future, so **my advice** to this session is simple, learn about performance and optimization, don't matter how small the project is, it's a knowledge that makes difference.
 
