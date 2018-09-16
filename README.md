@@ -2,12 +2,12 @@
 # MyReads
 **MYREADS** is the first project from the **Udacity's React Developer Nanodegree** program. You'll create a bookshelf application that allows you to select and sort books you've read, are reading or want to read. The project emphasizes using React to build the application and provides an API server and client library, which you will use to store information as you interact with the application.
 
-[Try out the demo](https://myreads-rafaelmaiach.herokuapp.com)
+[CHECK THE LIVE DEMO](https://myreads-rafaelmaiach.herokuapp.com)
 
 
 ## Table of contents
 
- - [How to install](#installation)
+ - [How to install](#how-to-install)
  - [How to run](#how-to-run)
 	 - [Development mode](#development-mode)
 	 - [Production mode](#production-mode)
@@ -20,7 +20,6 @@
 	 - [Migrating from third-party boilerplates to my own boilerplate](#migrating-from-third-party-boilerplates-to-my-own-boilerplate)
 	 - [Thinking about performance](#thinking-about-performance)
   - [Built with](#built-with)
- - [Contact me](#contact-me)
  
 
 ## How to install
@@ -49,7 +48,7 @@ npm run dev
 ```
 
 ### Production mode
-In this mode, a bundle is generated and compressed (gzip) by Webpack and the server serves the **GZIP** files to reduce the project size for client.
+In this mode, the files are uglyfied, minified and compressed with _gzip_ by Webpack and the server serves the **GZIP** files to reduce the project size for client.
 ```bash
 # Run npm script to build the project and generate bundle files
 npm run build
@@ -117,9 +116,17 @@ When I started the project I knew that I wanted to give my best to it and not ju
 
 **So what I learned:** Using third-party boilerplates are simple and let you settup an environment fast, but creating yours gives you full control and knowledge about your project and what is happening on it. 
 
-**My advice:** As a developer you always need to be curious about learning new stuff and on an ecosystem like React projects, is a must have to learn about the technologies which almost always are present on it, so go ahead and build your own boilerplate, it will be a great experience!
+**My advice:** As a developer you always need to be curious and keep learning new stuff, so go ahead and build your own boilerplate, check what Babel and Webpack do to your files, it will be a great experience!
 
 ### Thinking about performance
+I've already worked on a big project using React, but I actually never thought about performance because the site was running smoothly, but everything changed when I became curious about performance in React and I found this awesome article [React is Slow, React is Fast: Optimizing React Apps in Practice](https://marmelab.com/blog/2017/02/06/react-is-slow-react-is-fast.html) by [François Zaninotto](https://twitter.com/francoisz). It shows in practice how you can improve React performance just by taking care of the way your components render. 
+
+That's why I looked for some libraries that could help me create a better performatic project and found [recompose, react-loadable and moize](#built-with) to learn and try it out. From these three, I've felt in love by **recompose**, it's an awesome library that gives you functions to give power to your components, mainly the functional ones, that gives you control over conditional re-render for example.
+
+But, as I was learning more and more about performance, I've noticed that not only React could be optimized but using Webpack correctly could make your bundles smaller and this way the client-side would download small packages at time which will improve performance. So I studied more about Webpack and made a production configuration that I liked the generated bundle and even more when I learned how to compress them to gzip (omg, the bundles decreased their size so much). And with the gzipped version of my bundle, I found [express-static-gzip](#built-with) package for Node.js which makes my server serves the **gz** version of the bundle.
+
+Below you can check some images from the production bundle and the result of Chrome DevTool Audit analysis (it was taken fro:
+
 
 [(Back to top)](#myreads)
 
