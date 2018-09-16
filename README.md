@@ -39,6 +39,7 @@ $ npm install
 
 ## How to run
 You can run the project in both environments: **development** and **production**. Be sure to have the dependencies installed before.
+The application runs on ```http://localhost:3000``` as default if a PORT isn't specified on **.env** file.
 
 ### Development mode
 In this mode, hot loader is configured to be triggered on files changes.
