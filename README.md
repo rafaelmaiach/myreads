@@ -2,8 +2,7 @@
 # MyReads
 **MYREADS** is the first project from the **Udacity's React Developer Nanodegree** program. You'll create a bookshelf application that allows you to select and sort books you've read, are reading or want to read. The project emphasizes using React to build the application and provides an API server and client library, which you will use to store information as you interact with the application.
 
-[CHECK THE LIVE DEMO](https://myreads-rafaelmaiach.herokuapp.com)
-
+<a href="https://myreads-rafaelmaiach.herokuapp.com" target="_blank"> CHECK THE DEMO</a>
 
 ## Table of contents
 
