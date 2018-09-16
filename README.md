@@ -140,16 +140,16 @@ So, I learned a lot of performance and I'll continue learning more to create gre
 [(Back to top)](#myreads)
 
 ## Built with
-[Eslint AirBnb](https://www.npmjs.com/package/eslint-config-airbnb) - The Airbnb JavaScript lint rules to follow their style guide
-[Express-static-gzip](https://www.npmjs.com/package/express-static-gzip) - Provides a small layer on top of _serve-static_, which allows to serve pre-gzipped files.
-[Flow](https://github.com/facebook/flow) - A static typechecker for JavaScript
-[Moize](https://github.com/planttheidea/moize) - A memoization library for JavaScript
-[Pug](https://github.com/pugjs/pug) - A high-performance template engine
-[React-loadable](https://github.com/jamiebuilds/react-loadable) - A higher order component for loading components with dynamic imports
-[Recompose](https://github.com/acdlite/recompose) - A React utility belt for function components and higher-order components. Mainly used to take care of unecessary components re-renders
-[Styled-components](https://github.com/styled-components/styled-components) - Allows you to write actual CSS code to style your components.
-[Webpack 4](https://github.com/webpack/webpack) - A bundler for javascript and friends. Packs many modules into a few bundled assets.
-[Yup](https://github.com/jquense/yup) - A JavaScript object schema validator and object parser.
+- [Eslint AirBnb](https://www.npmjs.com/package/eslint-config-airbnb) - The Airbnb JavaScript lint rules to follow their style guide
+- [Express-static-gzip](https://www.npmjs.com/package/express-static-gzip) - Provides a small layer on top of _serve-static_, which allows to serve pre-gzipped files.
+- [Flow](https://github.com/facebook/flow) - A static typechecker for JavaScript
+- [Moize](https://github.com/planttheidea/moize) - A memoization library for JavaScript
+- [Pug](https://github.com/pugjs/pug) - A high-performance template engine
+- [React-loadable](https://github.com/jamiebuilds/react-loadable) - A higher order component for loading components with dynamic imports
+- [Recompose](https://github.com/acdlite/recompose) - A React utility belt for function components and higher-order components. Mainly used to take care of unecessary components re-renders
+- [Styled-components](https://github.com/styled-components/styled-components) - Allows you to write actual CSS code to style your components.
+- [Webpack 4](https://github.com/webpack/webpack) - A bundler for javascript and friends. Packs many modules into a few bundled assets.
+- [Yup](https://github.com/jquense/yup) - A JavaScript object schema validator and object parser.
 
 You can check the other dependencies on _package.json_ file.
 
