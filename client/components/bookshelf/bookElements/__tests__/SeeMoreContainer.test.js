@@ -5,7 +5,7 @@ import SeeMoreContainer from '../SeeMoreContainer';
 
 describe('Book Elements', () => {
   it('renders SEE MORE CONTAINER', () => {
-    const clickFn = jest.fn(() => { });
+    const clickFn = jest.fn();
     const wrapper = mount(<SeeMoreContainer openModal={clickFn} />);
 
     const button = wrapper.find('button');
