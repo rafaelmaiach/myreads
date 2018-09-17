@@ -60,6 +60,7 @@ const FormButton = styled.button`
   }
 `;
 
+/* istanbul ignore next */
 const shouldComponentUpdate = (props, nextProps) => {
   const { text } = props;
   return text !== nextProps.text;

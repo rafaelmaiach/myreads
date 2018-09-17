@@ -60,6 +60,7 @@ const FormFieldsContainer = styled.div`
   }
 `;
 
+/* istanbul ignore next */
 const shouldComponentUpdate = (props, nextProps) => {
   const { isSignUpForm } = props;
   return isSignUpForm !== nextProps.isSignUpForm;

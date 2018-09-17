@@ -5,7 +5,7 @@ import Stars from '../Stars';
 
 describe('Book Elements', () => {
   it('renders STARS if rating is passed', () => {
-    const rating = 5;
+    const rating = 3;
     const wrapper = mount(<Stars rating={rating} />);
 
     expect(wrapper.find('span')).toHaveLength(5);

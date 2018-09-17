@@ -32,4 +32,7 @@ const LoginFormSignIn = ({ updateEmail, updatePassword }: Props) => (
   </React.Fragment>
 );
 
-export default shouldUpdate(() => false)(LoginFormSignIn);
+/* istanbul ignore next */
+const shouldComponentUpdate = () => false;
+
+export default shouldUpdate(shouldComponentUpdate)(LoginFormSignIn);

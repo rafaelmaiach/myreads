@@ -40,4 +40,5 @@ const BookPublisherContainer = styled.span`
   }
 `;
 
+/* istanbul ignore next */
 export default onlyUpdateForKeys(['publisher'])(Publisher);

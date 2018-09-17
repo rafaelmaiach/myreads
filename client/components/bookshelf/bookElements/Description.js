@@ -32,4 +32,5 @@ const BookDescriptionContainer = styled.p`
   }
 `;
 
+/* istanbul ignore next */
 export default onlyUpdateForKeys(['descriptionReduced'])(Description);
