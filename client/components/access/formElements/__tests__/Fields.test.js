@@ -1,6 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
+import SignUp from '../SignUp';
+import SignIn from '../SignIn';
 import Fields from '../Fields';
 
 describe('Access Form Elements', () => {
@@ -14,16 +16,8 @@ describe('Access Form Elements', () => {
 
     const wrapper = mount(<Fields {...props} />);
 
-    const fields = wrapper.find('label');
-    const inputs = wrapper.find('input');
-
-    expect(fields.at(0).props().htmlFor).toEqual('fullname');
-    expect(fields.at(1).props().htmlFor).toEqual('email');
-    expect(fields.at(2).props().htmlFor).toEqual('password');
-
-    expect(inputs.at(0).props().id).toEqual('fullname');
-    expect(inputs.at(1).props().id).toEqual('email');
-    expect(inputs.at(2).props().id).toEqual('password');
+    expect(wrapper.find(SignUp)).toHaveLength(1);
+    wrapper.unmount();
   });
 
   it('Renders Fields for SignIn', () => {
@@ -36,14 +30,7 @@ describe('Access Form Elements', () => {
 
     const wrapper = mount(<Fields {...props} />);
 
-    const fields = wrapper.find('label');
-    const inputs = wrapper.find('input');
-
-    expect(fields.at(0).props().htmlFor).toEqual('email');
-    expect(fields.at(1).props().htmlFor).toEqual('password');
-
-    expect(inputs.at(0).props().id).toEqual('email');
-    expect(inputs.at(1).props().id).toEqual('password');
+    expect(wrapper.find(SignIn)).toHaveLength(1);
     wrapper.unmount();
   });
 });
