@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
+import DropdownItems from '../DropdownItems';
 import Dropdown from '../Dropdown';
 
 describe('Shelf Dropdown', () => {
@@ -17,10 +18,8 @@ describe('Shelf Dropdown', () => {
     const button = wrapper.find('button').at(0);
     const buttonProps = button.props();
 
-    const dropdownItems = wrapper.find('div').at(1).props();
-
     expect(buttonProps.className).toMatch('Dropdown__ShelfDropdownButton');
-    expect(dropdownItems.className).toMatch('ShelfDropdownItems');
+    expect(wrapper.find(DropdownItems)).toHaveLength(1);
 
     wrapper.unmount();
   });
