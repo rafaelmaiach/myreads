@@ -29,7 +29,7 @@ const Tab = styled.div`
   justify-content: center;
   align-items: center;
   pointer-events: none;
-  background-color: ${({ active }) => active ? '#4cc984' : ''};
+  background-color: ${({ active }) /* istanbul ignore next */ => active ? '#4cc984' : ''};
 
   &:hover {
     background-color: #4cc984;
@@ -56,4 +56,5 @@ const Button = styled.button`
   }
 `;
 
+/* istanbul ignore next */
 export default onlyUpdateForKeys(['active', 'text'])(HeaderTab);
