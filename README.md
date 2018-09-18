@@ -153,9 +153,11 @@ So, I learned a lot of performance and I'll continue learning more to create gre
 [(Back to top)](#myreads)
 
 ## Built with
+- [Enzyme](http://airbnb.io/enzyme/) - JavaScript Testing utilities for React
 - [Eslint AirBnb](https://www.npmjs.com/package/eslint-config-airbnb) - The Airbnb JavaScript lint rules to follow their style guide
 - [Express-static-gzip](https://www.npmjs.com/package/express-static-gzip) - Provides a small layer on top of _serve-static_, which allows to serve pre-gzipped files.
 - [Flow](https://github.com/facebook/flow) - A static typechecker for JavaScript
+- [Jest](https://jestjs.io/) - Testing library that can be used to test simple Javascript code or React components
 - [Moize](https://github.com/planttheidea/moize) - A memoization library for JavaScript
 - [Pug](https://github.com/pugjs/pug) - A high-performance template engine
 - [React-loadable](https://github.com/jamiebuilds/react-loadable) - A higher order component for loading components with dynamic imports
