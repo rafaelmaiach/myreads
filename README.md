@@ -191,3 +191,5 @@ All the quotes were got from [WritersDigest](http://www.writersdigest.com/writin
 
 #### Icons
 - Icons by [Freepik](http://www.freepik.com), [Flaticon](https://www.flaticon.com) and [Iconfinder](https://iconfinder.com)
+
+[(Back to top)](#myreads)
