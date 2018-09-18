@@ -21,6 +21,7 @@
 	 - [Thinking about performance](#thinking-about-performance)
   - [Built with](#built-with)
   - [Contact me](#contact-me)
+  - [Credits](#credits)
  
 
 ## How to install
@@ -177,3 +178,16 @@ I'm always learning new things and I'm opened to feedbacks or just meet new peop
 - [Facebook](https://www.facebook.com/rafaelmaiach)
 
 [(Back to top)](#myreads)
+
+### Credits
+
+#### Images
+- Start Page: Photo by [Ugur Akdemir](https://unsplash.com/photos/XT-o5O458as) on [Unsplash](https://unsplash.com/)
+- Bookshelf Page: Photo by [kazuend](https://unsplash.com/photos/DHk_mju83z0) on [Unsplash](https://unsplash.com/)
+- Search Page: Photo by [Susan Yin](https://unsplash.com/photos/2JIvboGLeho) on [Unsplash](https://unsplash.com/)
+
+#### Author quotes
+All the quotes were got from [WritersDigest](http://www.writersdigest.com/writing-quotes)
+
+#### Icons
+- Icons by [Freepik](http://www.freepik.com), [Flaticon](https://www.flaticon.com) and [Iconfinder](https://iconfinder.com)
