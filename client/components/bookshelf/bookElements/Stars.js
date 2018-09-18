@@ -87,4 +87,5 @@ const BookStarNotFound = styled.span`
   }
 `;
 
+/* istanbul ignore next */
 export default onlyUpdateForKeys(['rating'])(Stars);

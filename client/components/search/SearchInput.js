@@ -58,4 +58,7 @@ const SearchInputContainer = styled.div`
   }
 `;
 
-export default shouldUpdate(() => false)(SearchInput);
+/* istanbul ignore next */
+const shouldComponentUpdate = () => false;
+
+export default shouldUpdate(shouldComponentUpdate)(SearchInput);

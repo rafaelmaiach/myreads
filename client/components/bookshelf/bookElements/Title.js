@@ -25,7 +25,7 @@ Title.defaultProps = {
 };
 
 const BookTitleContainer = styled.h1`
-  font-size: ${({ isModal }) => !isModal ? '14px' : '12px'};
+  font-size: ${({ isModal }) /* istanbul ignore next */ => !isModal ? '14px' : '12px'};
   font-weight: bold;
   width: 89%;
   padding-right: 10px;
@@ -41,4 +41,5 @@ const BookTitleContainer = styled.h1`
   }
 `;
 
+/* istanbul ignore next */
 export default onlyUpdateForKeys(['titleText'])(Title);

@@ -40,4 +40,5 @@ const BookPublishedDateContainer = styled.span`
   }
 `;
 
+/* istanbul ignore next */
 export default onlyUpdateForKeys(['date'])(PublishedDate);

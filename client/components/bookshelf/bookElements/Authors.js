@@ -28,4 +28,5 @@ const BookAuthorsContainer = styled.h4`
   }
 `;
 
+/* istanbul ignore next */
 export default onlyUpdateForKeys(['authorsNames'])(Authors);

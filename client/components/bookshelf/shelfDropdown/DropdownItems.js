@@ -47,15 +47,18 @@ const DropdownItems = (props: Props) => {
 
   // Calls the updateBook or removeBook function depending on which element triggered it
   // And close the dropdown after that
+  /* istanbul ignore next */
   const callUpdateBook = (event, callback) => {
     callback(event);
     toggleShelvesList();
   };
 
   // Filter the shelfs user can move the book to
+  /* istanbul ignore next */
   const shelfsToMove = allShelfs.filter(({ shelf }) => shelf !== book.shelf);
 
   // Create each dropdown item
+  /* istanbul ignore next */
   const dropdownItems = shelfsToMove.map(({ key, shelf, text }) => (
     <ShelfDropdownItem
       key={key}
@@ -84,7 +87,7 @@ const DropdownItems = (props: Props) => {
       {shelf && (
         <ShelfDropdownSection
           name="none"
-          onClick={event => callUpdateBook(event, removeBook)}
+          onClick={/* istanbul ignore next */ event => callUpdateBook(event, removeBook)}
         >
           Remove
         </ShelfDropdownSection>)

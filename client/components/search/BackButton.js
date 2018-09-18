@@ -61,4 +61,7 @@ const BackButton = styled.button`
   }
 `;
 
-export default shouldUpdate(() => false)(withRouter(BackButtonComponent));
+/* istanbul ignore next */
+const shouldComponentUpdate = () => false;
+
+export default shouldUpdate(shouldComponentUpdate)(withRouter(BackButtonComponent));

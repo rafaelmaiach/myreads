@@ -32,6 +32,7 @@ const FormFieldHOC = (props: Props) => {
   );
 };
 
+/* istanbul ignore next */
 const shouldComponentUpdate = (props, nextProps) => {
   const { needToValidate } = props;
   return needToValidate !== nextProps.needToValidate;

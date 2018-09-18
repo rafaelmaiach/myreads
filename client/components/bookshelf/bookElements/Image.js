@@ -29,8 +29,8 @@ Image.defaultProps = {
 
 const BookImageContainer = styled.div`
   position: relative;
-  width: ${({ isModal }) => !isModal ? '70px' : '60px'};
-  height: ${({ isModal }) => !isModal ? '100px' : '90px'};
+  width: ${({ isModal }) /* istanbul ignore next */ => !isModal ? '70px' : '60px'};
+  height: ${({ isModal }) /* istanbul ignore next */ => !isModal ? '100px' : '90px'};
   margin-right: 10px;
 
   @media only screen and (min-width: 375px) {
@@ -44,7 +44,7 @@ const BookImageContainer = styled.div`
   }
 
   @media only screen and (min-width: 1025px) {
-    width: ${({ isModal }) => !isModal ? '120px' : '140px'};
+    width: ${({ isModal }) /* istanbul ignore next */ => !isModal ? '120px' : '140px'};
     height: 170px;
     margin-right: 15px;
   }
@@ -78,4 +78,5 @@ const ImageNotFound = styled.div`
   }
 `;
 
+/* istanbul ignore next */
 export default onlyUpdateForKeys(['thumbnail'])(Image);

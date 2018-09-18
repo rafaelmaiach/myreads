@@ -3,6 +3,7 @@ node_modules
 sonar-scanner.sh
 now.json
 coverage
+.env
 
 # Cruft
 .DS_Store

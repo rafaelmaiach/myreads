@@ -50,4 +50,7 @@ const BookSeeMoreButton = styled.button`
   }
 `;
 
-export default shouldUpdate(() => false)(SeeMoreContainer);
+/* istanbul ignore next */
+const shouldComponentUpdate = () => false;
+
+export default shouldUpdate(shouldComponentUpdate)(SeeMoreContainer);

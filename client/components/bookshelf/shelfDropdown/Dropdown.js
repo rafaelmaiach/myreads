@@ -14,6 +14,7 @@ type Props = {
  * @description Get the dropdown list and toggle a class to show the values
  * The id shelfDropdownItems is set inside the DropdownItems child component
  */
+/* istanbul ignore next */
 const toggleDropdown = (id: string) => () => {
   const dropdown = document.getElementById(id);
   if (dropdown) {

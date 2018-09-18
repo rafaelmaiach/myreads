@@ -44,4 +44,7 @@ const BookshelfHeaderSearchIcon = styled.img`
   cursor: pointer;
 `;
 
-export default shouldUpdate(() => false)(withRouter(HeaderSearchIcon));
+/* istanbul ignore next */
+const shouldComponentUpdate = () => false;
+
+export default shouldUpdate(shouldComponentUpdate)(withRouter(HeaderSearchIcon));

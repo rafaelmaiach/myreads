@@ -37,4 +37,5 @@ const BookSubtitleContainer = styled.h3`
   }
 `;
 
+/* istanbul ignore next */
 export default onlyUpdateForKeys(['subtitleText'])(Subtitle);
