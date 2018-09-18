@@ -88,4 +88,5 @@ const SearchTerms = styled.p`
   }
 `;
 
+/* istanbul ignore next */
 export default onlyUpdateForKeys(['dirty'])(EmptySearch);
