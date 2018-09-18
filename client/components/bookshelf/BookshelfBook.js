@@ -163,6 +163,7 @@ const BookInformation = styled.div`
   }
 `;
 
+/* istanbul ignore next */
 export default compose(
   withState('isModalOpen', 'toggleModal', false),
   withHandlers({

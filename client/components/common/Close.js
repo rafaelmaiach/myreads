@@ -44,4 +44,7 @@ const CloseButton = styled.button`
   }
 `;
 
-export default shouldUpdate(() => false)(Close);
+/* istanbul ignore next */
+const shouldComponentUpdate = () => false;
+
+export default shouldUpdate(shouldComponentUpdate)(Close);

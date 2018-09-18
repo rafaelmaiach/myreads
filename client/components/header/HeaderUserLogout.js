@@ -72,4 +72,7 @@ const LogoutButton = styled.button`
   }
 `;
 
-export default shouldUpdate(() => false)(HeaderUserLogout);
+/* istanbul ignore next */
+const shouldComponentUpdate = () => false;
+
+export default shouldUpdate(shouldComponentUpdate)(HeaderUserLogout);

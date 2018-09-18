@@ -25,17 +25,17 @@ const BookshelfHeader = ({ changeShelf, currentShelf }: Props) => {
     {
       shelf: 'currentlyReading',
       text: 'Currently Reading',
-      onClick: () /* istanbul ignore next */ => changeShelf('currentlyReading'),
+      onClick: () => changeShelf('currentlyReading'),
     },
     {
       shelf: 'wantToRead',
       text: 'Want to Read',
-      onClick: () /* istanbul ignore next */ => changeShelf('wantToRead'),
+      onClick: () => changeShelf('wantToRead'),
     },
     {
       shelf: 'read',
       text: 'Read',
-      onClick: () /* istanbul ignore next */ => changeShelf('read'),
+      onClick: () => changeShelf('read'),
     },
   ];
 
