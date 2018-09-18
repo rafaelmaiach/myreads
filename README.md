@@ -10,6 +10,7 @@
  - [How to run](#how-to-run)
 	 - [Development mode](#development-mode)
 	 - [Production mode](#production-mode)
+   - [Test mode](#test-mode)
  - [How it works](#how-it-works)
 	 - [Start page](#start-page)
 	 - [Access page](#access-page)
@@ -57,6 +58,18 @@ npm run build
 # Run npm script for production mode
 npm start
 ```
+
+### Test mode
+In this mode you can run all created tests and see test coverage. It's being a great and rewardable challenge to learn unit tests on React. If you have any tips or would like to help me in this path, [contact me](#contact-me), I'll be very thankful.
+
+```bash
+# Run npm script to run all tests
+npm run test
+
+# Run npm script to see test coverage
+npm run test:coverage
+```
+
 [(Back to top)](#myreads)
 
 ## How it works
