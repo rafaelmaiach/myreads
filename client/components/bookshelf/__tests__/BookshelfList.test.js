@@ -11,7 +11,7 @@ describe('Bookshelf', () => {
   it('Renders Bookshelf List books', () => {
     const props = {
       isLoading: false,
-      booksList: [{ id: 1 }],
+      booksList: [{ id: 1, shelf: 'read' }],
       changeShelfFor: jest.fn(),
       isSearchPage: false,
     };
@@ -19,6 +19,21 @@ describe('Bookshelf', () => {
     const wrapper = mount(<BookshelfList {...props} />);
 
     expect(wrapper.find(BookshelfBook)).toHaveLength(1);
+
+    wrapper.unmount();
+  });
+
+  it('Renders Bookshelf List without books', () => {
+    const props = {
+      isLoading: false,
+      booksList: [{ id: 1 }],
+      changeShelfFor: jest.fn(),
+      isSearchPage: false,
+    };
+
+    const wrapper = mount(<BookshelfList {...props} />);
+
+    expect(wrapper.find(BookshelfBook)).toHaveLength(0);
 
     wrapper.unmount();
   });

@@ -3,7 +3,6 @@ import * as React from 'react';
 import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
 import { getAll, search, update } from 'Utils/api/BooksAPI';
-import { groupBooksByShelf } from 'Utils/helpers';
 
 import GeneralScreen from 'Containers/GeneralScreen';
 import Header from 'Components/header/Header';
@@ -38,12 +37,7 @@ class SearchScreen extends React.Component<void, State> {
     booksList: [], // List of books to be rendered
     searchInputText: '', // Search text to use on search api
     dirty: false, // Checks if the user has write something on search input
-    // Represents each book on its shelf
-    allBooks: {
-      currentlyReading: [],
-      wantToRead: [],
-      read: [],
-    },
+    allBooks: [],
   }
 
   componentDidMount() {
@@ -60,24 +54,20 @@ class SearchScreen extends React.Component<void, State> {
       () => ({ isLoading: true }),
       () => {
         getAll()
-          .then(this.separateBooks)
+          .then(this.saveBooks)
           .catch(error => console.log(error));
       }
     );
   }
 
   /**
-   * @method SearchScreen#separateBooks
-   * @description Separate each book for its own shelf using groupBooksByShelf
-   * In this usage, I pass "id" to retrieve only the ids from each book. I do this
-   * because "update" api only returns the list of ids, so I'll use them to check
-   * if the book listed on search result is already in a shelf
+   * @method BookshelfScreen#saveBooks
+   * @param {array} allBooks - List of all books for each shelf
+   * @description Save all books
    */
-  separateBooks = (allBooks) => {
-    const separateBooks = groupBooksByShelf(allBooks, 'id');
-
+  saveBooks = (allBooks: Array<Object>) => {
     this.setState(() => ({
-      allBooks: { ...separateBooks },
+      allBooks,
       isLoading: false,
     }));
   }
@@ -153,6 +143,38 @@ class SearchScreen extends React.Component<void, State> {
 
   /**
    * @method SearchScreen#changeShelfFor
+   * @param {string} shelfToMove - Shelf to move
+   * @description Update the books list with the updated book
+   */
+  updateShelfForBooks = (currBook: Object = null) => {
+    const { booksList, allBooks } = this.state;
+
+    // Go through each book and update its shelf tag
+    const booksListUpdated = booksList.map((book) => {
+      const { id } = book;
+      const bookUpdated = { ...book };
+
+      const existingBook = allBooks.find(b => b.id === id);
+
+      if (existingBook) {
+        bookUpdated.shelf = existingBook.shelf;
+      }
+
+      return bookUpdated;
+    });
+
+    if (currBook) {
+      const newCurrBook = { ...currBook };
+      const newBooksList = booksListUpdated.filter(b => b.id !== newCurrBook.id).concat(newCurrBook);
+      this.setState(() => ({ booksList: newBooksList }));
+      return;
+    }
+
+    this.setState(() => ({ booksList: booksListUpdated }));
+  }
+
+  /**
+   * @method SearchScreen#changeShelfFor
    * @param {object} book - Book information
    * @param {boolean} isRemoveFunction - Knows if the change shelf will be to remove or to move
    * @description Creates a closure for each book have its own change shelf functionality
@@ -165,64 +187,15 @@ class SearchScreen extends React.Component<void, State> {
     // The "none" shelf is being set on JSX for dropdown item remove
     if (isRemoveFunction) {
       delete book.shelf; // eslint-disable-line
+    } else {
+      book.shelf = shelfToMove; // eslint-disable-line
     }
 
     // Calls the update api to move/remove the book
     update(book, shelfToMove)
-      .then(this.updateShelfForBooks)
+      .then(() => this.updateShelfForBooks(book))
       .catch(errorUpdate => console.log(`Error Update book on Search: ${errorUpdate.message}`));
   };
-
-  /**
-   * @method SearchScreen#changeShelfFor
-   * @param {object} responseUpdate - List of books ids on each shelf
-   * @description Update the books list with the updated book
-   */
-  updateShelfForBooks = (responseUpdate = null) => {
-    const { booksList, allBooks } = this.state;
-    const { currentlyReading, wantToRead, read } = allBooks;
-
-    // Get each current shelf book list
-    let crBooks = currentlyReading;
-    let wtrBooks = wantToRead;
-    let rBooks = read;
-
-    // If true, the function was called from update api, so need to update the book list
-    if (responseUpdate) {
-      // Get book list ids
-      const {
-        currentlyReading: updatedCurrentlyReading,
-        wantToRead: updatedWantToRead,
-        read: updatedRead,
-      } = responseUpdate;
-
-      // Update the books shelfs to the updated list
-      crBooks = updatedCurrentlyReading;
-      wtrBooks = updatedWantToRead;
-      rBooks = updatedRead;
-    }
-
-    // Go through each book and update its shelf tag
-    const booksListUpdated = booksList.map((book) => {
-      const { id } = book;
-      const bookUpdated = { ...book };
-      if (crBooks.includes(id)) {
-        bookUpdated.shelf = 'currentlyReading';
-      }
-
-      if (wtrBooks.includes(id)) {
-        bookUpdated.shelf = 'wantToRead';
-      }
-
-      if (rBooks.includes(id)) {
-        bookUpdated.shelf = 'read';
-      }
-
-      return bookUpdated;
-    });
-
-    this.setState(() => ({ booksList: booksListUpdated }));
-  }
 
   render() {
     const {

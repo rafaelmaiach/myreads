@@ -129,7 +129,7 @@ const BookshelfBook = (props: Props) => {
 
 const BookContainer = styled.div`
   display: flex;
-  margin: 15px 10px 0 10px;
+  margin: 15px 0 0 10px;
   padding: 10px;
   background-color: rgba(255, 255, 255, 0.85);
   width: 95%;

@@ -8,44 +8,35 @@ import UserLogout from 'Components/header/HeaderUserLogout';
 import HeaderTab from 'Components/header/HeaderTab';
 import HeaderSearchIcon from 'Components/header/HeaderSearchIcon';
 
-type Props = {
-  changeShelf: Function,
-  currentShelf: string,
-}
-
 /**
  * @constructor BookshelfHeader
  * @param {function} changeShelf - Function to change the bookshelf screen to other bookshelf
  * @param {string} currentShelf - Current shelf name
  * @description Renders the Header on bookshelf screen
  */
-const BookshelfHeader = ({ changeShelf, currentShelf }: Props) => {
+const BookshelfHeader = () => {
   // Creates info to each header tab
   const shelfsTab = [
     {
       shelf: 'currentlyReading',
       text: 'Currently Reading',
-      onClick: () => changeShelf('currentlyReading'),
     },
     {
       shelf: 'wantToRead',
       text: 'Want to Read',
-      onClick: () => changeShelf('wantToRead'),
     },
     {
       shelf: 'read',
       text: 'Read',
-      onClick: () => changeShelf('read'),
     },
   ];
 
   // Create each header tab
-  const headerTabs = shelfsTab.map(({ shelf, text, onClick }) => (
+  const headerTabs = shelfsTab.map(({ shelf, text }) => (
     <HeaderTab
       key={shelf}
-      active={currentShelf === shelf}
       text={text}
-      onClick={onClick}
+      shelf={shelf}
     />));
 
   return (

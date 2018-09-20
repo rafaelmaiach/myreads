@@ -5,31 +5,35 @@ import onlyUpdateForKeys from 'recompose/onlyUpdateForKeys';
 
 type Props = {
   text: string,
-  active: boolean,
-  onClick: Function,
+  shelf: string,
 }
 
 /**
  * @constructor HeaderTab
  * @param {boolean} active - Tab status
  * @param {string} text - Tab text
- * @param {function} onClick - Tab function
  * @description Renders header tab
  */
-const HeaderTab = ({ active, text, onClick }: Props) => (
-  <Tab active={active}>
-    <Button type="button" onClick={onClick}>
-      {text}
-    </Button>
-  </Tab>
-);
+const HeaderTab = (props: Props) => {
+  const {
+    text,
+    shelf,
+  } = props;
+
+  return (
+    <Tab>
+      <Button href={`#${shelf}`}>
+        {text}
+      </Button>
+    </Tab>
+  );
+};
 
 const Tab = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   pointer-events: none;
-  background-color: ${({ active }) /* istanbul ignore next */ => active ? '#4cc984' : ''};
 
   &:hover {
     background-color: #4cc984;
@@ -40,21 +44,23 @@ const Tab = styled.div`
   }
 `;
 
-const Button = styled.button`
-  -webkit-appearance: none;
-  border: none;
-  background: none;
+const Button = styled.a`
+  text-decoration: none;
   font-weight: 600;
   color: #edf5e1;
   cursor: pointer;
-  font-size: 10px;
+  font-size: 12px;
   pointer-events: auto;
   padding: 0 10px;
 
   @media only screen and (min-width: 768px) {
-    font-size: 24px;
+    font-size: 21px;
+  }
+
+  @media only screen and (min-width: 1025px) {
+    font-size: 26px;
   }
 `;
 
 /* istanbul ignore next */
-export default onlyUpdateForKeys(['active', 'text'])(HeaderTab);
+export default onlyUpdateForKeys(['text'])(HeaderTab);
